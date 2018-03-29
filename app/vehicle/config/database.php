@@ -2,7 +2,7 @@
 class Database{
   
     // specify your own database credentials
-    private $host = "localhost";
+    private $host = "localhost:32769";
     private $db_name = "cmsc_team_alpha";
     private $username = "root";
     private $password = "";
