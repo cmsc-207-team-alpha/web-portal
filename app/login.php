@@ -10,7 +10,7 @@
                <a href="register_driver.php"> <button type="button" class="btn btn-primary">Be a Driver</button></a>
 			   <a href="register.php"> <button type="button" class="btn btn-primary">Get a Ride</button></a>      
 	</header>
-	<div style="float:left; width:20%;">
+	<div style="float:left; width:40%;">
 	<img src="../app/assets/images/upoulogo.png" width="200" height="200"/>
     <h1>Greetings, Earthlings!</h1>
 	</div>
