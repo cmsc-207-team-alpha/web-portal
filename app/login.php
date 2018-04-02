@@ -15,7 +15,7 @@
     <h1>Greetings, Earthlings!</h1>
 	</div>
            <div class="col-md-4 col-md-offset-4">	
-      <div class="row  h-100">
+     <!--<div class="row  h-100"> -->
           <div class="brand-lg">
            
               <img src="assets/images/logoteam-alpha.png" width="150" height="100">
@@ -64,7 +64,7 @@
                 </div>
               </form>
             </div>
-          </div>
+         <!-- </div> -->
           <div class="footer">
             Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha 
           </div>
