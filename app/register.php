@@ -57,7 +57,7 @@
                   </button>
                 </div>
                 <div class="form-group no-margin">
-                  Already have an account? <a href="login.php">Login now</a>
+                  Already have an account? <a href="login.php">Login Passenger</a> | <a href="login_driver.php">Login Driver</a>
                 </div>
               </form>
             </div>
