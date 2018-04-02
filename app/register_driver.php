@@ -51,12 +51,12 @@
                 </div>
 
 
-                <div class="form-group no-margin">
+                <div class="form-group">
                   <button type="submit" class="btn btn-success btn-block">
                     Register
                   </button>
                 </div>
-                <div class="form-group no-margin">
+                <div class="form-group">
                   Already have an account? <a href="login_driver.php">Login now</a>
                 </div>
               </form>
