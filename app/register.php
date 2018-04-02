@@ -56,7 +56,7 @@
                     Register
                   </button>
                 </div>
-                <div class="margin-top20 text-center">
+                <div class="form-group no-margin">
                   Already have an account? <a href="login.php">Login now</a>
                 </div>
               </form>
