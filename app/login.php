@@ -61,7 +61,9 @@
                     Login
                   </button>
                 </div>
-                
+                <div class="form-group no-margin">
+                  Don't have an account? <a href="register_driver.php">Be a Driver</a> | <a href="register.php">Get a Ride</a>
+                </div>
               </form>
             </div>
          </div> 
