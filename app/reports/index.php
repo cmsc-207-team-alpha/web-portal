@@ -93,15 +93,16 @@
 			</div> <!--row-1st row-->	
 			<div class="row bg-white m-l-0 m-r-0 box-shadow ">
 	
-				<div class="col-md-12">
+				<div class="col-md-8">
 					<div id="container2">
 					</div>
 				</div>
-				<h1>Feedback</h1>
+				
 				<div class="col-md-4">
 					<div class="card">
 						<div class="card-body browser">
-							<p class="f-w-600"> <span class="pull-right">60%</span></p>
+							<p>Feedback</p>
+							<p class="f-w-600"> <span class="pull-right">5 Stars</span></p>
 							<div class="progress ">
 								<div role="progressbar" style="width: 60%; height:8px;" class="progress-bar bg-danger wow animated progress-animated"> <span class="sr-only">60%</span> </div>
 							</div>
