@@ -11,14 +11,15 @@
 		<td width="50%" align="center">  	
 	      	<?php include_once("layouts/login_sidebar.php")?>
 		</td>
+		<td width="50%" align="center">
 	
            <div class="col-md-4 col-md-offset-4">	
-     <div class="row  h-100">
-          <div class="brand-lg">
+     		<div class="row  h-100">
+          	 <div class="brand-lg">
            
               <img src="assets/images/logoteam-alpha.png" width="150" height="100">
           
-          </div>
+         	 </div>
 
             <div class="card-body">
               <h4 class="card-title">Login Passenger</h4>
