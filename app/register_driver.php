@@ -47,7 +47,7 @@
                 <div class="form-group">
                   <div class="form-row">
                   <label for="password">Password</label>
-                    <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+                    <input type="text" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
                   </div>
                 </div>
 
