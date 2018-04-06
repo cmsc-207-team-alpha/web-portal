@@ -71,7 +71,7 @@ if($num>0){
 				echo "<td>{$model}</td>";
                 echo "<td>{$color}</td>";
 				echo "<td>{$active}</td>";
-				echo "<td>{$free}</td>";			
+				//echo "<td>{$free}</td>";			
 				echo "<td>{$locationlat}</td>";
 				echo "<td>{$locationlong}</td>";
  
