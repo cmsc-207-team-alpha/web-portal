@@ -4,25 +4,26 @@
 <?php include_once("layouts/header.php") ?>
 </head>
 <body>
-	
+
 		<?php include_once("layouts/login_nav.php")?>
 		<table width="100%">
 		<tr>
 		<td width="50%" align="center">  	
 	      	<?php include_once("layouts/login_sidebar.php")?>
+		
 		</td>
+		
 		<td width="50%" align="center">
-	
-           <div class="col-md-4 col-md-offset-4">	
-     		<div class="row  h-100">
-          	 <div class="brand-lg">
+
+    <div class="container h-100">
+      <div class="row  h-100">
+          <div class="brand-lg">
            
               <img src="assets/images/logoteam-alpha.png" width="150" height="100">
           
-         	 </div>
-
-            <div class="card-body">
-              <h4 class="card-title">Login Passenger</h4>
+          </div>
+          
+              <h4 class="card-title">Login</h4>
               <form method="POST">
                 <div class="form-group">
                   <label for="username">Username</label>
@@ -53,21 +54,23 @@
                   </label>
                 </div>
 
-                <div class="form-group no-margin">
-                  <button type="submit" class="btn btn-success btn-block">
+                <div class="form-group">
+                  <button type="submit" >
                     Login
                   </button>
                 </div>
-                <div class="form-group no-margin">
-                  Don't have an account? <a href="register_driver.php">Be a Driver</a> | <a href="register.php">Get a Ride</a>
+                <div class="form-group">
+                  Don't have an account? <a href="register.php">Create One</a>
                 </div>
               </form>
             </div>
-         </div> 
-          <div class="footer">
-            Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha 
-          </div>
-        </div>
-
+			</div>
+</td>
+</tr>
+</table>
+<div class="footer">
+           <p align="center"> Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha </p>
+</div>
+       
 </body>
 </html>
