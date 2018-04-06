@@ -4,8 +4,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Team Alpha</title>
-  <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../vendor/components/font-awesome/css/fontawesome-all.css">
+  <link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../vendor/components/font-awesome/css/fontawesome-all.css">
   <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
 	<script src="../vendor/components/jquery/jquery.min.js"></script>
 	<script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
