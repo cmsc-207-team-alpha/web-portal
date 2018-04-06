@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<?php include_once("layouts/dashboard.header.php") ?>
+		<?php include_once("../layouts/dashboard.header.php") ?>
 
 		 <!-- Bootstrap Core CSS -->
 		<link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
