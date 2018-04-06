@@ -34,7 +34,7 @@
 </head>
 
 <body class="reports-page">
-	<?php include_once("layouts/dashboard.navigation.php") ?> 
+	<?php include_once("../layouts/dashboard.navigation.php") ?> 
 
     <!-- TITLE -->
     <div>
