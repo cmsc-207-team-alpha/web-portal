@@ -13,7 +13,7 @@
 		
 		</td>
 		
-		<td width="50%" align="center">
+		<td width="50%">
 
     <div class="container h-100">
       <div class="row  h-100">
