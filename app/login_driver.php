@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include_once("layouts/header.php") ?>
+<?php include_once("layouts/login_header.php") ?>
 </head>
 <body>
 <?php include_once("layouts/login_nav.php")?>
