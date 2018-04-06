@@ -19,12 +19,6 @@
           
           </div>
 		 
-          <div class="brand-lg">
-           
-              <img src="assets/images/logoteam-alpha.png" width="150" height="100">
-          
-          </div>
-            <div class="card-body">
               <h4 class="card-title">Register Passenger</h4>
               <form method="POST">
                 <div class="form-group">
