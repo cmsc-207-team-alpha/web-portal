@@ -3,9 +3,8 @@
 <head>
 <?php include_once("layouts/header.php") ?>
 </head>
-<body class="login-page">
-    <div class="container">
-	
+<body>
+
 		<?php include_once("layouts/login_nav.php")?>
 		<table width="100%">
 		<tr>
@@ -13,12 +12,10 @@
 	      	<?php include_once("layouts/login_sidebar.php")?>
 		
 		</td>
-	<div class="col-md-2 col-md-offset-2">
-	<div style="float:left; width:40%;">
-	    <img src="../app/assets/images/upoulogo.png" width="200" height="200"/>
-            <h1>Greetings, Earthlings!</h1>
-	</div>
-	</div>
+		
+		<td width="50%">
+
+
            <div class="col-md-4 col-md-offset-4">	
       <div class="row  h-100">
           <div class="brand-lg">
