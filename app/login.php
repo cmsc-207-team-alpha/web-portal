@@ -6,7 +6,7 @@
 <body>
 
 		<?php include_once("layouts/login_nav.php")?>
-		<table width="100%">
+		<table class="table" width="100%">
 		<tr>
 		<td width="50%" align="center">  	
 	      	<?php include_once("layouts/login_sidebar.php")?>
