@@ -6,10 +6,13 @@
 <body class="login-page">
 
     <div class="container">
-	<header align="right">
-               <a href="register_driver.php"> <button type="button" class="btn btn-primary">Be a Driver</button></a>
-			   <a href="register.php"> <button type="button" class="btn btn-primary">Get a Ride</button></a>      
-	</header>
+
+		<?php include_once("layouts/login_nav.php")?>
+		<table width="100%">
+		<tr>
+		<td width="50%" align="center">  	
+	      	<?php include_once("layouts/login_sidebar.php")?>
+		</td>
 	<div class="col-md-2 col-md-offset-2">
 	<div style="float:left; width:40%;">
 	<img src="../app/assets/images/upoulogo.png" width="200" height="200"/>
