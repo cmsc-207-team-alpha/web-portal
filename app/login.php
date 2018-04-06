@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include_once("layouts/header.php") ?>
-</head>
+<?php include_once("layouts/login_header.php") ?>
+</head> 
+
 <body>
+
 		<?php include_once("layouts/login_nav.php")?>
 <div class="container-fluid">
  <div class="row content">
@@ -13,7 +15,7 @@
  
 	 <div class="col-sm-8">
  
-          <div class="brand-lg">
+      	  <div class="brand-lg">
            
               <img src="assets/images/logoteam-alpha.png" width="150" height="100">
           
@@ -59,9 +61,13 @@
                   Don't have an account? <a href="register.php">Create One</a>
                 </div>
               </form>
-            </div>
-	</div>
+
+      
+       
+     </div>
+ </div>
 </div>
+
 <footer class="container-fluid">
            <p align="center"> Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha </p>
 </footer>
