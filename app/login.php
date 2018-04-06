@@ -82,9 +82,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $response = json_decode(curl_exec($ch));
     curl_close($ch);
     if (property_exists($response, 'id')) {
-        echo "Successful response:<br/>";
-        echo "Message: " . $response->message . '<br/>';
-        echo "Id: " . $response->id;
+	$url = 'https://cmsc-207-team-alpha.000webhostapp.com/app/dashboard.php';
+        //echo "Successful response:<br/>";
+        //echo "Message: " . $response->message . '<br/>';
+        //echo "Id: " . $response->id;
     } else {
         echo "Error response:<br/>";
         echo "Message: " . $response->message;
