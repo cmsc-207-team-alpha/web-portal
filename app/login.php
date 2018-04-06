@@ -13,12 +13,7 @@
 		<td width="50%" align="center">  	
 	      	<?php include_once("layouts/login_sidebar.php")?>
 		</td>
-	<div class="col-md-2 col-md-offset-2">
-	<div style="float:left; width:40%;">
-	<img src="../app/assets/images/upoulogo.png" width="200" height="200"/>
-             <h1>Greetings, Earthlings!</h1>
-	</div>
-	</div>
+	
            <div class="col-md-4 col-md-offset-4">	
      <div class="row  h-100">
           <div class="brand-lg">
