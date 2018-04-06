@@ -31,6 +31,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="fare.php">
+                  <span class="fa fa-fw fa-car"></span>
+                  Fare
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="payments.php">
                   <span class="fa fa-fw fa-money-bill-alt"></span>
                   Payments
