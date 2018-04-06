@@ -4,19 +4,15 @@
 <?php include_once("layouts/header.php") ?>
 </head>
 <body>
-
 		<?php include_once("layouts/login_nav.php")?>
-		<table class="table" width="100%">
-		<tr>
-		<td width="50%" align="center">  	
+<div class="container-fluid">
+ <div class="row content">
+    <div class="col-sm-4 sidenav"> 	
 	      	<?php include_once("layouts/login_sidebar.php")?>
-		
-		</td>
-		
-		<td width="50%">
-
-    <div class="container h-100">
-      <div class="row  h-100">
+     </div>
+ 
+	 <div class="col-sm-8">
+ 
           <div class="brand-lg">
            
               <img src="assets/images/logoteam-alpha.png" width="150" height="100">
@@ -64,13 +60,11 @@
                 </div>
               </form>
             </div>
-			</div>
-</td>
-</tr>
-</table>
-<div class="footer">
-           <p align="center"> Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha </p>
+	</div>
 </div>
+<footer class="container-fluid">
+           <p align="center"> Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha </p>
+</footer>
        
 </body>
 </html>
