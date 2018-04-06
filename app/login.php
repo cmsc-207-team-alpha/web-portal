@@ -82,11 +82,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $response = json_decode(curl_exec($ch));
     curl_close($ch);
     if (property_exists($response, 'id')) {
-	
-	     window.location.href = "dashboard.php";
-        //echo "Successful response:<br/>";
-        //echo "Message: " . $response->message . '<br/>';
-        //echo "Id: " . $response->id;
+        echo "Successful response:<br/>";
+        echo "Message: " . $response->message . '<br/>';
+        echo "Id: " . $response->id;
     } else {
         echo "Error response:<br/>";
         echo "Message: " . $response->message;
