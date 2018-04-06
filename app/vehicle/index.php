@@ -51,7 +51,7 @@ if($num>0){
             echo "<th>Model</th>";
 			echo "<th>Color</th>";
 			echo "<th>Active</th>";
-			echo "<th>Free</th>";
+			//echo "<th>Free</th>";
 			echo "<th>Latitude</th>";
 			echo "<th>Longitude</th>";
 			echo "<th>Actions</th>";
