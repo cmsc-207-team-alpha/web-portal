@@ -28,7 +28,7 @@
 				
 				
 	<body class="reports">
-		<?php include_once("layouts/dashboard.navigation.php") ?> 
+		<?php include_once("../layouts/dashboard.navigation.php") ?> 
 	    <div class="container-fluid">
 	    <div class="row">
 	      	<div class="container-fluid">
