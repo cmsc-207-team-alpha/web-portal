@@ -37,7 +37,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="reports.php">
+                <a class="nav-link" href="reports/index.php">
                   <span class="fa fa-fw fa-chart-line"></span>
                   Reports
                 </a>
