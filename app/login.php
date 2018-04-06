@@ -9,7 +9,7 @@
 		<?php include_once("layouts/login_nav.php")?>
 <div class="container-fluid">
  <div class="row content">
-    <div class="col-sm-4 sidenav"> 	
+    <div class="col-sm-4 sidenav"  align="center"> 	
 	      	<?php include_once("layouts/login_sidebar.php")?>
      </div>
  
