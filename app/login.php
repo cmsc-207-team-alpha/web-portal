@@ -42,7 +42,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-lg fa-lock"></i></div>
                     </div>
-                    <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                   </div>
                 </div>
 
