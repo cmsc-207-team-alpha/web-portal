@@ -24,7 +24,7 @@
               <h4 class="card-title">Login</h4>
               <form method="POST">
                 <div class="form-group">
-                  <label for="username">Username</label>
+                  <label for="username">Username (try "johndoe@email.com")</label>
                   <div class="input-group mb-2 mr-sm-2">
                   <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-lg fa-user"></i></div>
@@ -33,7 +33,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="password">Password
+                  <label for="password">Password (try "meh")
                     <a href="forgot-password.php" class="float-right">
                       Forgot Password?
                     </a>
