@@ -3,10 +3,8 @@
 <head>
 <?php include_once("layouts/header.php") ?>
 </head>
-<body class="login-page">
+<body>
 
-    <div class="container">
-	
 		<?php include_once("layouts/login_nav.php")?>
 		<table width="100%">
 		<tr>
@@ -14,6 +12,9 @@
 	      	<?php include_once("layouts/login_sidebar.php")?>
 		
 		</td>
+		
+		<td width="50%">
+
 	
            <div class="col-md-4 col-md-offset-4">	
       <div class="row  h-100">
