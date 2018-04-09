@@ -12,13 +12,25 @@ $db = $database->getConnection();
 $vehicle = new Vehicle($db);
 $driver = new Driver($db);
 // set page headers
-$page_title = "ADD VEHICLE";
-include_once "layout_header.php";
- 
-// contents will be here
-echo "<div class='right-button-margin'>";
-    echo "<a href='index.php' class='btn btn-default pull-right'>VIEW VEHICLE</a>";
-echo "</div>";
+?>
+    <head>
+        <?php include_once("layouts/dashboard.header.php"); ?>
+        <script src="assets/js/fare.js"></script>
+    </head>
+
+    <body class="login-page">
+        <?php include_once("layouts/dashboard.navigation.php"); ?>
+        <div class="container-fluid">
+          <div class="row">
+            <?php include_once("layouts/dashboard.sidebar.php"); ?>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2"> Vehicle</h1>
+                            <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                              <a href='../vehicle.php' class='btn btn-default pull-right'>VIEW VEHICLE</a>
+                            </div>
+              </div>
+ <?php
 // if the form was submitted - PHP OOP CRUD Tutorial
 if($_POST){
  
