@@ -44,10 +44,7 @@ $vehicle->readOne();
 // HTML table for displaying a vehicle details
 echo "<table class='table table-hover table-responsive table-bordered'>";
  
-    echo "<tr>";
-        echo "<td>Photo</td>";
-        echo "<td>{$vehicle->photo}</td>";
-    echo "</tr>";
+
 	echo "<tr>";
         echo "<td>ID</td>";
         echo "<td>{$vehicle->id}</td>";
