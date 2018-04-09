@@ -24,6 +24,9 @@
           <li class="nav-item">
             <a class="nav-link" href="reports.php">Reports</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="vehicle.php">Vehicle</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Name</a>
             <div class="dropdown-menu dropdown-menu-right pull-right p-0" aria-labelledby="dropdown04">
