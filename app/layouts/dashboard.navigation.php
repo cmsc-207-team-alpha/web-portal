@@ -25,7 +25,7 @@
             <a class="nav-link" href="payments.php">Payments</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reports.php">Reports</a>
+            <a class="nav-link" href="report.php">Reports</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="vehicle.php">Vehicle</a>
