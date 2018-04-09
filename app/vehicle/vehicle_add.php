@@ -42,7 +42,7 @@ if($_POST){
 	$vehicle->color = $_POST['color'];
 	$vehicle->photo = $_POST['photo'];
 	$vehicle->active = $_POST['active'];
-	$vehicle->free = $_POST['free'];
+	//$vehicle->free = $_POST['free'];
 	$vehicle->locationlat = $_POST['locationlat'];
 	$vehicle->locationlong = $_POST['locationlong'];
  
@@ -122,11 +122,6 @@ if($_POST){
 		<tr>
             <td>Active</td>
             <td><input type='text' name='active' class='form-control' /></td>
-        </tr>
-		
-		<tr>
-            <td>Free</td>
-            <td><input type='text' name='free' class='form-control' /></td>
         </tr>
 		
 		<tr>
