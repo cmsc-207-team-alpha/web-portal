@@ -19,6 +19,9 @@
             <a class="nav-link" href="rides.php">Rides</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="fare.php">Fare</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="payments.php">Payments</a>
           </li>
           <li class="nav-item">
