@@ -126,7 +126,7 @@ function readOne(){
 	$this->color = $row['color'];
 	$this->photo = $row['photo'];
 	$this->active = $row['active'];
-	$this->free = $row['free'];
+	//$this->free = $row['free'];
 	$this->locationlat = $row['locationlat'];
 	$this->loacationlong = $row['locationlong'];
 }
