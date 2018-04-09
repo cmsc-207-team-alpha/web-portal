@@ -49,7 +49,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="vehicle/index.php">
+                <a class="nav-link" href="vehicle.php">
                   <span class="fa fa-fw fa-chart-line"></span>
                   Vehicle
                 </a>
