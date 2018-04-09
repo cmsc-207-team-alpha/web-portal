@@ -30,19 +30,32 @@ $num = $stmt->rowCount();
 //echo $num;
 //exit;
 // set page header
-$page_title = "VEHICLE ADMINISTRATION";
-include_once "layout_header.php";
- 
-// contents will be here
-echo "<div class='right-button-margin'>";
-    echo "<a href='vehicle_add.php' class='btn btn-default pull-right'>ADD VEHICLE</a>";
-echo "</div>"; 
+?>
+	<head>
+		<?php include_once("../layouts/dashboard.header.php"); ?>
+		<script src="assets/js/fare.js"></script>
+	</head>
+
+	<body class="login-page">
+		<?php include_once("../layouts/dashboard.navigation.php"); ?>
+	    <div class="container-fluid">
+	      <div class="row">
+	      	<?php include_once("../layouts/dashboard.sidebar.php"); ?>
+	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+	          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+	            <h1 class="h2"> Vehicle</h1>
+							<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+							  <a href='vehicle_add.php' class='btn btn-default pull-right'>ADD VEHICLE</a>
+							</div>
+	          </div>
+ <?php
+
 // display the vehicles if there are any
 if($num>0){
  
     echo "<table class='table table-hover table-responsive table-bordered'>";
         echo "<tr>";
-            echo "<th>Photo</th>";
+            //echo "<th>Photo</th>";
 			echo "<th>ID</th>";
             echo "<th>Driver ID</th>";
 			echo "<th>Plate No</th>";
@@ -62,7 +75,7 @@ if($num>0){
             extract($row);
  
             echo "<tr>";
-				echo "<td>{photo}</td>";
+				//echo "<td>{photo}</td>";
                 echo "<td>{$id}</td>";
                 echo "<td>{$driverid}</td>";
 				echo "<td>{$plateno}</td>";
