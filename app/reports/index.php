@@ -34,7 +34,7 @@
 </head>
 
 <body class="reports-page">
-	<?php include_once("../layouts/dashboard.navigation.php") ?> 
+	<?php include_once("layouts/dashboard.navigation.php") ?> 
 
     <!-- TITLE -->
     <div>
@@ -59,8 +59,8 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h1><br>100</h1>
-                    <p class="m-b-0"><br><br><br><br><br>Total Sales</p>
+                    <h1><br><br>Php 100<br></h1>
+                    <p class="m-b-0"><br><br><br><br><br>Total Payments</p>
                 </div>
                 </div>
                 </div>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2">
-                <button class="btn btn-primary " name="submit" type="submit">
+                <button class="btn btn-success btn-lg btn-block outline" name="submit" type="submit">
                 Submit
                 </button>
                 </div>
@@ -109,7 +109,7 @@
                         <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>25</h2>
+                        <h2 id="avgbasefare"></h2>
                         <p class="m-b-0">Average</p>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                     </div>
                     <div class="media-body media-text-right">
 
-                        <h2>25</h2>
+                        <h2 id="lowestbasefare"></h2>
                         <p class="m-b-0">Lowest</p>
                         
                     </div>
@@ -140,7 +140,7 @@
                         <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>25</h2>
+                        <h2 id="hightestbasefare"></h2>
                         <p class="m-b-0">Highest</p>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="avgfareperkm"></h2>
                     <p class="m-b-0">Average</p>
                 </div>
             </div>
@@ -174,7 +174,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="lowestfareperkm"></h2>
                     <p class="m-b-0">Lowest</p>
                 </div>
             </div>
@@ -186,7 +186,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="hightestfareperkm"></h2>
                     <p class="m-b-0">Highest</p>
                 </div>
             </div>
@@ -214,7 +214,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="avgfareperminute"></h2>
                     <p class="m-b-0">Average</p>
                 </div>
             </div>
@@ -226,7 +226,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="lowestfareperminute"></h2>
                     <p class="m-b-0">Lowest</p>
                 </div>
             </div>
@@ -238,7 +238,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="hightestfareperminute"></h2>
                     <p class="m-b-0">Highest</p>
                 </div>
             </div>
@@ -261,11 +261,11 @@
     <div class="col-md-6" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left meida media-middle">
+                <div class="media-right meida media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>25</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="total"></h2>
                     <p class="m-b-0">TOTAL</p>
                     <p></p>
                     <div class="progress ">
@@ -279,11 +279,11 @@
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left media media-middle">
+                <div class="media-right media media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>15</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="totalrequested"></h2>
                     <p class="m-b-0">Requested</p>
                     <p></p>
                     <div class="progress ">
@@ -297,11 +297,11 @@
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left media media-middle">
+                <div class="media-right media media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>15</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="totalassigned"></h2>
                     <p class="m-b-0">Assigned</p>
                     <p></p>
                     <div class="progress ">
@@ -315,11 +315,11 @@
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left media media-middle">
+                <div class="media-right media media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>15</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="totalrejected"></h2>
                     <p class="m-b-0">Rejected</p>
                     <p></p>
                     <div class="progress ">
@@ -333,11 +333,11 @@
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left media media-middle">
+                <div class="media-right media media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>15</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="totalongoing"></h2>
                     <p class="m-b-0">Ongoing</p>
                     <p></p>
                     <div class="progress ">
@@ -351,11 +351,11 @@
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left media media-middle">
+                <div class="media-right media media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>15</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="totalcompleted"></h2>
                     <p class="m-b-0">Completed</p>
                     <p></p>
                     <div class="progress ">
@@ -369,11 +369,11 @@
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
-                <div class="media-left media media-middle">
+                <div class="media-right media media-middle">
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
-                <div class="media-body media-text-left">
-                    <h2>15</h2>
+                <div class="media-body media-text-right">
+                    <h2 id="totalcancelled"></h2>
                     <p class="m-b-0">Cancelled</p>
                     <p></p>
                     <div class="progress ">
@@ -395,12 +395,22 @@
 </body>
 
 
-<script type="text/javascript"></script>
-
+<script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>
 
 <script>
 
 // DATE PICKER
+        $(document).ready(function(){
+        var date1_input=$('input[name="date1"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date1_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+        })
+
         $(document).ready(function(){
         var date_input=$('input[name="date"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
@@ -410,7 +420,38 @@
             todayHighlight: true,
             autoclose: true,
         })
-    })
+        })
+
+
+//BASE FARE
+    var getbasefare = function () {
+      var avgbasefare = $('#avgbasefare').val();
+      var lowestbasefare = $('#lowestbasefare').val();
+     
+
+      $.ajax({
+        type: "GET",
+        url: "/api/fare/farestats.php",
+        data: JSON.stringify({
+          avgbasefare: avgbasefare,
+          lowestbasefare: lowestbasefare,
+
+        }),
+        success: function (response) {
+          $("#result").removeClass();
+          $('#result').addClass('alert alert-success');
+          $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+        },
+        error: function (response) {
+          $("#result").removeClass();
+          $('#result').addClass('alert alert-danger');
+          $('#result').html("Error Message: " + response.responseJSON["message"]);
+        },
+        contentType: "application/json; charset=UTF-8",
+        dataType: "json"
+      });
+    };
+
 
 // COLUMN CHART
     Highcharts.chart('columnchart', {
