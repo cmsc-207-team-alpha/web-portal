@@ -5,28 +5,28 @@
         <script src="assets/js/fare.js"></script>
         <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
 
-    <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/helper.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+        <link href="css/helper.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-    <script src="../vendor/twbs/bootstrap/dist/css/bootstrap.min.js"></script>
-    <script src="../vendor/components/jquery/jquery.min.js"></script>
+        <script src="../vendor/twbs/bootstrap/dist/css/bootstrap.min.js"></script>
+        <script src="../vendor/components/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <!-- Bootstrap Date-Picker Plugin -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+        <!-- Include Date Range Picker -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-    <!-- Highcharts -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <!-- Highcharts -->
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
     </head>
     <body class="login-page">
@@ -107,7 +107,7 @@
                         <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>25</h2>
+                        <h2 id="avgbasefare"></h2>
                         <p class="m-b-0">Average</p>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="media-body media-text-right">
 
-                        <h2>25</h2>
+                        <h2 id="lowestbasefare"></h2>
                         <p class="m-b-0">Lowest</p>
                         
                     </div>
@@ -138,7 +138,7 @@
                         <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                     </div>
                     <div class="media-body media-text-right">
-                        <h2>25</h2>
+                        <h2 id="hightestbasefare"></h2>
                         <p class="m-b-0">Highest</p>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="avgfareperkm"></h2>
                     <p class="m-b-0">Average</p>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="lowestfareperkm"></h2>
                     <p class="m-b-0">Lowest</p>
                 </div>
             </div>
@@ -184,7 +184,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="hightestfareperkm"></h2>
                     <p class="m-b-0">Highest</p>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="avgfareperminute"></h2>
                     <p class="m-b-0">Average</p>
                 </div>
             </div>
@@ -224,7 +224,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="lowestfareperminute"></h2>
                     <p class="m-b-0">Lowest</p>
                 </div>
             </div>
@@ -236,7 +236,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-right">
-                    <h2>25</h2>
+                    <h2 id="hightestfareperminute"></h2>
                     <p class="m-b-0">Highest</p>
                 </div>
             </div>
@@ -263,7 +263,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>25</h2>
+                    <h2 id="total"></h2>
                     <p class="m-b-0">TOTAL</p>
                     <p></p>
                     <div class="progress ">
@@ -281,7 +281,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>15</h2>
+                    <h2 id="totalrequested"></h2>
                     <p class="m-b-0">Requested</p>
                     <p></p>
                     <div class="progress ">
@@ -299,7 +299,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>15</h2>
+                    <h2 id="totalassigned"></h2>
                     <p class="m-b-0">Assigned</p>
                     <p></p>
                     <div class="progress ">
@@ -317,7 +317,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>15</h2>
+                    <h2 id="totalrejected"></h2>
                     <p class="m-b-0">Rejected</p>
                     <p></p>
                     <div class="progress ">
@@ -335,7 +335,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>15</h2>
+                    <h2 id="totalongoing"></h2>
                     <p class="m-b-0">Ongoing</p>
                     <p></p>
                     <div class="progress ">
@@ -353,7 +353,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>15</h2>
+                    <h2 id="totalcompleted"></h2>
                     <p class="m-b-0">Completed</p>
                     <p></p>
                     <div class="progress ">
@@ -371,7 +371,7 @@
                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                 </div>
                 <div class="media-body media-text-left">
-                    <h2>15</h2>
+                    <h2 id="totalcancelled"></h2>
                     <p class="m-b-0">Cancelled</p>
                     <p></p>
                     <div class="progress ">
@@ -409,6 +409,35 @@
             autoclose: true,
         })
     })
+
+//BASE FARE
+    var getbasefare = function () {
+      var avgbasefare = $('#avgbasefare').val();
+      var lowestbasefare = $('#lowestbasefare').val();
+     
+
+      $.ajax({
+        type: "GET",
+        url: "/api/fare/farestats.php",
+        data: JSON.stringify({
+          avgbasefare: avgbasefare,
+          lowestbasefare: lowestbasefare,
+
+        }),
+        success: function (response) {
+          $("#result").removeClass();
+          $('#result').addClass('alert alert-success');
+          $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+        },
+        error: function (response) {
+          $("#result").removeClass();
+          $('#result').addClass('alert alert-danger');
+          $('#result').html("Error Message: " + response.responseJSON["message"]);
+        },
+        contentType: "application/json; charset=UTF-8",
+        dataType: "json"
+      });
+    };
 
 // COLUMN CHART
     Highcharts.chart('columnchart', {
