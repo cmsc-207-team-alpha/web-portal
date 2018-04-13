@@ -45,6 +45,8 @@ if($_POST){
 	//$vehicle->free = $_POST['free'];
 	$vehicle->locationlat = $_POST['locationlat'];
 	$vehicle->locationlong = $_POST['locationlong'];
+    $vehicle->datecreated = $_POST['datecreated'];
+    $vehicle->datemodified = $_POST['datemodified'];
  
     // create the vehicle
     if($vehicle->create()){
@@ -123,6 +125,12 @@ if($_POST){
             <td>Active</td>
             <td><input type='text' name='active' class='form-control' /></td>
         </tr>
+
+        <tr>
+            <td>Available</td>
+            <td><input type='text' name='available' class='form-control' /></td>
+        </tr>
+        
 		
 		<tr>
             <td>Latitude</td>
@@ -133,6 +141,17 @@ if($_POST){
             <td>Longitude</td>
             <td><input type='text' name='locationlong' class='form-control' /></td>
         </tr>
+ 
+        <tr>
+            <td>Date Created</td>
+            <td><input type='text' name='datecreated' class='form-control' /></td>
+        </tr>
+
+        <tr>
+            <td>Date Modified</td>
+            <td><input type='text' name='datemodified' class='form-control' /></td>
+        </tr>
+ 
  
         <tr>
             <td></td>
