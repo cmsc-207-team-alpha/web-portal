@@ -54,6 +54,11 @@ if($_POST){
     $vehicle->driverid = $_POST['driverid'];
     $vehicle->plateno = $_POST['plateno'];
     $vehicle->type = $_POST['type'];
+    $vehicle->make = $_POST['make'];
+    $vehicle->model = $_POST['model'];
+    $vehicle->color = $_POST['color'];
+    $vehicle->active = $_POST['active'];
+    $vehicle->available = $_POST['available'];
  
     // update the vehicle
     if($vehicle->update()){
@@ -85,11 +90,34 @@ if($_POST){
  
         <tr>
             <td>Type</td>
-            <td><textarea name='type' class='form-control'><?php echo $vehicle->type; ?></textarea></td>
+            <td><input type='text' name='type' value='<?php echo $vehicle->type; ?>' class='form-control' /></td>
         </tr>
  
-       
- 
+       <tr>
+            <td>Make</td>
+            <td><input type='text' name='make' value='<?php echo $vehicle->make; ?>' class='form-control' /></td>
+        </tr>
+
+        <tr>
+            <td>Model</td>
+            <td><input type='text' name='model' value='<?php echo $vehicle->model; ?>' class='form-control' /></td>
+        </tr>
+
+        <tr>
+            <td>Color</td>
+            <td><input type='text' name='color' value='<?php echo $vehicle->color; ?>' class='form-control' /></td>
+        </tr>
+
+        <tr>
+            <td>Active</td>
+            <td><input type='text' name='active' value='<?php echo $vehicle->active; ?>' class='form-control' /></td>
+        </tr>
+
+        <tr>
+            <td>Available</td>
+            <td><input type='text' name='available' value='<?php echo $vehicle->available; ?>' class='form-control' /></td>
+        </tr>
+
         <tr>
             <td></td>
             <td>
