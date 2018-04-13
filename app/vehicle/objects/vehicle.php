@@ -15,9 +15,11 @@ class Vehicle{
     public $color;
 	public $photo;
 	public $active;
-	public $free;
+	public $available;
 	public $locationlat;
 	public $locationlong;
+    public $datecreated;
+    public $datemodified;
  
     public function __construct($db){
         $this->conn = $db;
@@ -31,8 +33,9 @@ class Vehicle{
                     " . $this->table_name . "
                 SET	
                     driverid=:driverid, plateno=:plateno, type=:type, make=:make, model=:model,
-					color=:color, photo=:photo, active=:active, free=:free, 
-					locationlat=:locationlat, locationlong=:locationlong";
+					color=:color, photo=:photo, active=:active, available=:available, 
+					locationlat=:locationlat, locationlong=:locationlong,
+                    datecreated=:datecreated, datemodified=:datemodified";
  
         $stmt = $this->conn->prepare($query);
  
@@ -45,9 +48,11 @@ class Vehicle{
 		$this->color=htmlspecialchars(strip_tags($this->color));
 		$this->photo=htmlspecialchars(strip_tags($this->photo));
 		$this->active=htmlspecialchars(strip_tags($this->active));
-		$this->free=htmlspecialchars(strip_tags($this->free));
+		$this->available=htmlspecialchars(strip_tags($this->available));
 		$this->locationlat=htmlspecialchars(strip_tags($this->locationlat));
 		$this->locationlong=htmlspecialchars(strip_tags($this->locationlong));
+        $this->datecreated=htmlspecialchars(strip_tags($this->datecreated));
+        $this->datemodified=htmlspecialchars(strip_tags($this->datemodified));
  
         // to get time-stamp for 'created' field
         //$this->timestamp = date('Y-m-d H:i:s');
@@ -61,9 +66,11 @@ class Vehicle{
 		$stmt->bindParam(":color", $this->color);
 		$stmt->bindParam(":photo", $this->photo);
 		$stmt->bindParam(":active", $this->active);
-		$stmt->bindParam(":free", $this->free);
+		$stmt->bindParam(":available", $this->available);
 		$stmt->bindParam(":locationlat", $this->locationlat);
 		$stmt->bindParam(":locationlong", $this->locationlong);
+        $stmt->bindParam(":datecreated", $this->datecreated);
+        $stmt->bindParam(":datemodified", $this->datemodified);
 		
         if($stmt->execute()){
             return true;
@@ -126,9 +133,11 @@ function readOne(){
 	$this->color = $row['color'];
 	$this->photo = $row['photo'];
 	$this->active = $row['active'];
-	//$this->free = $row['free'];
+	$this->available = $row['available'];
 	$this->locationlat = $row['locationlat'];
-	$this->loacationlong = $row['locationlong'];
+	$this->locationlong = $row['locationlong'];
+    $this->datecreated = $row['datecreated'];
+    $this->datemodified = $row['datemodified'];
 }
 function update(){
  
