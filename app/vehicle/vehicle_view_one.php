@@ -86,8 +86,8 @@ echo "<table class='table table-hover table-responsive table-bordered'>";
     echo "</tr>";
 	
 	echo "<tr>";
-        echo "<td>Free</td>";
-        echo "<td>{$vehicle->free}</td>";
+        echo "<td>Available</td>";
+        echo "<td>{$vehicle->available}</td>";
     echo "</tr>";
 	
 	echo "<tr>";
@@ -98,6 +98,16 @@ echo "<table class='table table-hover table-responsive table-bordered'>";
 	echo "<tr>";
         echo "<td>Longitude</td>";
         echo "<td>{$vehicle->locationlong}</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+        echo "<td>Date Created</td>";
+        echo "<td>{$vehicle->datecreated}</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+        echo "<td>Date Modified</td>";
+        echo "<td>{$vehicle->datemodified}</td>";
     echo "</tr>";	    
  
 echo "</table>"; 
