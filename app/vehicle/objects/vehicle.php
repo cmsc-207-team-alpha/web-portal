@@ -146,7 +146,12 @@ function update(){
             SET
                 driverid = :driverid,
                 plateno = :plateno,
-                type = :type
+                type = :type,
+                make = :make,
+                model = :model,
+                color = :color,
+                active = :active,
+                available = :available
                 
             WHERE
                 id = :id";
@@ -157,6 +162,11 @@ function update(){
     $this->driverid=htmlspecialchars(strip_tags($this->driverid));
     $this->plateno=htmlspecialchars(strip_tags($this->plateno));
     $this->type=htmlspecialchars(strip_tags($this->type));
+    $this->make=htmlspecialchars(strip_tags($this->make));
+    $this->model=htmlspecialchars(strip_tags($this->model));
+    $this->color=htmlspecialchars(strip_tags($this->color));
+    $this->active=htmlspecialchars(strip_tags($this->active));
+    $this->available=htmlspecialchars(strip_tags($this->available));
     
     $this->id=htmlspecialchars(strip_tags($this->id));
  
@@ -164,6 +174,11 @@ function update(){
     $stmt->bindParam(':driverid', $this->driverid);
     $stmt->bindParam(':plateno', $this->plateno);
     $stmt->bindParam(':type', $this->type);
+    $stmt->bindParam(':make', $this->make);
+    $stmt->bindParam(':model', $this->model);
+    $stmt->bindParam(':color', $this->color);
+    $stmt->bindParam(':active', $this->active);
+    $stmt->bindParam(':available', $this->available);
     
     $stmt->bindParam(':id', $this->id);
  
