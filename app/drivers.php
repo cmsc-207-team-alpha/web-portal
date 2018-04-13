@@ -12,7 +12,8 @@
 	</head>
 	<body class="login-page">
 		<?php include_once("layouts/dashboard.navigation.php") ?>
-		<script src="../app/assets/js/popper.js"></script>
+		<link rel="stylesheet" src="../app/assets/stylesheets/datatables.min.css">
+		<script src="../app/assets/js/datatables.min.js"></script>
 	    <div class="container-fluid">
 	      <div class="row">
 	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
@@ -24,18 +25,18 @@
 								    <button type="button" class="btn btn-success"><span class="fas fa-user-plus"></span></button>
 								    <button type="button" class="btn btn-danger"><span class="fas fa-user-times"></span></button>
 								  </div>
-									<div class="input-group">
+									<!-- <div class="input-group">
 									  <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
 									  <div class="input-group-append">
 											<div class="input-group-text btn-success"><i class="fa fa-lg fa-search"></i></div>
 										</div> 
-									</div>
+									</div> -->
 								</div>
 						</div>
 						<div class="table-responsive" id="driver_preview">
 						</div>
 						<div class="table-responsive" id="driver_list">
-							<table class="table table-striped table-md">
+							<table class="table table-striped table-md" id="drivers_table">
 								<thead>
 									<tr>
 										<th>#</th>
@@ -52,7 +53,7 @@
 								<tbody id="drivers_tbl">
 								</tbody>
 							</table>
-						</div>
+						</div><!-- 
 						<nav aria-label="Page navigation example">
 						  <ul class="pagination justify-content-end">
 						    <li class="page-item disabled">
@@ -65,7 +66,7 @@
 						      <a class="page-link" href="#">&raquo;</a>
 						    </li>
 						  </ul>
-						</nav>
+						</nav> -->
 	        </main>
 	      </div>
 	    </div>
@@ -121,6 +122,8 @@ function load_drivers() {
 			'</tr>');
     		
 		});
+
+		$('#drivers_table').dataTable();
     },
     error: function (response) {
 	 alert(response.responseJSON["message"]);
