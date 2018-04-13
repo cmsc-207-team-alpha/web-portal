@@ -24,14 +24,19 @@
           <div class="card fat">
             <div class="card-body">
               <h4 class="card-title">Login</h4>
-              <form method="POST">
+			  
+			  <div class="form-group col-md-8">
+					<div id="result">			
+					</div>
+				</div>
+
                 <div class="form-group">
-                  <label for="username">Username</label>
+                  <label for="email">Email Address</label>
                   <div class="input-group mb-2 mr-sm-2">
                   <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-lg fa-user"></i></div>
                   </div>
-                  <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email Address">
                   </div>
                 </div>
                 <div class="form-group">
@@ -62,17 +67,17 @@
 }
 else {    
     if(isset($_POST["submit"])){    
-        if(!empty($_POST['username']) && !empty($_POST['password'])) {  
-            $username=$_POST['username'];  
+        if(!empty($_POST['email']) && !empty($_POST['password'])) {  
+            $email=$_POST['email'];  
             $password=$_POST['password'];
 
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {  
-                    $_SESSION['sess_user']=$row['user_name'];
+                    $_SESSION['sess_user']=$row['email'];
                     echo 'You are currently login now';
                 }
             }else {  
-                echo "Invalid Username or password!<br/>";  
+                echo "Invalid email address or password!<br/>";  
                 $_SESSION['login_attempts'] = $_SESSION['login_attempts'] + 1;
                 echo 3 -  $_SESSION['login_attempts'] . ' attempt/s remaining.';
                 if($_SESSION['login_attempts'] >= 3){
@@ -90,14 +95,13 @@ else {
 ?>
 
                 <div class="form-group no-margin">
-                  <button type="submit" name="submit" class="btn btn-success btn-block">
+                  <button type="submit" class="btn btn-success btn-block" onclick="login()">
                     Login
                   </button>
                 </div>
                 <div class="margin-top20 text-center">
                   Don't have an account? <a href="register.php">Create One</a>
                 </div>
-              </form>
             </div>
           </div>
           <div class="footer">
@@ -108,5 +112,38 @@ else {
       </div>
     </div>
   </section>
+  
+  <script src="vendor/components/jquery/jquery.min.js"></script>
+      <script>
+      var login = function () {
+      var email = $('#email').val();
+      var password = $('#password').val();
+      
+     
+
+        $.ajax({
+          type: "POST",
+          url: "/api/admin/authenticate.php",
+          data: JSON.stringify({
+            email: email,
+            password: password
+          }),
+          success: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-success');
+            $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+          },
+          error: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-danger');
+            $('#result').html("Error Message: " + response.responseJSON["message"]);
+          },
+          contentType: "application/json; charset=UTF-8",
+          dataType: "json"
+        });
+
+    }
+    
+      </script>
 </body>
 </html>
