@@ -132,6 +132,7 @@ else {
           $("#result").removeClass();
             $('#result').addClass('alert alert-success');
             $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/reports.php';
           },
           error: function (response) {
           $("#result").removeClass();
