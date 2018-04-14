@@ -1,5 +1,4 @@
 <?php
-include('app/login.php');
 if(!isset($_SESSION['email']))
 {
 	
