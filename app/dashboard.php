@@ -2,14 +2,12 @@
     session_start();
     $now = time(); // Time when home page starts.
     
-    if (!isset($_SESSION['email'])) 
+    if (isset($_SESSION['email'])) 
     {
         session_destroy();
         session_write_close();
-        header('Location: https://cmsc-207-team-alpha.000webhostapp.com/app/login.php');
+        header('Location: https://cmsc-207-team-alpha.000webhostapp.com/app/dashboard.php');
     }
-    else
-    {
         ?>
 
 
