@@ -24,7 +24,12 @@
               <div class="text-center">
               <p>Please enter your email address to reset your password</p>
               </div>
-              <form method="POST">
+		    
+		    	<div class="form-group col-md-8">
+					<div id="result">			
+					</div>
+				</div>
+
                 <div class="form-row form-group">
                   <label for="email">Email Address</label>
                   <input class="form-control" name="email" id="email" type="text"  placeholder="Email">
@@ -37,7 +42,7 @@
                 <div class="margin-top20 text-center">
                   <a href="login.php">Login now</a>
                 </div>
-              </form>
+
             </div>
           </div>
           <div class="footer">
@@ -63,7 +68,7 @@
           $("#result").removeClass();
 		  $('#result').addClass('alert alert-success');
 		  $('#result').html("An email has been sent, check the mail to change your password");
-		  $rv=mysqli_fetch_array(email);
+		  $rv=mysqli_fetch_array($email);
 			$emailtoken=md5($rv['email']);
 			$email=email;
 			$body="Reset your password by using this code:$emailtoken";
