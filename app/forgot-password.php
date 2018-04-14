@@ -60,28 +60,19 @@
      
         $.ajax({
           type: "POST",
-          url: "/api/admin/authenticate.php",
+          url: "/api/admin/forgotpass.php",
           data: JSON.stringify({
             email: email,
           }),
           success: function (response) {
-          $("#result").removeClass();
-		  $('#result').addClass('alert alert-success');
-		  $('#result').html("An email has been sent, check the mail to change your password");
-		  $rv=mysqli_fetch_array($email);
-			$emailtoken=md5($rv['email']);
-			$email=email;
-			$body="Reset your password by using this code:$emailtoken";
-			$emailsend=$email;
-		  	$subject="Password Reset";
-			$alertmsg="A message was sent to your email";
-			include('app/mailer.php');
-			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/reset-pass.php';
-          },
-          error: function (response) {
-          $("#result").removeClass();
-            $('#result').addClass('alert alert-danger');
-            $('#result').html("Administrator is not registered.");
+    	  $("#result").removeClass();
+          $('#result').addClass('alert alert-success');
+          $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+        },
+        error: function (response) {
+    	  $("#result").removeClass();
+          $('#result').addClass('alert alert-danger');
+          $('#result').html("Error Message: " + response.responseJSON["message"]);
           },
           contentType: "application/json; charset=UTF-8",
           dataType: "json"
