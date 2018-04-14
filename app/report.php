@@ -478,7 +478,7 @@
     
 
 
-// COLUMN CHART
+// COLUMN CHARTS
 
 //ADMIN STATS
     var admintotal = 0;
