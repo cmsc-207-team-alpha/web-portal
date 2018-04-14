@@ -71,7 +71,7 @@
 		  	$subject="Password Reset";
 			$alertmsg="A message was sent to your email";
 			include('app/mailer.php');
-			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/resetpass.php';
+			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/reset-pass.php';
           },
           error: function (response) {
           $("#result").removeClass();
