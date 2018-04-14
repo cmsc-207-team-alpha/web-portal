@@ -131,7 +131,7 @@ else {
           error: function (response) {
           $("#result").removeClass();
             $('#result').addClass('alert alert-danger');
-            $('#result').html("Error Message: " + response.responseJSON["message"]);
+            $('#result').html("Invalid email or password");
           },
           contentType: "application/json; charset=UTF-8",
           dataType: "json"
