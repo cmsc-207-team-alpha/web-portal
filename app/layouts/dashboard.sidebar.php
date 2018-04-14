@@ -13,12 +13,6 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="personnel.php">
-                  <span class="fa fa-fw fa-user"></span>
-                  Personnel
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="drivers.php">
                   <span class="fa fa-fw fa-users"></span>
                   Drivers
@@ -31,7 +25,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="fare.php">
+                <a class="nav-link" href="fare/index.php">
                   <span class="fa fa-fw fa-money-bill-alt"></span>
                   Fare
                 </a>
