@@ -64,6 +64,7 @@
       var code = $('#code').val();
       var password = $('#password').val();
       var conpassword = $('#conpassword').val();
+      var token = 
 	      
 	if($password!=$conpassword)
 		{
