@@ -3,7 +3,7 @@
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link active" href="index.php">
-                  <img class="brand" src="assets/images/logoteam-alpha.png">
+                  <img class="brand" src="/app/assets/images/logoteam-alpha.png">
                 </a>
               </li>
               <li class="nav-item">
@@ -32,26 +32,14 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="fare.php">
-                  <span class="fa fa-fw fa-car"></span>
+                  <span class="fa fa-fw fa-money-bill-alt"></span>
                   Fare
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="payments.php">
-                  <span class="fa fa-fw fa-money-bill-alt"></span>
-                  Payments
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="report.php">
+                <a class="nav-link" href="reports.php">
                   <span class="fa fa-fw fa-chart-line"></span>
                   Reports
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="vehicle.php">
-                  <span class="fa fa-fw fa-chart-line"></span>
-                  Vehicle
                 </a>
               </li>
             </ul>

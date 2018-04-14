@@ -19,16 +19,10 @@
             <a class="nav-link" href="rides.php">Rides</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="fare.php">Fare</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="payments.php">Payments</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="report.php">Reports</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vehicle.php">Vehicle</a>
+            <a class="nav-link" href="reports.php">Reports</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Name</a>
