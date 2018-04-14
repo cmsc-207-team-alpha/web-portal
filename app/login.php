@@ -18,7 +18,7 @@
           </div>
           <div class="card fat">
             <div class="card-body">
-              <h4 class="card-title">Login</h4>
+              <h4 class="card-title">Administrator Login</h4>
 			  
 			  	<div class="form-group col-md-8">
 					<div id="result">			
@@ -63,17 +63,17 @@
 }
 else {    
     if(isset($_POST["submit"])){    
-        if(!empty($_POST['username']) && !empty($_POST['password'])) {  
-            $username=$_POST['username'];  
+        if(!empty($_POST['email']) && !empty($_POST['password'])) {  
+            $email=$_POST['email'];  
             $password=$_POST['password'];
 
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {  
-                    $_SESSION['sess_user']=$row['user_name'];
+                    $_SESSION['sess_user']=$row['email'];
                     echo 'You are currently login now';
                 }
             }else {  
-                echo "Invalid Username or password!<br/>";  
+                echo "Invalid email address or password!<br/>";  
                 $_SESSION['login_attempts'] = $_SESSION['login_attempts'] + 1;
                 echo 3 -  $_SESSION['login_attempts'] . ' attempt/s remaining.';
                 if($_SESSION['login_attempts'] >= 3){
