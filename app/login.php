@@ -51,33 +51,32 @@
                 </div>
 
 <?php
-if(isset($_POST["submit"])){   
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $data = array(
-        'email' => $_POST['email'],
-        'password' => $_POST['password'],
-    );
-    $data_string = json_encode($data);
-    # Create a connection
-    $url = 'https://cmsc-207-team-alpha.000webhostapp.com/api/admin/authenticate.php';
-    $ch = curl_init($url);
-    # Setting our options
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($data_string)));
-    # Get the response
-    $response = json_decode(curl_exec($ch));
-    curl_close($ch);
-    if (property_exists($response, 'id')) {
-        echo "Successful response:<br/>";
-        echo "Message: " . $response->message . '<br/>';
-        echo "Id: " . $response->id;
-    } else {
-        echo "Error response:<br/>";
-        echo "Message: " . $response->message;
+  
+    if(isset($_COOKIE["login_hold"])){
+    echo 'Youre not allowed to login for 30 minutes<br/>';
+}
+else {    
+    if(isset($_POST["submit"])){    
+        if(!empty($_POST['email']) && !empty($_POST['password'])) {  
+            $email=$_POST['email'];  
+            $password=$_POST['password'];
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {  
+                    $_SESSION['sess_user']=$row['email'];
+                    echo 'You are currently logged in';
+                }
+            }else {  
+                echo "Invalid email address or password!<br/>";  
+                $_SESSION['login_attempts'] = $_SESSION['login_attempts'] + 1;
+                echo 3 -  $_SESSION['login_attempts'] . ' attempt/s remaining.';
+                if($_SESSION['login_attempts'] >= 3){
+                    setcookie("login_hold", "hold", time() + (1800));
+                    $_SESSION['login_attempts'] = 0; 
+                }
+            }  
+        } else {  
+            echo "All fields are required!";  
+        }  
     }
 }
 ?>
