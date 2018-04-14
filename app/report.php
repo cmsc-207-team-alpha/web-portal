@@ -480,25 +480,93 @@
 
 // COLUMN CHART
 
-//     function getcolumn() {
-//                 return JSON.parse($.ajax({
-//                         type: 'GET',       
-//                         url: "/api/report/vehiclestats.php",
-//                         data: JSON.stringify({
-//                             }),
-//                         contentType: "application/json; charset=UTF-8",
-//                         dataType: 'html',
-//                         global: false,
-//                         async:false,
-//                         success: function(response) {
-//                             return response;
+//ADMIN STATS
+    var admintotal = 0;
+    var adminactive = 0;
+    var adminnonactive = 0;
 
-//                         }
-//                     }).responseText);
-//             }
+    function getadmin() {
+            return JSON.parse($.ajax({
+                    type: 'GET',       
+                    url: "/api/report/adminstats.php",
+                    data: JSON.stringify({
+                        }),
+                    contentType: "application/json; charset=UTF-8",
+                    dataType: 'html',
+                    global: false,
+                    async:false,
+                    success: function(response) {
+        admintotal = response["totaladmin"];
+        adminactive = response["totalactive"] 
+        adminnonactive = (response["totaladmin"] - response["totalactive"]);;
 
-//     var vehicleStatus = getcolumn();
-    
+                    }
+                }).responseText);
+        }
+
+//DRIVER STATS
+    var drivertotal = 0;
+    var driveractive = 0;
+    var drivernonactive = 0;
+
+    var getdriver = getJson();
+
+
+        function getadmin() {
+                return JSON.parse($.ajax({
+                        type: 'GET',       
+                        url: "/api/report/driverstats.php",
+                        data: JSON.stringify({
+                            }),
+                        contentType: "application/json; charset=UTF-8",
+                        dataType: 'html',
+                        global: false,
+                        async:false,
+                        success: function(response) {
+            drivertotal = response["totaldriver"];
+            driveractive = response["totalactive"] 
+            drivernonactive = (response["totalblocked"]);;
+
+                        }
+                    }).responseText);
+            }
+
+    var getadmin = getJson();
+
+
+//PASSENGER STATS
+
+
+    var passengerdriver = getJson();
+
+        var passengertotal = 0;
+        var passengeractive = 0;
+        var passengernonactive = 0;
+
+
+        function getadmin() {
+                return JSON.parse($.ajax({
+                        type: 'GET',       
+                        url: "/api/report/driverstats.php",
+                        data: JSON.stringify({
+                            }),
+                        contentType: "application/json; charset=UTF-8",
+                        dataType: 'html',
+                        global: false,
+                        async:false,
+                        success: function(response) {
+            passengertotal = response["totaldriver"];
+            passengeractive = response["totalactive"] 
+            passengernonactive = (response["totalblocked"]);;
+
+                        }
+                    }).responseText);
+            }
+
+    var getpassenger = getJson();
+
+
+
 
     Highcharts.chart('columnchart', {
         chart: {
@@ -540,11 +608,13 @@
         },
         series: [{
             name: 'Active',
-            data: [5, 2, 1]
+            data: [adminactive, driveractive, passengeractive],
+                
+                
 
         }, {
             name: 'Non-Active',
-            data: [2, 2, 1]
+            data: [adminnonactive, drivernonactive, passengernonactive]
         }]
     });
 
