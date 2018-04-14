@@ -42,7 +42,7 @@
 		      
 		      
                 <div class="form-row no-margin">
-                  <button type="submit" class="btn btn-success btn-block">
+                  <button type="submit" class="btn btn-success btn-block" onclick="set()">
                     Set New Password
                   </button>
                 </div>
@@ -57,62 +57,42 @@
       </div>
     </div>
   </section>
-      
-<?php
-
-if(isset($_POST['submit']))
-{
-	
-		$code=$_POST['code'];
-		$password=$_POST['password'];
-		$conpassword=$_POST['conpassword'];
-		
-		if($password!=$conpassword)
+	    
+<script src="vendor/components/jquery/jquery.min.js"></script>
+      <script>
+      var set = function () {
+      var code = $('#code').val();
+      var password = $('#password').val();
+      var conpassword = $('#conpassword').val();
+	      
+	if($password!=$conpassword)
 		{
 			echo"<script>window.alert('Password do not match');</script>";
 			
 		}
 		else{
-			
-		$query=mysqli_query($conn, "SELECT * FROM admin WHERE type=1")or die("Error Query");
-	    if(mysqli_num_rows($query)==0)
+	    if ($token=$code)
 	    {
-	        	echo"<script>window.alert('No available users');window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';</script>";
+        $.ajax({
+          type: "POST",
+          url: "/api/admin/update.php",
+          data: JSON.stringify({
+            password: password
+          }),
+          success: function (response) {
+          $("#result").removeClass();
+	    $('#result').addClass('alert alert-success');
+		  $('#result').html("Password had been updated");
+			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';
+          }
+          contentType: "application/json; charset=UTF-8",
+          dataType: "json"
+        });
+	    else{
+	    echo"<script>window.alert('Invalid reset code');</script>";
 	    }
-	    $rcd=0;
-		while($rvs=mysqli_fetch_array($query))
-		{
-			$rvtoken=md5($rvs['email']);
-			//echo"<script>window.alert($rvtoken vs $email);</script>";
-			if($rvtoken==$email)
-			{   $rcd=1;
-				$npass=md5($password);
-				$sps=mysqli_query($conn,"UPDATE admin SET password='$npass' WHERE email LIKE '$rvs[email]' LIMIT 1")or die("qs error");
-				if($sps)
-				{
-					echo"<script>window.alert('Successfully Updated your password, Try logging in again');window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';</script>";
-				}
-				else
-				{
-					echo"<script>window.alert('Successfully Updated your password, Try logging in again');</script>";
-					
-				}
-			}
-			
-		}
-		if($rcd==0)
-		{
-		    
-		    	echo"<script>window.alert('Invalid reset code');</script>";
-		}
-		
-		}
-		
-		
-		
-}
-
-
-?>
+    }
+    
+      </script>
 </body>
 </html>
