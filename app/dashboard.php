@@ -1,10 +1,36 @@
 <?php
-if(!isset($_SESSION['email']))
+<script src="vendor/components/jquery/jquery.min.js"></script>
+	<script>
+	$.ajax({
+          type: "POST",
+          url: "/api/admin/authenticate.php",
+          }),
+if{
+          success: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-success');
+			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/dashboard.php';
+          }
+}else{
+          error: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-danger');
+            window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';
+          },
+          contentType: "application/json; charset=UTF-8",
+          dataType: "json"
+		  
+}
+        });
+
+
+/*if(!isset($_SESSION['email']))
 {
 	
 	echo"<script>window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';</script>";
-}
+}*/
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
