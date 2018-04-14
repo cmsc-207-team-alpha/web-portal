@@ -60,6 +60,9 @@ else {
         if(!empty($_POST['email']) && !empty($_POST['password'])) {  
             $email=$_POST['email'];  
             $password=$_POST['password'];
+	    session_start();
+	    $_SESSION['admin']= $email;
+	    echo $_SESSION['admin'];
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {  
                     $_SESSION['sess_user']=$row['email'];
