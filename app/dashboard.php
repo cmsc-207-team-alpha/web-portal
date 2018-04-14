@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION))
+if(!isset($_SESSION['email']))
 {
 	
 	echo"<script>window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';</script>";
