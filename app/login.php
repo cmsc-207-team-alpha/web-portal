@@ -50,11 +50,6 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label>
-                    <input type="checkbox" name="remember"> Remember Me
-                  </label>
-                </div>
                 <?php
   
 
