@@ -25,7 +25,6 @@
 					</div>
 				</div>
               
-              <form method="POST">
                 <div class="form-group">
                   <label for="email">Email Address</label>
                   <div class="input-group mb-2 mr-sm-2">
@@ -98,7 +97,6 @@ else {
                 <div class="margin-top20 text-center">
                   Don't have an account? <a href="register.php">Create One</a>
                 </div>
-              </form>
             </div>
           </div>
           <div class="footer">
