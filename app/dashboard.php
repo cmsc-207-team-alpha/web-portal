@@ -4,8 +4,6 @@ define(email,$_SESSION['email']); //Get the user name from the previously regist
 if(!session_is_registered("email")){ //If session not registered
 header("location:https://cmsc-207-team-alpha.000webhostapp.com/app/login.php"); // Redirect to login.php page
 }
-else //Continue to current page
-header( 'Content-Type: text/html; charset=utf-8' );
 ?>
 
 
