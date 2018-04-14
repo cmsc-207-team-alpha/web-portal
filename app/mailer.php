@@ -21,12 +21,12 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "keflores@up.edu.ph";
+$mail->Username = "cmsctestermail@gmail.com";
 //Password to use for SMTP authentication
-$mail->Password = "squeespleen99";
+$mail->Password = "pleasework";
 //Set who the message is to be sent from
 $mail->addAddress("$email");
-$mail->setFrom('karloemilflores@gmail.com', 'Karlo Flores');
+$mail->setFrom('cmsctestermail@gmail.com', 'Team Alpha');
 //Set an alternative reply-to address
 //Set the subject line
 
@@ -37,9 +37,9 @@ $mail->Subject = "$subject";
 
 $mail->Body = "$body";
 //Attach an image file
-$mail->setFrom('karloemilflores@gmail.com', 'CMSC207');
+$mail->setFrom('cmsctestermail@gmail.com', 'Team Alpha');
 //Set an alternative reply-to address
-$mail->addReplyTo('karloemilflores@gmail.com', 'CMSC207');
+$mail->addReplyTo('cmsctestermail@gmail.com', 'Team Alpha');
 
 //send the message, check for errors
 if (!$mail->send()) {
@@ -47,37 +47,3 @@ if (!$mail->send()) {
 } else {
     echo "Message sent!";
 }
-
-/*
-
-                             // set mailer to use SMTP
-$mail->Host = "smtp2.gmail.com";  // specify main and backup server
-$mail->SMTPAuth = true;     // turn on SMTP authentication
-$mail->Username = "karloemilflores@gmail.com";  // SMTP username
-$mail->Password = "4476986b"; // SMTP password
-$mail->Port = 587;
-//Set the encryption system to use - ssl (deprecated) or tls
-$mail->SMTPSecure = 'tls';
-$mail->From = "karloemilflores@gmail.com";
-$mail->FromName = "Mailer";
-$mail->AddAddress("$email");                  // name is optional
-
-                              // set email format to HTML
-
-$mail->Subject = "$subject";
-$mail->Body    = "$body";
-
-
-if(!$mail->Send())
-{
-   echo "Message could not be sent. <p>";
-   echo "Mailer Error: " . $mail->ErrorInfo;
-   exit;
-}
-
-echo "Message has been sent";
-
-
-*/
-
-?>
