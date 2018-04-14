@@ -30,7 +30,7 @@
                   <input class="form-control" name="email" id="email" type="text"  placeholder="Email">
                 </div>
                 <div class="form-row no-margin">
-                  <button type="submit" class="btn btn-success btn-block">
+                  <button type="submit" class="btn btn-success btn-block" onclick="reset()">
                     Reset Password
                   </button>
                 </div>
@@ -47,39 +47,43 @@
       </div>
     </div>
   </section>
+	<script src="vendor/components/jquery/jquery.min.js"></script>
+      <script>
+      var reset = function () {
+      var email = $('#email').val();
       
-<?php
-if(isset($_POST['submit']))
-{
-		$un=$_POST['email'];
-		$query=mysqli_query($conn, "SELECT * FROM admin WHERE email LIKE '$un' LIMIT 1")or die("Error Query");
-		if(mysqli_num_rows($query)>0)
-		{
-			$rv=mysqli_fetch_array($query);
+     
+        $.ajax({
+          type: "POST",
+          url: "/api/admin/authenticate.php",
+          data: JSON.stringify({
+            email: email,
+          }),
+          success: function (response) {
+          $("#result").removeClass();
+		  $('#result').addClass('alert alert-success');
+		  $('#result').html("An email has been sent, check the mail to change your password");
+		  $rv=mysqli_fetch_array(email);
 			$emailtoken=md5($rv['email']);
-			$email=$un;
+			$email=email;
 			$body="Reset your password by using this code:$emailtoken";
-				$emailsend=$email;
-	
+			$emailsend=$email;
+		  	$subject="Password Reset";
+			$alertmsg="A message was sent to your email";
+			include('app/mailer.php');
+			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/resetpass.php';
+          },
+          error: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-danger');
+            $('#result').html("Administrator is not registered.");
+          },
+          contentType: "application/json; charset=UTF-8",
+          dataType: "json"
+        });
+    }
+    
+      </script>
 
-$subject="Password Reset";
-$alertmsg="A message was sent to your email";
-include('mailer.php');
-			
-		echo"<script>window.alert('An email has been sent, check the mail to change your password.');
-		window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/resetpass.php';</script>";
-			
-		}
-		else
-		{
-			echo"<script>window.alert('Administrator account does not exist');</script>";
-			
-		}
-		
-		
-		
-}
-
-?>
 </body>
 </html>
