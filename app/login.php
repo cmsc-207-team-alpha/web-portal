@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include_once("layouts/login_header.php") ?>
-</head> 
-
-<body>
-
-		<?php include_once("layouts/login_nav.php")?>
-<div class="container-fluid">
- <div class="row content">
-    <div class="col-sm-4 sidenav"  align="center"> 	
-	      	<?php include_once("layouts/login_sidebar.php")?>
-     </div>
- 
-	 <div class="col-sm-8">
- 
-      	  <div class="brand-lg">
-           
-              <img src="assets/images/logoteam-alpha.png" width="150" height="100">
-          
+<?php include_once("layouts/header.php") ?>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/login.js"></script>
+  <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+<script src="assets/lib/jquery/js/jquery.min.js"></script>
+</head>
+<body class="login-page">
+  <section class="h-100">
+    <div class="container h-100">
+      <div class="row  h-100">
+          <div class="brand-lg">
+            <a href="index.php">
+              <img src="assets/images/logoteam-alpha.png">
+            </a>
           </div>
-          
+          <div class="card fat">
+            <div class="card-body">
               <h4 class="card-title">Login</h4>
+			  
+			  	<div class="form-group col-md-8">
+					<div id="result">			
+					</div>
+				</div>
+              
               <form method="POST">
                 <div class="form-group">
-                  <label for="username">Username</label>
+                  <label for="email">Email Address</label>
                   <div class="input-group mb-2 mr-sm-2">
                   <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-lg fa-user"></i></div>
                   </div>
-                  <input type="text" class="form-control" name="email" id="email" placeholder="Username">
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email Address">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="password">Password</label>
+                  <label for="password">Password
                     <a href="forgot-password.php" class="float-right">
                       Forgot Password?
                     </a>
@@ -51,55 +54,93 @@
                     <input type="checkbox" name="remember"> Remember Me
                   </label>
                 </div>
+                <?php
+  
 
-                <div class="form-group">
-                  <button type="submit" >
+    if(isset($_COOKIE["login_hold"])){
+    echo 'Youre not allowed to login for 30 minutes<br/>';
+
+}
+else {    
+    if(isset($_POST["submit"])){    
+        if(!empty($_POST['username']) && !empty($_POST['password'])) {  
+            $username=$_POST['username'];  
+            $password=$_POST['password'];
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {  
+                    $_SESSION['sess_user']=$row['user_name'];
+                    echo 'You are currently login now';
+                }
+            }else {  
+                echo "Invalid Username or password!<br/>";  
+                $_SESSION['login_attempts'] = $_SESSION['login_attempts'] + 1;
+                echo 3 -  $_SESSION['login_attempts'] . ' attempt/s remaining.';
+                if($_SESSION['login_attempts'] >= 3){
+                    setcookie("login_hold", "hold", time() + (1800));
+                    $_SESSION['login_attempts'] = 0; 
+                }
+            }  
+
+        } else {  
+            echo "All fields are required!";  
+        }  
+    }
+}
+
+?>
+
+                <div class="form-group no-margin">
+                  <button type="submit" class="btn btn-success btn-block" onclick="login()">
                     Login
                   </button>
                 </div>
-                <div class="form-group">
+                <div class="margin-top20 text-center">
                   Don't have an account? <a href="register.php">Create One</a>
                 </div>
               </form>
-<?php
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    $data = array(
-        'email' => $_POST['email'],
-        'password' => $_POST['password'],
-    );
-    $data_string = json_encode($data);
-    # Create a connection
-    $url = 'https://cmsc-207-team-alpha.000webhostapp.com/api/admin/authenticate.php';
-    $ch = curl_init($url);
-    # Setting our options
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'Content-Length: ' . strlen($data_string)));
-    # Get the response
-    $response = json_decode(curl_exec($ch));
-    curl_close($ch);
-    if (property_exists($response, 'id')) {
-        echo "Successful response:<br/>";
-        echo "Message: " . $response->message . '<br/>';
-        echo "Id: " . $response->id;
-    } else {
-        echo "Error response:<br/>";
-        echo "Message: " . $response->message;
-    }
-}
-?>
+            </div>
+          </div>
+          <div class="footer">
+            Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha
+ 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="vendor/components/jquery/jquery.min.js"></script>
+      <script>
+      var login = function () {
+      var email = $('#email').val();
+      var password = $('#password').val();
       
-       
-     </div>
- </div>
-</div>
+     
 
-<footer class="container-fluid">
-           <p align="center"> Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha </p>
-</footer>
-       
+        $.ajax({
+          type: "POST",
+          url: "/api/admin/authenticate.php",
+          data: JSON.stringify({
+            email: email,
+            password: password
+          }),
+          success: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-success');
+            $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/dashboard.php';
+          },
+          error: function (response) {
+          $("#result").removeClass();
+            $('#result').addClass('alert alert-danger');
+            $('#result').html("Error Message: " + response.responseJSON["message"]);
+          },
+          contentType: "application/json; charset=UTF-8",
+          dataType: "json"
+        });
+
+    }
+    
+      </script>
 </body>
 </html>
