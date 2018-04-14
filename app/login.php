@@ -51,6 +51,10 @@
                 </div>
 
 <?php
+	
+session_start();
+// Store Session Data
+$_SESSION['admin']= $email;
   
     if(isset($_COOKIE["login_hold"])){
     echo 'Youre not allowed to login for 30 minutes<br/>';
