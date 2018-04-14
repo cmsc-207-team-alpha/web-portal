@@ -1,6 +1,6 @@
 <?php
-
-if(!isset($_SESSION['sess_user']))
+include('app/login.php');
+if(!isset($_SESSION['email']))
 {
 	
 	echo"<script>window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';</script>";
