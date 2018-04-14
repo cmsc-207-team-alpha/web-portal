@@ -10,9 +10,6 @@
             <a class="nav-link" href="/app/dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/app/personnel.php">Personnel</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="/app/drivers.php">Drivers</a>
           </li>
           <li class="nav-item">
