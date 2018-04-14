@@ -480,24 +480,24 @@
 
 // COLUMN CHART
 
-    function getcolumn() {
-                return JSON.parse($.ajax({
-                        type: 'GET',       
-                        url: "/api/report/vehiclestats.php",
-                        data: JSON.stringify({
-                            }),
-                        contentType: "application/json; charset=UTF-8",
-                        dataType: 'html',
-                        global: false,
-                        async:false,
-                        success: function(response) {
-                            return response;
+//     function getcolumn() {
+//                 return JSON.parse($.ajax({
+//                         type: 'GET',       
+//                         url: "/api/report/vehiclestats.php",
+//                         data: JSON.stringify({
+//                             }),
+//                         contentType: "application/json; charset=UTF-8",
+//                         dataType: 'html',
+//                         global: false,
+//                         async:false,
+//                         success: function(response) {
+//                             return response;
 
-                        }
-                    }).responseText);
-            }
+//                         }
+//                     }).responseText);
+//             }
 
-    var vehicleStatus = getcolumn();
+//     var vehicleStatus = getcolumn();
     
 
     Highcharts.chart('columnchart', {
@@ -540,10 +540,7 @@
         },
         series: [{
             name: 'Active',
-            data:
-                ['Admin', adminactive["totalactive"]],
-                ['Driver', driveractive["totalactive"]],
-                ['Passenger', passengeractive["totalactive"]],
+            data: [5, 2, 1]
 
         }, {
             name: 'Non-Active',
