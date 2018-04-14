@@ -1,3 +1,10 @@
+<?php
+if(!isset($_SESSION))
+{
+	echo"<script>window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/login.php';</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
