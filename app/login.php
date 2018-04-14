@@ -123,7 +123,6 @@ else {
           }),
           success: function (response) {
           $("#result").removeClass();
-            $('#result').addClass('alert alert-success');
 			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/dashboard.php';
           },
           error: function (response) {
