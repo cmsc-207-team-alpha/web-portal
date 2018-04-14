@@ -31,11 +31,11 @@
                 </div>
                 <div class="form-row no-margin">
                   <button type="submit" class="btn btn-success btn-block">
-                    Register
+                    Reset Password
                   </button>
                 </div>
                 <div class="margin-top20 text-center">
-                  <a href="register.php">Reset Password</a> | <a href="login.php">Login now</a>
+                  <a href="login.php">Login now</a>
                 </div>
               </form>
             </div>
@@ -47,5 +47,39 @@
       </div>
     </div>
   </section>
+      
+<?php
+if(isset($_POST['submit']))
+{
+		$un=$_POST['email'];
+		$query=mysqli_query($conn, "SELECT * FROM admin WHERE email LIKE '$un' LIMIT 1")or die("Error Query");
+		if(mysqli_num_rows($query)>0)
+		{
+			$rv=mysqli_fetch_array($query);
+			$emailtoken=md5($rv['email']);
+			$email=$un;
+			$body="Reset your password by using this code:$emailtoken";
+				$emailsend=$email;
+	
+
+$subject="Password Reset";
+$alertmsg="A message was sent to your email";
+include('mailer.php');
+			
+		echo"<script>window.alert('An email has been sent, check the mail to change your password.');
+		window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/resetpass.php';</script>";
+			
+		}
+		else
+		{
+			echo"<script>window.alert('Administrator account does not exist');</script>";
+			
+		}
+		
+		
+		
+}
+
+?>
 </body>
 </html>
