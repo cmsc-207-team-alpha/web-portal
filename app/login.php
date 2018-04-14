@@ -94,9 +94,6 @@ else {
                     Login
                   </button>
                 </div>
-                <div class="margin-top20 text-center">
-                  Don't have an account? <a href="register.php">Create One</a>
-                </div>
             </div>
           </div>
           <div class="footer">
