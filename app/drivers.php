@@ -8,11 +8,13 @@
 </style>
 <html lang="en">
 	<head>
+
 		<?php include_once("layouts/dashboard.header.php") ?>
+
+		<link rel="stylesheet" href="../app/assets/stylesheets/datatables.min.css">
 	</head>
 	<body class="login-page">
 		<?php include_once("layouts/dashboard.navigation.php") ?>
-		<link rel="stylesheet" src="../app/assets/stylesheets/datatables.min.css">
 		<script src="../app/assets/js/datatables.min.js"></script>
 	    <div class="container-fluid">
 	      <div class="row">
@@ -139,7 +141,8 @@ function edit_driver(id) {
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h5>Edit Driver Details</h5>'+
+                '<h4 style="text-align:center">Edit Driver Details</h4>'+
+                '<hr>'+
             '</div>'+
             '<div class="row">'+
             	'<div class="col-md-3">'+
@@ -179,6 +182,7 @@ function edit_driver(id) {
 				            '</div>'+
 			            '</div>'+
 		            '</div>'+
+		            '<hr>'+
 	            '</div>'+
             '</div>'+
             '<br>'+
@@ -198,7 +202,8 @@ function update_stats(id) {
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h5>Update Driver Status</h5>'+
+                '<h4 style="text-align:center">Update Driver Status</h4>'+
+                '<hr>'+
             '</div>'+
             '<div class="row">'+
             	'<div class="col-md-3">'+
@@ -247,6 +252,7 @@ function update_stats(id) {
 				            '</div>'+
 			            '</div>'+
 		            '</div>'+
+		            '<hr>'+
 	            '</div>'+
             '</div>'+
             '<br>'+
@@ -269,7 +275,8 @@ function add_document(id) {
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h5>Add Document</h5>'+
+                '<h4 style="text-align:center">Add Document</h4>'+
+                '<hr>'+
             '</div>'+
             '<div class="row">'+
             	'<div class="col-md-3">'+
@@ -312,8 +319,9 @@ function add_document(id) {
 				            '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
 				            '</div>'+
 			            '</div>'+
-	            '</div>'+
+	            '</div>'+       
             '</div>'+
+            '<hr>'+
             '<br>'+
         '</div>');
         $('#active').val(response.active);
@@ -338,10 +346,35 @@ function add_document(id) {
 function get_driver(id) {  
   $.ajax({
     url: "/api/driver/get.php?id=" + id,
+    async:false,
     success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
+    	tbody = '';
+        $.ajax({
+		    url: "/api/driver/getdocument.php?driverid=" + id,
+		    async: false,
+		    success: function (response) {
+		    	if(response != '')
+		    	$.each(response, function(k, data) {
+		        tbody += '<tr>'+
+			            	'<td>'+data.description +'</td>'+
+			            	'<td>'+data.type +'</td>'+
+			            	'<td><button class="btn btn-sm btn-default" onclick="get_document('+data.id+')" title="View Document" data-toggle="tooltip">'+
+							'<i class="fa fa-eye"></i> <i class="fa fa-eye"></i>'+
+							'</button></td>'+
+			            '</tr>';
+			     });
+		    	else tbody='<tr><td colspan="3" style="text-align:center"> Nothing to see. </td></tr>';
+		    },
+		    error: function (response) {
+		     alert(response.responseJSON["message"]);
+		    },
+		    contentType: "application/json; charset=UTF-8",
+		    dataType: "json"
+		  });
+        view = '<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h5>View Driver</h5>'+
+                '<h4 style="text-align:center">View Driver</h4>'+
+                '<hr>'+
             '</div>'+
             '<div class="row">'+
             	'<div class="col-md-3">'+
@@ -377,24 +410,9 @@ function get_driver(id) {
 			                '<label>Last Modified</label><br>'+
 			                '<h6>'+response.datemodified +'</h6>'+
 		                '</div>'+
-		            '</div>');
-        $.ajax({
-		    url: "/api/driver/getdocument.php?driverid=" + id,
-		    success: function (response) {
-		    	tbody ='';
-		    	if(response != '')
-		    	$.each(response, function(k, data) {
-		        tbody += '<tr>'+
-			            	'<td>'+data.description +'</td>'+
-			            	'<td>'+data.type +'</td>'+
-			            	'<td><button class="btn btn-block btn-default" onclick="get_document('+data.id+')" title="View Document" data-toggle="tooltip">'+
-							'<span class="fa fa-eye"></span> '+
-							'</button></td>'+
-			            '</tr>';
-			     });
-		    	else tbody='<tr><td colspan="3" style="text-align:center"> Nothing to see. </td></tr>';
-		    	$('#driver_preview').append('<div class="row" style="margin:0">'+
-         				'<div class="col-md-3"></div><div class="col-md-6">'+
+		            '</div><br>'+
+		            '<div class="row" style="margin:0">'+
+         				'<div class="col-md-6" style="padding:0">'+
 			            '<table border="1" cellpadding="5" style="width: 100%;">'+
 			            	'<thead>'+
 				            	'<th>Description</th>'+
@@ -405,21 +423,14 @@ function get_driver(id) {
 				            '</body>'+
 			            '</table></div>'+
 			            '<div class="col-md-12">'+
-					    '<button style="float:right;" onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
-						            '</div>'+
-					            '</div>'+
-				            '</div>'+
-			            '</div>'+
-			            '<br>'+
-			        '</div>');
-		    },
-		    error: function (response) {
-		     alert(response.responseJSON["message"]);
-		    },
-		    contentType: "application/json; charset=UTF-8",
-		    dataType: "json"
-		  });
-
+					    	'<button style="float:right;" onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+						 '</div>'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
+			'<hr>'+
+		'</div>';
+        $('#driver_preview').html(view);
          
     },
     error: function (response) {
@@ -530,7 +541,8 @@ function delete_driver(id) {
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h5>Delete Driver</h5>'+
+                '<h4 style="text-align:center">Delete Driver</h4>'+
+                '<hr>'+
             '</div>'+
             '<div class="row">'+
             	'<div class="col-md-3">'+
