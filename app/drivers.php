@@ -82,7 +82,7 @@ $(document).ready(function(){
 function load_drivers() {
 	$('#drivers_tbl').empty();
   $.ajax({
-    url: "/web3/api/driver/get.php",
+    url: "/api/driver/get.php",
     success: function (response) {
     	ct=0;
     	$.each(response, function(k, data) {
@@ -140,7 +140,7 @@ function load_drivers() {
 
 function edit_driver(id) {
   $.ajax({
-    url: "/web3/api/driver/get.php?id=" + id,
+    url: "/api/driver/get.php?id=" + id,
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
@@ -210,7 +210,7 @@ function edit_driver(id) {
 
 function update_stats(id) {
   $.ajax({
-    url: "/web3/api/driver/get.php?id=" + id,
+    url: "/api/driver/get.php?id=" + id,
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
@@ -283,7 +283,7 @@ function update_stats(id) {
 
 function add_document(id) {
   $.ajax({
-    url: "/web3/api/driver/get.php?id=" + id,
+    url: "/api/driver/get.php?id=" + id,
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
@@ -356,7 +356,7 @@ function add_document(id) {
 
 function get_doc(id) {
  	$.ajax({
-	    url: "/web3/api/driver/getdocument.php?id=" + id,
+	    url: "/api/driver/getdocument.php?id=" + id,
 	    async: false,
 	    success: function (response) {
 	    },
@@ -373,7 +373,7 @@ function dlt_doc(id, driver_id){
     if (r == true) {
        $.ajax({
        		type: "POST",
-		    url: "/web3/api/driver/deletedocument.php?id=" + id,
+		    url: "/api/driver/deletedocument.php?id=" + id,
 		    async:false,		    
  			data:JSON.stringify({
         		id: id
@@ -389,12 +389,12 @@ function dlt_doc(id, driver_id){
 
 function get_driver(id) {  
   $.ajax({
-    url: "/web3/api/driver/get.php?id=" + id,
+    url: "/api/driver/get.php?id=" + id,
     async:false,
     success: function (response) {
     	tbody = '';
         $.ajax({
-		    url: "/web3/api/driver/getdocument.php?driverid=" + id,
+		    url: "/api/driver/getdocument.php?driverid=" + id,
 		    async: false,
 		    success: function (response) {
 		    	if(response != '')
@@ -402,7 +402,7 @@ function get_driver(id) {
 		    		detailed = '';
 		    		a = '';
 				 	$.ajax({
-					    url: "/web3/api/driver/getdocument.php?id=" + data.id,
+					    url: "/api/driver/getdocument.php?id=" + data.id,
 					    async: false,
 					    success: function (r) {
 					    	detailed = '<td>'+r.datecreated +'</td>' +'<td>'+r.datemodified +'</td>';
@@ -513,7 +513,7 @@ function get_driver(id) {
 function edit_doc(id){
 
 	$.ajax({
-	    url: "/web3/api/driver/getdocument.php?id=" +id,
+	    url: "/api/driver/getdocument.php?id=" +id,
 	    async: false,
 	    success: function (r) {
 			$('#edit_doc_row').html('<th><input type="text" class="form-control" id="edit_description" value="'+r.description+'"></th>'+
@@ -542,7 +542,7 @@ function go_update_doc(id, driverid) {
 	docs = $('#edit_document_holder').val();
 	$.ajax({
      type: "POST",
-     url: "/web3/api/driver/updatedocument.php",
+     url: "/api/driver/updatedocument.php",
      data:JSON.stringify({
         id: id,
         driverid: driverid,
@@ -568,7 +568,7 @@ function go_upload(id) {
 	docs = $('#doc_holder').val();
 	$.ajax({
      type: "POST",
-     url: "/web3/api/driver/adddocument.php",
+     url: "/api/driver/adddocument.php",
      data:JSON.stringify({
         driverid: id,
         document: docs,
@@ -596,7 +596,7 @@ function go_update(id) {
      var photo = document.getElementById("driver_img").src;
 	$.ajax({
      type: "POST",
-     url: "/web3/api/driver/update.php",
+     url: "/api/driver/update.php",
      data:JSON.stringify({
         id: id,
         firstname: firstname,
@@ -622,7 +622,7 @@ function go_update_stats(id){
     var blocked = $('#blocked').val();
 	$.ajax({
      type: "POST",
-     url: "/web3/api/driver/updatestatus.php",
+     url: "/api/driver/updatestatus.php",
      data:JSON.stringify({
         id: id,
         active: active,
@@ -643,7 +643,7 @@ function go_update_stats(id){
 function godelete(id) {
 	$.ajax({
      type: "POST",
-     url: "/web3/api/driver/delete.php",
+     url: "/api/driver/delete.php",
      data:JSON.stringify({
         id: id,
     }),
@@ -659,7 +659,7 @@ function godelete(id) {
 }
 function delete_driver(id) {
   $.ajax({
-    url: "/web3/api/driver/get.php?id=" + id,
+    url: "/api/driver/get.php?id=" + id,
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
