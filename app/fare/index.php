@@ -13,8 +13,8 @@
 	            <h1 class="h2"><span class="fa fa-fw fa-money-bill-alt"></span> Fare</h1>
 	            <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 								  <div class="btn-group mr-2" role="group" aria-label="First group">
-								    <a href="compute" type="button" class="btn btn-info"><span class="fas fa-calculator"></span> Compute </a>
-								    <a href="add" type="button" class="btn btn-success"><span class="fas fa-plus-circle"></span> Add Fare </a>
+								    <a href="compute.php" type="button" class="btn btn-info"><span class="fas fa-calculator"></span> Compute </a>
+								    <a href="add.php" type="button" class="btn btn-success"><span class="fas fa-plus-circle"></span> Add Fare </a>
 								  </div>
 									
 								</div>

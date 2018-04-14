@@ -2,8 +2,8 @@
  
 
       <header align="right">
-               <a href="register_driver.php"> <button type="button" class="btn btn-primary">Be a Driver</button></a>
-			   <a href="register.php"> <button type="button" class="btn btn-primary">Get a Ride</button></a>      
+             
+			        
 	  </header>
       
    </nav>

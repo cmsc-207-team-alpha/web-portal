@@ -7,37 +7,37 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="dashboard.php">
+                <a class="nav-link" href="../dashboard.php">
                   <span class="fa fa-fw fa-tachometer-alt"></span>
                   Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="personnel.php">
+                <a class="nav-link" href="../personnel.php">
                   <span class="fa fa-fw fa-user"></span>
                   Personnel
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="drivers.php">
+                <a class="nav-link" href="../drivers.php">
                   <span class="fa fa-fw fa-users"></span>
                   Drivers
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="rides.php">
+                <a class="nav-link" href="../rides.php">
                   <span class="fa fa-fw fa-car"></span>
                   Rides
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="fare.php">
+                <a class="nav-link" href="index.php">
                   <span class="fa fa-fw fa-money-bill-alt"></span>
                   Fare
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="reports.php">
+                <a class="nav-link" href="../reports.php">
                   <span class="fa fa-fw fa-chart-line"></span>
                   Reports
                 </a>

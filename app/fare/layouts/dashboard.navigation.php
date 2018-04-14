@@ -7,22 +7,22 @@
       <div class="navbar-collapse collapse" id="navbarsExample04" style="">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="dashboard.php">Dashboard</a>
+            <a class="nav-link" href="/app/dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="personnel.php">Personnel</a>
+            <a class="nav-link" href="/app/personnel.php">Personnel</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="drivers.php">Drivers</a>
+            <a class="nav-link" href="/app/drivers.php">Drivers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="rides.php">Rides</a>
+            <a class="nav-link" href="/app/rides.php">Rides</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="payments.php">Payments</a>
+            <a class="nav-link" href="index.php">Fare</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reports.php">Reports</a>
+            <a class="nav-link" href="/app/reports.php">Reports</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Name</a>
