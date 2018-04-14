@@ -1,10 +1,16 @@
 <?php
-session_start(); //Start the session
-define(email,$_SESSION['email']); //Get the user name from the previously registered super global variable
-if(!session_is_registered("email")){ //If session not registered
-header("location:https://cmsc-207-team-alpha.000webhostapp.com/app/login.php"); // Redirect to login.php page
-}
-?>
+    session_start();
+    $now = time(); // Time when home page starts.
+    
+    if (!isset($_SESSION['email'])) 
+    {
+        session_destroy();
+        session_write_close();
+        header('Location: https://cmsc-207-team-alpha.000webhostapp.com/app/login.php');
+    }
+    else
+    {
+        ?>
 
 
 
