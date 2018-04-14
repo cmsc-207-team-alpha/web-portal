@@ -1,7 +1,7 @@
 <?php
 session_start(); //Start the session
-define(ADMIN,$_SESSION['email']); //Get the user name from the previously registered super global variable
-if(!session_is_registered("admin")){ //If session not registered
+define(email,$_SESSION['email']); //Get the user name from the previously registered super global variable
+if(!session_is_registered("email")){ //If session not registered
 header("location:https://cmsc-207-team-alpha.000webhostapp.com/app/login.php"); // Redirect to login.php page
 }
 else //Continue to current page
