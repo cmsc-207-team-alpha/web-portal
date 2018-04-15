@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION["admin_id"] = 0;
+$_SESSION["admin_name"] = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
