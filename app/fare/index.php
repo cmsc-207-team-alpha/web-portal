@@ -24,15 +24,15 @@
 				<thead>
 				<tr>
 				<th><input class="form-control" type="checkbox" name=""></th>
-				<th>id</th>
-				<th>vehicle_type</th>
-				<th>base_fare</th>
-				<th>per_km</th>
-				<th>per_minute</th>
-				<th>surge_rush_threshold</th>
-				<th>surge_rush_multiplier</th>
-				<th>surge_time_multiplier</th>
-				<th>actions</th>
+				<th>Id</th>
+				<th>Vehicle Type</th>
+				<th>Base Fare</th>
+				<th>Fare Per KM</th>
+				<th>Fare Per Minute</th>
+				<th>Rush Hour Surge Threshold</th>
+				<th>Rush Hour Surge Multiplier</th>
+				<th>Time of Day Surge Multiplier</th>
+				<th>Actions</th>
 				</tr>
 				</thead>
 				<tbody>
