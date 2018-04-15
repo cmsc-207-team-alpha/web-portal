@@ -17,17 +17,7 @@
 	            <h1 class="h2"><span class="fa fa-fw fa-tachometer-alt"></span> Dashboard</h1>
 						</div>
 
-						<div class="row">
-							<div class="col-md-6">
-								<div id="columnchart" style="margin: 10px;"></div>
-							</div>
-							<div class="col-md-6">
-								<div id="piechart" style="margin: 10px;"></div>
-							</div>
-						</div>
-
-
-   <!-- TRIPS METRIC -->
+ <!-- TRIPS METRIC -->
 
     <div class="row" >
 		<div align="center" class="col-md-11" style="margin: 10px;">
@@ -139,6 +129,19 @@
         </div>
 		</div>
 
+
+
+						<div class="row">
+							<div class="col-md-6">
+								<div id="columnchart" style="margin: 10px;"></div>
+							</div>
+							<div class="col-md-6">
+								<div id="piechart" style="margin: 10px;"></div>
+							</div>
+						</div>
+
+
+  
 
 			<div class="row">
 							<div class="col-md-4">
