@@ -33,7 +33,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             <div class="dropdown-menu dropdown-menu-right pull-right p-0" aria-labelledby="dropdown04">
               <a class="dropdown-item" href="#">Account Settings</a>
               <a class="dropdown-item" href="#">Help</a>
-              <a class="dropdown-item" href="#">Sign Out</a>
+              <a class="dropdown-item" href="../logout.php">Sign Out</a>
             </div>
           </li>
         </ul>
