@@ -1,7 +1,5 @@
 <?php
 session_start();
-$_SESSION["admin_id"] = 0;
-$_SESSION["admin_name"] = '';
 ?>
 
 <!DOCTYPE html>

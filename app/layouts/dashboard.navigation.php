@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
+{
+   header("location: logout.php");
+}
 ?>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-success sticky-top flex-md-wrap p-0">
