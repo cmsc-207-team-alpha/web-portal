@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <script type="text/javascript">location.href = 'dashboard.php';</script>
     <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
     <script src="../vendor/twbs/bootstrap/dist/css/bootstrap.min.js"></script>
     <script src="../vendor/components/jquery/jquery.min.js"></script>

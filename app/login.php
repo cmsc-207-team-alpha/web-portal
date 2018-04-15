@@ -113,7 +113,7 @@ else {
           }),
           success: function (response) {
           $("#result").removeClass();
-			window.location='https://cmsc-207-team-alpha.000webhostapp.com/app/dashboard.php';
+			window.location='dashboard.php';
           },
           error: function (response) {
           $("#result").removeClass();
