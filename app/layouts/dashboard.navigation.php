@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 {
-   header("location: logout.php");
+   header("location: login.php");
 }
 ?>
 
