@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +60,7 @@
         if(!empty($_POST['email']) && !empty($_POST['password'])) {  
             $email=$_POST['email'];  
             $password=$_POST['password'];
+	    $_SESSION['admin']=$email;
             /*if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {  
 		    $_SESSION['admin']=$email;
