@@ -1,10 +1,10 @@
 <?php
-session_start();
-      if(!isset($_SESSION['admin_id']))
-       {
-           header("Location:login.php");  
-       }
+if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
+{
+   header("location: logout.php");
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
