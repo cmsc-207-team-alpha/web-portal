@@ -62,6 +62,7 @@ session_start();
             $password=$_POST['password'];
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {  
+		    $_SESSION['admin']=$email;
                     $_SESSION['sess_user']=$row['email'];
                     echo 'You are currently logged in';
                 }
