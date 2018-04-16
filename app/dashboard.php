@@ -1,8 +1,12 @@
 <?php
+session_start();
+
       if(!isset($_SESSION['admin']))
        {
            header("Location:login.php");  
-       }
+       }else{
+	      header("Location:fare/index.php");
+      }
 ?>
 
 <!DOCTYPE html>
