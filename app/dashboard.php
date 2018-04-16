@@ -1,14 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<?php include_once "layouts/dashboard.header.php"?>
-    <!-- Highcharts -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-	</head>
-	
-	<?php
+<?php
       if(!isset($_SESSION['admin'])) // If session is not set then redirect to Login Page
        {
            header("Location:Login.php");  
@@ -20,6 +10,17 @@
       }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<?php include_once "layouts/dashboard.header.php"?>
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+	</head>
+	
+
 	
 	<body class="login-page" onload="loadtripsfunction()">
 		<?php include_once "layouts/dashboard.navigation.php"?>
