@@ -13,6 +13,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="../map.php">
+                  <span class="fa fa-fw fa-map"></span>
+                  Map
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="../drivers.php">
                   <span class="fa fa-fw fa-users"></span>
                   Drivers

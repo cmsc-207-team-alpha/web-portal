@@ -17,6 +17,9 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             <a class="nav-link" href="dashboard.php">Dashboard</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="map.php">Map</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="drivers.php">Drivers</a>
           </li>
           <li class="nav-item">
