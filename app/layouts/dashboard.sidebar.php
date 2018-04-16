@@ -19,9 +19,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="rides.php">
+                <a class="nav-link" href="trips.php">
                   <span class="fa fa-fw fa-car"></span>
-                  Rides
+                  Trips
                 </a>
               </li>
               <li class="nav-item">

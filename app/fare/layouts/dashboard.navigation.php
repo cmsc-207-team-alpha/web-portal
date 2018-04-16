@@ -20,7 +20,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             <a class="nav-link" href="/app/drivers.php">Drivers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/app/rides.php">Rides</a>
+            <a class="nav-link" href="/app/trips.php">Trips</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php">Fare</a>
