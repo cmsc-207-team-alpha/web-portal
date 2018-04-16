@@ -1,14 +1,6 @@
 <?php
 session_start();
-
-      if(!isset($_SESSION['admin']))
-       {
-           header("Location:login.php");  
-       }else{
-	      header("Location:fare/index.php");
-      }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -17,22 +9,16 @@ session_start();
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 	</head>
-	
-
-	
 	<body class="login-page" onload="loadtripsfunction()">
 		<?php include_once "layouts/dashboard.navigation.php"?>
 	    <div class="container-fluid">
 	      <div class="row">
 	      	<?php include_once "layouts/dashboard.sidebar.php"?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-
 	          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 	            <h1 class="h2"><span class="fa fa-fw fa-tachometer-alt"></span> Dashboard</h1>
 						</div>
-
  <!-- TRIPS METRIC -->
-
     <div class="row" >
 		<div align="center" class="col-md-11" style="margin: 10px;">
         <h3>Trips Metric</h3>
@@ -66,7 +52,6 @@ session_start();
             </div>
         </div>
         </div>
-
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
@@ -81,7 +66,6 @@ session_start();
             </div>
         </div>
         </div>
-
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
@@ -96,7 +80,6 @@ session_start();
             </div>
         </div>
         </div>
-
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
@@ -111,7 +94,6 @@ session_start();
             </div>
         </div>
         </div>
-
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
@@ -126,7 +108,6 @@ session_start();
             </div>
         </div>
         </div>
-
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
@@ -142,9 +123,6 @@ session_start();
         </div>
         </div>
 		</div>
-
-
-
 						<div class="row">
 							<div class="col-md-6">
 								<div id="columnchart" style="margin: 10px;"></div>
@@ -153,10 +131,7 @@ session_start();
 								<div id="piechart" style="margin: 10px;"></div>
 							</div>
 						</div>
-
-
   
-
 			<div class="row">
 							<div class="col-md-4">
 								<div id="farechart" style="margin: 10px;"></div>
@@ -165,21 +140,11 @@ session_start();
 								<div id="fareadjustmentschart" style="margin: 10px;"></div>
 							</div>
 						</div>
-
 </div>
-
-
-
 					</main>
 				</div>
 			</div>
-
-
-
 <script>
-
-
-
 //BASE FARE
     function loadfarefunction() {
     avgbasefare();
@@ -207,7 +172,6 @@ session_start();
         dataType: "json"
       });
   }
-
 //TRIPS
     function loadtripsfunction() {
     trips();
@@ -231,12 +195,7 @@ session_start();
         dataType: "json"
       });
   }
-
-
-
-
 // COLUMN CHART
-
 			function getAdminStats() {
                 return JSON.parse($.ajax({
                         type: 'GET',
@@ -249,11 +208,9 @@ session_start();
                         async:false,
                         success: function(response) {
                             return response;
-
                         }
                     }).responseText);
             }
-
 	function getDriverStats() {
                 return JSON.parse($.ajax({
                         type: 'GET',
@@ -266,11 +223,9 @@ session_start();
                         async:false,
                         success: function(response) {
                             return response;
-
                         }
                     }).responseText);
             }
-
 	function getPassengerStats() {
                 return JSON.parse($.ajax({
                         type: 'GET',
@@ -283,7 +238,6 @@ session_start();
                         async:false,
                         success: function(response) {
                             return response;
-
                         }
                     }).responseText);
             }
@@ -291,14 +245,12 @@ session_start();
 		var adminstats = getAdminStats();
 		var driverstats = getDriverStats();
 		var passengerstats = getPassengerStats();
-
     Highcharts.chart('columnchart', {
         chart: {
             type: 'column'
         },
         title: {
             text: 'Admin, Driver, & Passenger Metrics'
-
         },
         xAxis: {
             categories: ['Admin', 'Driver', 'Passenger']
@@ -316,7 +268,6 @@ session_start();
                 }
             }
         },
-
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
             pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
@@ -338,7 +289,6 @@ session_start();
             data: [adminstats['totaladmin'] - adminstats['totalactive'], driverstats['totaldriver'] - driverstats['totalactive'], passengerstats['totalactive'] - passengerstats['totalactive']]
         }]
 		});
-
 // PIE CHART
     function getJson() {
                 return JSON.parse($.ajax({
@@ -352,13 +302,10 @@ session_start();
                         async:false,
                         success: function(response) {
                             return response;
-
                         }
                     }).responseText);
             }
-
     var vehicleStatus = getJson();
-
     Highcharts.chart('piechart', {
         chart: {
             plotBackgroundColor: null,
@@ -397,7 +344,6 @@ session_start();
                 ['On-Duty', vehicleStatus["totalonduty"]],
                 ['On-Trip', vehicleStatus["totalontrip"]],
                 ['Available', vehicleStatus["totalavailable"]],
-
                 {
                     dataLabels: {
                         enabled: true
@@ -407,7 +353,6 @@ session_start();
         }]
 		});
 		
-
 	function getFareStats() {
                 return JSON.parse($.ajax({
                         type: 'GET',
@@ -420,14 +365,11 @@ session_start();
                         async:false,
                         success: function(response) {
                             return response;
-
                         }
                     }).responseText);
             }
 		
 		var farestats = getFareStats();
-
-
   
 	Highcharts.chart('farechart', {
     title: {
@@ -465,7 +407,6 @@ session_start();
         }
     }]
 });
-
   
 Highcharts.chart('fareadjustmentschart', {
     title: {
@@ -503,9 +444,6 @@ Highcharts.chart('fareadjustmentschart', {
         }
     }]
 });
-
-
-
 		//TRIPS
     function loadtripsfunction() {
     trips();
