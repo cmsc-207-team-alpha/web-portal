@@ -1,4 +1,4 @@
-<?php
+/* <?php
 session_start();
 
       if(!isset($_SESSION['admin']))
@@ -7,7 +7,7 @@ session_start();
        }else{
 	      header("Location:fare/index.php");
       }
-?>
+?> */
 
 <!DOCTYPE html>
 <html lang="en">
