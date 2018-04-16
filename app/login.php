@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,20 +51,17 @@ session_start();
                 </div>
 
 <?php
-
-    if(isset($_COOKIE["login_hold"])){
-    echo 'Youre not allowed to login for 30 minutes<br/>';
-}
-else {    
+  
     if(isset($_POST["submit"])){    
         if(!empty($_POST['email']) && !empty($_POST['password'])) {  
             $email=$_POST['email'];  
             $password=$_POST['password'];
-            if ($result->num_rows > 0) {
+            /*if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {  
+		    $_SESSION['admin']=$email;
                     $_SESSION['sess_user']=$row['email'];
                     echo 'You are currently logged in';
-                }
+                }*/
             }else {  
                 echo "Invalid email address or password!<br/>";  
                 $_SESSION['login_attempts'] = $_SESSION['login_attempts'] + 1;
@@ -82,7 +75,6 @@ else {
             echo "All fields are required!";  
         }  
     }
-}
 ?>
 
                 <div class="form-group no-margin">

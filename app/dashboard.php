@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,6 +6,9 @@ session_start();
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 	</head>
+	
+
+	
 	<body class="login-page" onload="loadtripsfunction()">
 		<?php include_once "layouts/dashboard.navigation.php"?>
 	    <div class="container-fluid">
