@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,11 +12,12 @@ session_start();
       if(!isset($_SESSION['admin'])) // If session is not set then redirect to Login Page
        {
            header("Location:Login.php");  
-       }
+       }else{
 
           echo $_SESSION['admin'];
 
           echo "Login Success";
+      }
 
 ?>
 	
