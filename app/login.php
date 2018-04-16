@@ -74,7 +74,7 @@
         } else {  
             echo "All fields are required!";  
         }  
-    }
+
 ?>
 
                 <div class="form-group no-margin">
