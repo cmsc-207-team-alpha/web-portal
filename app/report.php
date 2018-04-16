@@ -1,694 +1,229 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
-<html>
+<style>
+	.btn-default{
+		color: #333;
+	    background-color: #fff;
+	    border-color: #ccc !important;
+	}
+</style>
+<html lang="en">
+	<head>
 
-<head>
-	<!-- <?php include_once("layouts/dashboard.sidebar.php") ?> -->
-    <link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+		<?php include_once("layouts/dashboard.header.php") ?>
 
-    <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-
-    <link href="css/helper.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-    <script src="../vendor/twbs/bootstrap/dist/css/bootstrap.min.js"></script>
-    <script src="../vendor/components/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-    <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-    <!-- Highcharts -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-
-
-    <title>UPOU CMSC-207 Team Alpha - Web Portal</title>
-</head>
-
-<body class="reports-page" onload="loadfarefunction(); loadtripsfunction()">
-	<?php include_once("layouts/dashboard.navigation.php") ?> 
-
-    <!-- TITLE -->
-    <div>
-        <div class = "col-md-12">
-        <div class ="row" style="padding-left:30px"><h1>Reports</h1></div> 
-        </div>
-    </div>
- 	
-    <!-- DATE PICKER, PAYMENTS ROW -->
-    <div class = "col-md-12" align="center">
-        <div class="card p-60">
-        <h3>Revenue</h3>
-        </div>
-    </div> 
-    <div class="bootstrap-iso">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                <div class="card p-60">
-                <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h1><br><br>Php 100<br></h1>
-                    <p class="m-b-0"><br><br><br><br><br>Total Payments</p>
-                </div>
-                </div>
-                </div>
-                </div> 
-                <div class="col-md-6 col-sm-6">
-                <div class="form-group ">
-                <label class="control-label col-sm-2" for="date1">
-                Date
-                </label>
-                <div class="col-sm-10">
-                <input class="form-control" id="date1" name="date1" placeholder="MM/DD/YYYY" type="text"/>
-                </div>
-                </div>
-                <div class="form-group ">
-                <label class="control-label col-sm-2" for="date">
-                Date
-                </label>
-                <div class="col-sm-10">
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-                </div>
-                </div>
-                <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2">
-                <button class="btn btn-success btn-lg btn-block outline" name="submit" type="submit">
-                Submit
-                </button>
-                </div>
-                </div>      
-                </div>
-            </div>
-        </div>
-    </div>
- 
- 
-    <!-- BASE FARE ROW -->
-    <div class = "col-md-12" align="center">
-        <div class="card p-60">
-        <h3>Base Fare</h3>
-        </div>
-    </div>  
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card p-60">
-                <div class="media">
-                    <div class="media-left media media-middle">
-                        <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                    </div>
-                    <div class="media-body media-text-right">
-                        <h2 id="avgbasefare"></h2>
-                        <p class="m-b-0">Average</p>
-                    </div>
-                </div>
-            </div>
-        </div>   
-
-        <div class="col-md-4">
-            <div class="card p-60">
-                <div class="media">
-                    <div class="media-left media media-middle">
-                        
-                        <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                    </div>
-                    <div class="media-body media-text-right">
-
-                        <h2 id="lowestbasefare"></h2>
-                        <p class="m-b-0">Lowest</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>    
-
-        <div class="col-md-4">
-            <div class="card p-60">
-                <div class="media">
-                    <div class="media-left media media-middle">                          
-                        <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                    </div>
-                    <div class="media-body media-text-right">
-                        <h2 id="hightestbasefare"></h2>
-                        <p class="m-b-0">Highest</p>
-                    </div>
-                </div>
-            </div>
-        </div>   
-    </div>
-    <!-- FARE PER KILOMETER, VEHICLE STATUS-->
-    <div align="left" class="col-md-12">
-        <div class="card p-60">
-        <h3>Fare Per Kilometer</h3>
-        </div>
-    </div> 
-
-    <div class="row">
-        <div class="col-md-3" align="center">
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="avgfareperkm"></h2>
-                    <p class="m-b-0">Average</p>
-                </div>
-            </div>
-        </div>
-               
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="lowestfareperkm"></h2>
-                    <p class="m-b-0">Lowest</p>
-                </div>
-            </div>
-        </div>
-               
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="hightestfareperkm"></h2>
-                    <p class="m-b-0">Highest</p>
-                </div>
-            </div>
-        </div>
-      </div>
-
-    <!-- COLUMN CHART -->   
-        <div class="col-md-9" align="right">
-            <div id="columnchart" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
-            </div>  
-        </div>      
-    </div>        
-
-    <!-- FARE PER MINUTE -->
-    <div align="left" class="col-md-12">
-        <div class="card p-60">
-        <h3>Fare Per Minute</h3>
-        </div>
-    <div align="center" class="row">       
-
-        <div class="col-md-3" align="center">
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="avgfareperminute"></h2>
-                    <p class="m-b-0">Average</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="lowestfareperminute"></h2>
-                    <p class="m-b-0">Lowest</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-left meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="hightestfareperminute"></h2>
-                    <p class="m-b-0">Highest</p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-9">
-            <div id="piechart" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
-        </div> 
-        
-    </div>
-
-   <!-- TRIPS METRIC -->
-
-    <div align="center" class="col-md-12">
-        <div class="card p-60">
-        <h3>Trips Metric</h3>
-    </div>
-
-    <div class="row">
-    <div class="col-md-6" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right meida media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="total"></h2>
-                    <p class="m-b-0">TOTAL</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-                </div>             
-            </div>
-        </div>
-    
-        <div class="col-md-3" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right media media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="totalrequested"></h2>
-                    <p class="m-b-0">Requested</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-3" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right media media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="totalassigned"></h2>
-                    <p class="m-b-0">Assigned</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-3" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right media media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="totalrejected"></h2>
-                    <p class="m-b-0">Rejected</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-3" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right media media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="totalongoing"></h2>
-                    <p class="m-b-0">Ongoing</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-3" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right media media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="totalcompleted"></h2>
-                    <p class="m-b-0">Completed</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <div class="col-md-3" >
-        <div class="card p-60">
-            <div class="media">
-                <div class="media-right media media-middle">
-                    <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
-                </div>
-                <div class="media-body media-text-right">
-                    <h2 id="totalcancelled"></h2>
-                    <p class="m-b-0">Cancelled</p>
-                    <p></p>
-                    <div class="progress ">
-                    <div role="progressbar" style="width: 85%; height:9px;" class="progress-bar bg-danger wow animated progress-animated"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="row">
-    	<div align="center">
-        	<p>&copy; UPOU CMSC-207 Team Alpha - Web Portal</p>
-      	</div>
-    </div>
-
-</body>
-
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="../app/assets/stylesheets/datatables.min.css">
+	</head>
+	<body class="login-page">
+		<?php include_once("layouts/dashboard.navigation.php") ?>
+		<script src="../app/assets/js/datatables.min.js"></script>
+	    <div class="container-fluid">
+	      <div class="row">
+	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
+	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
+							<h1 class="h2"><span class="fa fa-fw fa-chart-line"></span> Reports</h1>
+								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+								</div>
+						</div>
+						<div class="table-responsive" id="trip_preview">
+						</div>
+						<div class="table-responsive" id="payment_list">
+							<table class="table table-striped table-sm" id="payment_table">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Trip ID</th>
+										<th>Date</th>
+										<th>Mode</th>
+										<th>Amount</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody id="payment_tbl">
+								</tbody>
+							</table>
+						</div>
+	        </main>
+	      </div>
+	    </div>
+	</body>
+</html>
 
 <script>
+$(document).ready(function(){
+	load_payments();
+});
+function load_payments() {
+	$('#payment_tbl').empty();
+	$.ajax({
+     type: "POST",
+     url: "/api/payment/filterpayment.php",
+     data:JSON.stringify({
+         from: '0001-01-01',
+         to: '9999-12-31'
+    }),
+    success: function (response) {
+    	$.each(response, function(k, data) {
+    		$('#payment_tbl').append('<tr>'+
+				'<td>'+data.id+'</td>'+
+				'<td>'+data.tripid+'</td>'+
+				'<td>'+data.date+'</td>'+
+				'<td>'+data.mode+'</td>'+
+				'<td>'+data.amount+'</td>'+
+				'<td>'+
+					'<button class="btn btn-sm btn-default" onclick="get_trip('+data.tripid+')" title="View Details" data-toggle="tooltip">'+
+						'<span class="fa fa-eye"></span> '+
+					'</button>'+
+				'</td>'+
+			'</tr>');
+    		
+		});
 
-// DATE PICKER/PAYMENT
-        $(document).ready(function(){
-        var date1_input=$('input[name="date1"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date1_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-        })
+		$('#payment_table').DataTable({
+          "paging": true,
+          "bFilter": true
+        });
+    },
+    error: function (response) {
+     alert(response.responseJSON["message"]);
+    },
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json"
+  });
+};
 
-        $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-        })
-
-
-//BASE FARE
-    function loadfarefunction() {
-    avgbasefare();
-    }
-    var avgbasefare = function () {
-      $.ajax({
-        type: "GET",
-        url: "/api/report/farestats.php",
-        success: function (response) {
-          // $("#avgbasefare").removeClass();
-          // $('#avgbasefare').addClass('alert alert-success');
-          $('#avgbasefare').html("Php " + response["avgbasefare"]);
-          $('#lowestbasefare').html("Php " + response["lowestbasefare"]);
-          $('#hightestbasefare').html("Php " + response["hightestbasefare"]);
-          $('#avgfareperkm').html("Php " + response["avgfareperkm"]);
-          $('#lowestfareperkm').html("Php " + response["lowestfareperkm"]);
-          $('#hightestfareperkm').html("Php " + response["hightestfareperkm"]);
-          $('#avgfareperminute').html("Php " + response["avgfareperminute"]);
-          $('#lowestfareperminute').html("Php " + response["lowestfareperminute"]);
-          $('#hightestfareperminute').html("Php " + response["hightestfareperminute"]);
-        },
-        error: function (response) {
-        },
+function get_trip_details(id) {
+	return JSON.parse($.ajax({
+		type: 'GET',
+        url: "/api/trip/get.php?id=" + id,
+        data: JSON.stringify({
+        }),
         contentType: "application/json; charset=UTF-8",
-        dataType: "json"
-      });
-  }
+        dataType: 'html',
+        global: false,
+        async:false,
+        success: function(response) {
+        return response;}
+	}).responseText);
+};
 
-//TRIPS METRICS
-    function loadtripsfunction() {
-    trips();
-    }
-      var trips = function () {
-      $.ajax({
-        type: "GET",
-        url: "/api/report/tripstats.php",
-        success: function (response) {
-          $('#total').html(response["total"]);
-          $('#totalrequested').html(response["totalrequested"]);
-          $('#totalassigned').html(response["totalassigned"]);
-          $('#totalrejected').html(response["totalrejected"]);
-          $('#totalongoing').html(response["totalongoing"]);
-          $('#totalcompleted').html(response["totalcompleted"]);
-          $('#totalcancelled').html(response["totalcancelled"]);
-        },
-       error: function (response) {
-        },
+function get_vehicle_details(id) {
+	return JSON.parse($.ajax({
+		type: 'GET',
+        url: "/api/vehicle/get.php?id=" + id,
+        data: JSON.stringify({
+        }),
         contentType: "application/json; charset=UTF-8",
-        dataType: "json"
-      });
-  }
+        dataType: 'html',
+        global: false,
+        async:false,
+        success: function(response) {
+        return response;}
+	}).responseText);
+};
 
-    
+function get_driver_details(id) {
+	return JSON.parse($.ajax({
+		type: 'GET',
+        url: "/api/driver/get.php?id=" + id,
+        data: JSON.stringify({
+        }),
+        contentType: "application/json; charset=UTF-8",
+        dataType: 'html',
+        global: false,
+        async:false,
+        success: function(response) {
+        return response;}
+	}).responseText);
+};
 
+function get_passenger_details(id) {
+	return JSON.parse($.ajax({
+		type: 'GET',
+        url: "/api/passenger/get.php?id=" + id,
+        data: JSON.stringify({
+        }),
+        contentType: "application/json; charset=UTF-8",
+        dataType: 'html',
+        global: false,
+        async:false,
+        success: function(response) {
+        return response;}
+	}).responseText);
+};
+function get_trip(id) {  
+	trip = get_trip_details(id);
+	vehicle = get_vehicle_details(trip.vehicleid);
+	passenger = get_passenger_details(trip.passengerid)[0];
+	driver = get_driver_details(vehicle.driverid);
 
-// COLUMN CHARTS
+	view = '<div class="col-md-12">'+
+            '<div class="page-header">'+
+                '<h4 style="text-align:center">View Trip</h4>'+
+                '<hr>'+
+            '</div>'+
+            '<div class="row">'+
+	            '<div class="col-md-12">'+
+	            	'<div class="row">'+
+		            	'<div class="col-md-4">'+
+			                '<label>Trip ID</label><br>'+
+			                '<h6>'+trip.id+'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Date</label><br>'+
+			                '<h6>'+trip.datecreated+'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Stage</label><br>'+
+			                '<h6>'+trip.stage+'</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+	            	'<div class="row">'+
+		            	'<div class="col-md-6">'+
+			                '<label>Source</label><br>'+
+			                '<h6>'+trip.source+' (' + trip.sourcelat + ', ' + trip.sourcelong + ')</h6>'+
+		                '</div>'+
+		                '<div class="col-md-6">'+
+			                '<label>Destination</label><br>'+
+			                '<h6>'+trip.destination+' (' + trip.destinationlat + ', ' + trip.destinationlong + ')</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+		            '<div class="row">'+
+		                '<div class="col-md-4">'+
+			                '<label>Passenger</label><br>'+
+			                '<h6>'+passenger.firstname + ' ' +passenger.lastname +'</h6>'+
+		                '</div>' +
+		                '<div class="col-md-4">'+
+			                '<label>Driver</label><br>'+
+			                '<h6>'+ (trip.vehicleid > 0 ? (driver.firstname + ' ' + driver.lastname) : '-')+ '</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Amount</label><br>'+
+			                '<h6>'+trip.amount +'</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+		            '<div class="row">'+
+		                '<div class="col-md-4">'+
+			                '<label>Vehicle</label><br>'+
+			                '<h6>'+ (trip.vehicleid > 0 ? (vehicle.color + ' ' + vehicle.make + ' ' + vehicle.model) : '-') + '</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Vehicle Type</label><br>'+
+			                '<h6>'+ (trip.vehicleid > 0 ? (vehicle.type) : '-')+'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Plate No.</label><br>'+
+			                '<h6>'+ (trip.vehicleid > 0 ? (vehicle.plateno) : '-') +'</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+				'</div>'+
+			'</div>'+		
+			'<hr>'+
+		'</div>';
+        $('#trip_preview').html(view);
+};
 
-//ADMIN STATS
-    var admintotal = 0;
-    var adminactive = 0;
-    var adminnonactive = 0;
-
-    function getadmin() {
-            return JSON.parse($.ajax({
-                    type: 'GET',       
-                    url: "/api/report/adminstats.php",
-                    data: JSON.stringify({
-                        }),
-                    contentType: "application/json; charset=UTF-8",
-                    dataType: 'html',
-                    global: false,
-                    async:false,
-                    success: function(response) {
-        admintotal = response["totaladmin"];
-        adminactive = response["totalactive"] 
-        adminnonactive = (response["totaladmin"] - response["totalactive"]);;
-
-                    }
-                }).responseText);
-        }
-
-//DRIVER STATS
-    var drivertotal = 0;
-    var driveractive = 0;
-    var drivernonactive = 0;
-
-    var getdriver = getJson();
-
-
-        function getadmin() {
-                return JSON.parse($.ajax({
-                        type: 'GET',       
-                        url: "/api/report/driverstats.php",
-                        data: JSON.stringify({
-                            }),
-                        contentType: "application/json; charset=UTF-8",
-                        dataType: 'html',
-                        global: false,
-                        async:false,
-                        success: function(response) {
-            drivertotal = response["totaldriver"];
-            driveractive = response["totalactive"] 
-            drivernonactive = (response["totalblocked"]);;
-
-                        }
-                    }).responseText);
-            }
-
-    var getadmin = getJson();
-
-
-//PASSENGER STATS
-
-
-    var passengerdriver = getJson();
-
-        var passengertotal = 0;
-        var passengeractive = 0;
-        var passengernonactive = 0;
-
-
-        function getadmin() {
-                return JSON.parse($.ajax({
-                        type: 'GET',       
-                        url: "/api/report/driverstats.php",
-                        data: JSON.stringify({
-                            }),
-                        contentType: "application/json; charset=UTF-8",
-                        dataType: 'html',
-                        global: false,
-                        async:false,
-                        success: function(response) {
-            passengertotal = response["totaldriver"];
-            passengeractive = response["totalactive"] 
-            passengernonactive = (response["totalblocked"]);;
-
-                        }
-                    }).responseText);
-            }
-
-    var getpassenger = getJson();
-
-
-
-
-    Highcharts.chart('columnchart', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Admin, Driver, & Passenger Metrics'
-
-        },
-        xAxis: {
-            categories: ['Admin', 'Driver', 'Passenger']
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Total'
-            },
-            stackLabels: {
-                enabled: true,
-                style: {
-                    fontWeight: 'normal',
-                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-                }
-            }
-        },
-
-        tooltip: {
-            headerFormat: '<b>{point.x}</b><br/>',
-            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-        },
-        plotOptions: {
-            column: {
-                stacking: 'normal',
-                dataLabels: {
-                    enabled: true,
-                    color: 'gray'
-                }
-            }
-        },
-        series: [{
-            name: 'Active',
-            data: [adminactive, driveractive, passengeractive],
-                
-                
-
-        }, {
-            name: 'Non-Active',
-            data: [adminnonactive, drivernonactive, passengernonactive]
-        }]
-    });
-
-// PIE CHART
-
-    function getJson() {
-                return JSON.parse($.ajax({
-                        type: 'GET',       
-                        url: "/api/report/vehiclestats.php",
-                        data: JSON.stringify({
-                            }),
-                        contentType: "application/json; charset=UTF-8",
-                        dataType: 'html',
-                        global: false,
-                        async:false,
-                        success: function(response) {
-                            return response;
-
-                        }
-                    }).responseText);
-            }
-
-    var vehicleStatus = getJson();
-    
-    Highcharts.chart('piechart', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
-        title: {
-            text: 'Vehicle<br>Status',
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 40
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: true,
-                    distance: -50,
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'white'
-                    }
-                },
-                startAngle: -90,
-                endAngle: 90,
-                center: ['50%', '75%']
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Vehicles',
-            innerSize: '50%',
-            data: [
-                ['On-Duty', vehicleStatus["totalonduty"]],
-                ['On-Trip', vehicleStatus["totalontrip"]],
-                ['Available', vehicleStatus["totalavailable"]],
-
-                {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            ]
-        }]
-    });
-
-
-
-</script>   
-    
-</html>
+</script>
