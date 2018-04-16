@@ -78,7 +78,6 @@ session_start();
             echo "All fields are required!";  
         }  
     }
-}
 ?>
 
                 <div class="form-group no-margin">
