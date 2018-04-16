@@ -1,4 +1,12 @@
 <?php
+session_start();
+      if(!isset($_SESSION['admin_id']))
+       {
+           header("Location:login.php");  
+       }
+?>
+
+<?php
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 //echo $page;
