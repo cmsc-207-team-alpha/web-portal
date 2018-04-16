@@ -1,10 +1,3 @@
-<?php
-if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
-{
-   header("location: login.php");
-}
-?>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-success sticky-top flex-md-wrap p-0">
       <a class="navbar-brand bg-success col-md-2 mr-0 text-center" href="index.php">Team Alpha</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
