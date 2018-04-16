@@ -9,6 +9,19 @@ session_start();
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 	</head>
+	
+	<?php
+      if(!isset($_SESSION['admin'])) // If session is not set then redirect to Login Page
+       {
+           header("Location:Login.php");  
+       }
+
+          echo $_SESSION['admin'];
+
+          echo "Login Success";
+
+?>
+	
 	<body class="login-page" onload="loadtripsfunction()">
 		<?php include_once "layouts/dashboard.navigation.php"?>
 	    <div class="container-fluid">
