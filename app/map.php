@@ -105,17 +105,18 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             animation: google.maps.Animation.DROP,
             title: 'Vehicle ID: ' + vehicle.id
             });
-            var driver = getDriver(vehicle.driverid);
             var info = 
-                '<strong>Driver ID:</strong> ' + driver.id + '<br>' +
-                '<strong>Driver:</strong> ' + driver.firstname + ' ' + driver.lastname + '<br>' +
+                '<strong>Driver ID:</strong> ' + vehicle.driverid + '<br>' +
+                '<strong>Driver:</strong> ' + vehicle.driverfirstname + ' ' + vehicle.driverlastname + '<br>' +
                 '<strong>Vehicle ID:</strong> ' + vehicle.id + '<br>' +
                 '<strong>Plate No.:</strong> ' + vehicle.plateno + '<br>' +
+                '<strong>Type:</strong> ' + vehicle.type + '<br>' +
                 '<strong>Make:</strong> ' + vehicle.make + '<br>' +
                 '<strong>Model:</strong> ' + vehicle.model + '<br>' +
                 '<strong>Color:</strong> ' + vehicle.color + '<br>' +
-                '<strong>Active:</strong> ' + (vehicle.active === 1 ? 'Yes' : 'No') + '<br>' +
-                '<strong>Available:</strong> ' + (vehicle.available === 1 ? 'Yes' : 'No')
+                '<strong>On Duty:</strong> ' + (vehicle.active === 1 ? 'Yes' : 'No') + '<br>' +
+                '<strong>Available:</strong> ' + (vehicle.available === 1 ? 'Yes' : 'No') + '<br>' +
+                '<strong>Location:</strong> ' + vehicle.locationlat + ', ' + vehicle.locationlong
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
 
@@ -131,7 +132,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             var passenger = getPassenger(trip.passengerid);
             var info = 
                 '<strong>Trip ID:</strong> ' + trip.id + '<br>' +
-                '<strong>Stage:</strong> Requested (No driver assigned yet)<br>' +
+                '<strong>Stage:</strong> Requested (No driver automatically assigned)<br>' +
                 '<strong>Passenger ID:</strong> ' + passenger.id + '<br>' +
                 '<strong>Passenger:</strong> ' + passenger.firstname + ' ' + passenger.lastname + '<br>'
             makeInfoWindowEvent(map, infowindow, info, marker);
@@ -176,20 +177,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
       function getVehicles() {
             return JSON.parse($.ajax({
                 type: 'GET',
-                url: "/api/vehicle/get.php",
-                contentType: "application/json; charset=UTF-8",
-                dataType: 'html',
-                global: false,
-                async:false,
-                success: function(response) {
-                return response;}
-            }).responseText);
-        };
-
-    function getDriver(id) {
-            return JSON.parse($.ajax({
-                type: 'GET',
-                url: "/api/driver/get.php?id=" + id,
+                url: "/api/vehicle/getwithdriver.php",
                 contentType: "application/json; charset=UTF-8",
                 dataType: 'html',
                 global: false,
