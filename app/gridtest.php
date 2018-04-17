@@ -315,7 +315,36 @@ function add_document(id) {
     dataType: "json"
   });
 };
-
+function get_doc(id) {
+ 	$.ajax({
+	    url: "/api/driver/getdocument.php?id=" + id,
+	    async: false,
+	    success: function (response) {
+	    },
+	    error: function (response) {
+	     alert(response.responseJSON["message"]);
+	    },
+	    contentType: "application/json; charset=UTF-8",
+	    dataType: "json"
+	});
+};
+function dlt_doc(id, driver_id){
+	var r = confirm("Are you sure you want to delete this document?");
+    if (r == true) {
+       $.ajax({
+       		type: "POST",
+		    url: "/api/driver/deletedocument.php?id=" + id,
+		    async:false,		    
+ 			data:JSON.stringify({
+        		id: id
+    		}),
+		    success: function (response) { get_driver(driver_id);},
+		    error: function (response) {
+		     alert(response.responseJSON["message"]);
+		    }
+		});
+    }
+}
 
 function get_driver(id) {  
   $.ajax({
