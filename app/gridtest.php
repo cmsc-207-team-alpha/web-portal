@@ -34,7 +34,6 @@
 										<th>field_6</th>
 										<th>field_7</th>
 										<th>field_8</th>
-										<th>field_9</th>
 									</tr>
 								</thead>
 								<tbody id="drivers_tbl">
@@ -59,21 +58,15 @@ function load_drivers() {
     	ct=0;
     	$.each(response, function(k, data) {
     		ct++;
-    		stat = '<span class="btn-success btn-sm" href="#" role="button">Active</span>';
-    		blocked = '<span class="btn-danger btn-sm" href="#" role="button">Blocked</span>';
-    		verified = '<span class="btn-success btn-sm" href="#" role="button">Verified</span>';
-    		if(data.active == 0) stat = '<span class="btn-danger btn-sm" href="#" role="button">Inactive</span>';
-    		if(data.blocked == 0) blocked = '<span class="btn-success btn-sm" href="#" role="button">Not Blocked</span>';
-    		if(data.verified == 0) verified = '<span class="btn-danger btn-sm" href="#" role="button">Not Verified</span>';
     		$('#drivers_tbl').append('<tr>'+
 				'<td>'+ct+'</td>'+
 				'<td>'+data.firstname+' ' +data.lastname+'</td>'+
 				'<td>'+data.email+'</td>'+
 				'<td>'+data.mobile+'</td>'+
-				'<td>'+verified+'</td>'+
-				'<td>'+blocked+'</td>'+
-				'<td>'+stat+'</td>'+
-				'<td>3.5</td>'+
+				'<td></td>'+
+				'<td></td>'+
+				'<td></td>'+
+				'<td></td>'+
 				'<td>'+
 					
 				'</td>'+
