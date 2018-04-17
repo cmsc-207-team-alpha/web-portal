@@ -15,7 +15,7 @@
 
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Drivers</h1>
+							<h1 class="h2"><span class="fa fa-fw fa-users"></span> 208</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 
 								</div>
@@ -107,77 +107,6 @@ function load_drivers() {
   });
 };
 
-
-function add_document(id) {
-  $.ajax({
-    url: "/api/driver/get.php?id=" + id,
-    success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
-            '<div class="page-header">'+
-                '<h4 style="text-align:center">Add Document</h4>'+
-                '<hr>'+
-            '</div>'+
-            '<div class="row">'+
-            	'<div class="col-md-3">'+
-	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
-	            	'</div>'+
-	            '</div>'+
-	            '<div class="col-md-9">'+
-	            	'<div class="row">'+
-		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<h6>'+response.firstname+' ' +response.lastname+'</h6>'+ 
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<h6>'+response.mobile +'</h6>'+
-		                '</div>'+
-		            '</div><br>'+
-		            '<div class="row">'+
-		            	 '<div class="col-md-4">'+
-			                '<label>Description</label><br>'+
-			                '<input type="text" class="form-control" id="description">'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Type</label><br>'+
-			                '<input type="text" class="form-control" id="type">'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-		              	    '<label>Document</label><br>'+
-		              	    '<input type="hidden" id="doc_holder">'+
-		              	    '<input type="file" id="doc">'+
-		              	  '</div>'+
-		              	'</div>'+
-		              	'<div class="col-md-12" style="margin-top:10px;">'+
-			            	'<div style="float:right">'+
-				            '<button style="margin-right:10px;" onclick="go_upload('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
-				            '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
-				            '</div>'+
-			            '</div>'+
-	            '</div>'+       
-            '</div>'+
-            '<hr>'+
-            '<br>'+
-        '</div>');
-        $('#active').val(response.active);
-		$('#verified').val(response.verified);
-		$('#blocked').val(response.blocked);
-		document.getElementById("doc").onchange = function () {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	            document.getElementById("doc_holder").value = e.target.result;
-	        };
-	        reader.readAsDataURL(this.files[0]);
-    	};
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-};
 function get_doc(id) {
  	$.ajax({
 	    url: "/api/driver/getdocument.php?id=" + id,
