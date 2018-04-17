@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="../app/assets/stylesheets/datatables.min.css">
 	</head>
 	<body class="login-page">
+		<?php include_once("layouts/dashboard.navigation.php") ?>
 
 		<script src="../app/assets/js/datatables.min.js"></script>
 	    <div class="container-fluid">
