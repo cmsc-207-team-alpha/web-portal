@@ -15,7 +15,6 @@
 
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> sleepy</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 
 								</div>
