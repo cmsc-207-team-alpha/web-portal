@@ -174,77 +174,7 @@ function edit_driver(id) {
     dataType: "json"
   });
 };
-function update_stats(id) {
-  $.ajax({
-    url: "/api/driver/get.php?id=" + id,
-    success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
-            '<div class="page-header">'+
-                '<h4 style="text-align:center">Update Driver Status</h4>'+
-                '<hr>'+
-            '</div>'+
-            '<div class="row">'+
-            	'<div class="col-md-3">'+
-	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
-	            	'</div>'+
-	            '</div>'+
-	            '<div class="col-md-9">'+
-	            	'<div class="row">'+
-		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<h6>'+response.firstname+' ' +response.lastname+'</h6>'+ 
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<h6>'+response.mobile +'</h6>'+
-		                '</div>'+
-		            '</div><br>'+
-		            '<div class="row">'+
-		                '<div class="col-md-4">'+
-			                '<label>Verified</label><br>'+
-			                '<select class="form-control" id="verified">'+
-			                 	'<option value="0">Not Verified</option>'+
-			                 	'<option value="1">Verified</option>'+
-			                '</select>'+
-		                '</div>'+
-		                 '<div class="col-md-4">'+
-			                '<label>Is Blocked</label><br>'+
-			                '<select class="form-control" id="blocked">'+
-			                 	'<option value="0">Not Blocked</option>'+
-			                 	'<option value="1">Blocked</option>'+
-			                '</select>'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Active</label><br>'+
-			                '<select class="form-control" id="active">'+
-			                 	'<option value="0">Inactive</option>'+
-			                 	'<option value="1">Active</option>'+
-			                '</select>'+
-		                '</div>'+
-			            '<div class="col-md-12" style="margin-top:10px;">'+
-			            	'<div style="float:right">'+
-				            '<button style="margin-right:10px;" onclick="go_update_stats('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
-				            '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
-				            '</div>'+
-			            '</div>'+
-		            '</div>'+
-		            '<hr>'+
-	            '</div>'+
-            '</div>'+
-            '<br>'+
-        '</div>');
-        $('#active').val(response.active);
-		$('#verified').val(response.verified);
-		$('#blocked').val(response.blocked);
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-};
+
 function add_document(id) {
   $.ajax({
     url: "/api/driver/get.php?id=" + id,
