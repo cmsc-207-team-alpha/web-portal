@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<style>
-	.btn-default{
-		color: #333;
-	    background-color: #fff;
-	    border-color: #ccc !important;
-	}
-</style>
+
 <html lang="en">
 	<head>
 
