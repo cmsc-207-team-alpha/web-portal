@@ -191,23 +191,6 @@ function get_doc(id) {
 	    dataType: "json"
 	});
 };
-function dlt_doc(id, driver_id){
-	var r = confirm("Are you sure you want to delete this document?");
-    if (r == true) {
-       $.ajax({
-       		type: "POST",
-		    url: "/api/driver/deletedocument.php?id=" + id,
-		    async:false,		    
- 			data:JSON.stringify({
-        		id: id
-    		}),
-		    success: function (response) { get_driver(driver_id);},
-		    error: function (response) {
-		     alert(response.responseJSON["message"]);
-		    }
-		});
-    }
-}
 
 function get_driver(id) {  
   $.ajax({
@@ -330,34 +313,6 @@ function get_driver(id) {
     dataType: "json"
   });
 };
-function edit_doc(id){
-	$.ajax({
-	    url: "/api/driver/getdocument.php?id=" +id,
-	    async: false,
-	    success: function (r) {
-			$('#edit_doc_row').html('<th><input type="text" class="form-control" id="edit_description" value="'+r.description+'"></th>'+
-			'<th><input type="text" class="form-control" id="edit_type" value="'+r.type+'"></th>'+
-			'<th colspan="2"><input type="hidden" class="form-control" id="edit_document_holder"><input type="file" class="form-control" id="edit_document"></th>'+
-			'<th>'+
-			'<button style="border-radius:0" onclick="go_update_doc('+r.id+', '+r.driverid+');" class="btn btn-sm btn-success">Save</button>'+
-			'<button style="border-radius:0" onclick="$(\'#edit_doc_row\').empty();" class="btn btn-sm btn-default">Cancel</button></th>'
-			);
-			document.getElementById("edit_document").onchange = function () {
-		        var reader = new FileReader();
-		        reader.onload = function (e) {
-		            document.getElementById("edit_document_holder").value = e.target.result;
-		        };
-		        reader.readAsDataURL(this.files[0]);
-	    	};
-	    },
-	    contentType: "application/json; charset=UTF-8",
-	    dataType: "json"
-	});
-	
-}
-
-
-
 function delete_driver(id) {
   $.ajax({
     url: "/api/driver/get.php?id=" + id,
