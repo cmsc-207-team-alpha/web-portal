@@ -30,7 +30,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Earthlings 123</h1>
+							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Earthlings</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 								</div>
 						</div>
@@ -140,10 +140,6 @@ function edit_admin(id) {
 		                
 		            '</div><br>'+
 		            '<div class="row">'+
-		                '<div class="col-md-8">'+
-			                '<label>Address</label><br>'+
-			                '<input type="text" class="form-control" name="address" id="address" value="'+response.address +'">'+
-		                '</div>'+
 		                '<div class="col-md-4">'+
 			                '<label>Email</label><br>'+
 			                '<input type="text" class="form-control" name="email" id="email" value="'+response.email +'">'+
@@ -151,7 +147,7 @@ function edit_admin(id) {
 			            '<div class="col-md-12" style="margin-top:10px;">'+
 			            	'<div style="float:right">'+
 				            	'<button style="margin-right:10px;" onclick="go_update('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
-				                '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+				                '<button onclick="$(\'#admin_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
 				            '</div>'+
 			            '</div>'+
 		            '</div>'+
@@ -160,13 +156,6 @@ function edit_admin(id) {
             '</div>'+
             '<br>'+
         '</div>');
-        document.getElementById("edit_photo").onchange = function () {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	            document.getElementById("driver_img").src = e.target.result;
-	        };
-	        reader.readAsDataURL(this.files[0]);
-    	};
     },
     error: function (response) {
      alert(response.responseJSON["message"]);
@@ -203,20 +192,6 @@ function update_stats(id) {
 		            '</div><br>'+
 		            '<div class="row">'+
 		                '<div class="col-md-4">'+
-			                '<label>Verified</label><br>'+
-			                '<select class="form-control" id="verified">'+
-			                 	'<option value="0">Not Verified</option>'+
-			                 	'<option value="1">Verified</option>'+
-			                '</select>'+
-		                '</div>'+
-		                 '<div class="col-md-4">'+
-			                '<label>Is Blocked</label><br>'+
-			                '<select class="form-control" id="blocked">'+
-			                 	'<option value="0">Not Blocked</option>'+
-			                 	'<option value="1">Blocked</option>'+
-			                '</select>'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
 			                '<label>Active</label><br>'+
 			                '<select class="form-control" id="active">'+
 			                 	'<option value="0">Inactive</option>'+
@@ -226,7 +201,7 @@ function update_stats(id) {
 			            '<div class="col-md-12" style="margin-top:10px;">'+
 			            	'<div style="float:right">'+
 				            '<button style="margin-right:10px;" onclick="go_update_stats('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
-				            '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+				            '<button onclick="$(\'#admin_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
 				            '</div>'+
 			            '</div>'+
 		            '</div>'+
@@ -236,8 +211,6 @@ function update_stats(id) {
             '<br>'+
         '</div>');
         $('#active').val(response.active);
-		$('#verified').val(response.verified);
-		$('#blocked').val(response.blocked);
     },
     error: function (response) {
      alert(response.responseJSON["message"]);
@@ -262,7 +235,7 @@ function get_admin(id) {
 		    		detailed = '';
 		    		a = '';
 				 	$.ajax({
-					    url: "/api/driver/getdocument.php?id=" + data.id,
+					    url: "/api/admin/getdocument.php?id=" + data.id,
 					    async: false,
 					    success: function (r) {
 					    	detailed = '<td>'+r.datecreated +'</td>' +'<td>'+r.datemodified +'</td>';
