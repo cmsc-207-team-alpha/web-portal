@@ -15,7 +15,7 @@
 
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> 208</h1>
+							<h1 class="h2"><span class="fa fa-fw fa-users"></span> bubu</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 
 								</div>
@@ -107,19 +107,7 @@ function load_drivers() {
   });
 };
 
-function get_doc(id) {
- 	$.ajax({
-	    url: "/api/driver/getdocument.php?id=" + id,
-	    async: false,
-	    success: function (response) {
-	    },
-	    error: function (response) {
-	     alert(response.responseJSON["message"]);
-	    },
-	    contentType: "application/json; charset=UTF-8",
-	    dataType: "json"
-	});
-};
+
 
 function get_driver(id) {  
   $.ajax({
@@ -242,43 +230,5 @@ function get_driver(id) {
     dataType: "json"
   });
 };
-function delete_driver(id) {
-  $.ajax({
-    url: "/api/driver/get.php?id=" + id,
-    success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
-            '<div class="page-header">'+
-                '<h4 style="text-align:center">Delete Driver</h4>'+
-                '<hr>'+
-            '</div>'+
-            '<div class="row">'+
-            	'<div class="col-md-3">'+
-	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
-	            	'</div>'+
-	            '</div>'+
-	            '<div class="col-md-9">'+
-		            '<div class="row">'+
-		                '<div class="col-md-12">'+
-			                '<h4>Are you sure you want do delete '+response.firstname+' '+ response.lastname +' ?</h4><br>'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-		                	'<div style="float:right">'+
-			                	'<button onclick="godelete('+response.id+');" style="margin-right:10px" class="btn btn-md btn-danger">Yes</button>'+
-			                	'<button onclick="$(\'#driver_preview\').empty();" class="btn btn-md btn-default">No</button>'+
-			                '</div>'+
-			            '</div>'+
-		            '</div>'+
-	            '</div>'+
-            '</div>'+
-            '<br>'+
-        '</div>');
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-};
+
 </script>
