@@ -121,38 +121,29 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         });
 
         var tripsRequested = getTrips('Requested');
-        $.each(tripsRequested, function(k, trip) {
-            var marker = new google.maps.Marker({
-            position: {lat: trip.sourcelat, lng: trip.sourcelong},
-            icon: 'assets/images/map/passenger-orange.png',
-            map: map,
-            animation: google.maps.Animation.DROP,
-            title: 'Trip ID: ' + trip.id
-            });
-            var passenger = getPassenger(trip.passengerid);
-            var info = 
-                '<strong>Trip ID:</strong> ' + trip.id + '<br>' +
-                '<strong>Stage:</strong> Requested (No driver automatically assigned)<br>' +
-                '<strong>Passenger ID:</strong> ' + passenger.id + '<br>' +
-                '<strong>Passenger:</strong> ' + passenger.firstname + ' ' + passenger.lastname + '<br>'
-            makeInfoWindowEvent(map, infowindow, info, marker);
-        });
+        setTripsMarkers(map, infowindow, tripsRequested, true);
 
         var tripsRejected = getTrips('Rejected');
-        $.each(tripsRejected, function(k, trip) {
+        setTripsMarkers(map, infowindow, tripsRejected, false);
+      }
+
+      function setTripsMarkers(map, infowindow, trips, requested) {
+        $.each(trips, function(k, trip) {
             var marker = new google.maps.Marker({
             position: {lat: trip.sourcelat, lng: trip.sourcelong},
-            icon: 'assets/images/map/passenger-red.png',
+            icon: 'assets/images/map/passenger-' + (requested ? 'orange' : 'red') + '.png',
             map: map,
             animation: google.maps.Animation.DROP,
             title: 'Trip ID: ' + trip.id
             });
-            var passenger = getPassenger(trip.passengerid);
             var info = 
                 '<strong>Trip ID:</strong> ' + trip.id + '<br>' +
-                '<strong>Stage:</strong> Rejected (Driver refused. New driver not yet assigned)<br>' +
-                '<strong>Passenger ID:</strong> ' + passenger.id + '<br>' +
-                '<strong>Passenger:</strong> ' + passenger.firstname + ' ' + passenger.lastname + '<br>'
+                '<strong>Stage:</strong> ' + (requested ? 'Requested (No driver automatically assigned)' : 'Rejected (Driver refused)') + '<br>' +
+                '<strong>From:</strong> ' + trip.source + '<br>' +
+                '<strong>To:</strong> ' + trip.destination + '<br>' +
+                '<strong>Passenger ID:</strong> ' + trip.passengerid + '<br>' +
+                '<strong>Passenger:</strong> ' + trip.passengerfirstname + ' ' + trip.passengerlastname + '<br>' +                
+                '<strong>Location:</strong> ' + trip.sourcelat + ', ' + trip.sourcelong + '<br>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
       }
@@ -190,7 +181,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
     function getTrips(stage) {
             return JSON.parse($.ajax({
                 type: 'GET',
-                url: "/api/trip/get.php?stage=" + stage,
+                url: "/api/trip/getwithpassengerdriver.php?stage=" + stage,
                 contentType: "application/json; charset=UTF-8",
                 dataType: 'html',
                 global: false,
@@ -198,19 +189,6 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                 success: function(response) {
                 return response;}
             }).responseText);
-        };
-
-    function getPassenger(id) {
-            return JSON.parse($.ajax({
-                type: 'GET',
-                url: "/api/passenger/get.php?id=" + id,
-                contentType: "application/json; charset=UTF-8",
-                dataType: 'html',
-                global: false,
-                async:false,
-                success: function(response) {
-                return response;}
-            }).responseText)[0];
         };
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOnTzBRmXJM7XzmWAbE8jMWwRzAu9tEC8&libraries=places&callback=initAutocomplete"
