@@ -17,16 +17,7 @@
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
 							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Drivers</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-								  <!-- <div class="btn-group mr-2" role="group" aria-label="First group">
-								    <button type="button" class="btn btn-success"><span class="fas fa-user-plus"></span></button>
-								    <button type="button" class="btn btn-danger"><span class="fas fa-user-times"></span></button>
-								  </div> -->
-									<!-- <div class="input-group">
-									  <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-									  <div class="input-group-append">
-											<div class="input-group-text btn-success"><i class="fa fa-lg fa-search"></i></div>
-										</div> 
-									</div> -->
+
 								</div>
 						</div>
 						<div class="table-responsive" id="driver_preview">
@@ -49,20 +40,7 @@
 								<tbody id="drivers_tbl">
 								</tbody>
 							</table>
-						</div><!-- 
-						<nav aria-label="Page navigation example">
-						  <ul class="pagination justify-content-end">
-						    <li class="page-item disabled">
-						      <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-						    </li>
-						    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item"><a class="page-link" href="#">2</a></li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">&raquo;</a>
-						    </li>
-						  </ul>
-						</nav> -->
+						</div>
 	        </main>
 	      </div>
 	    </div>
@@ -513,105 +491,9 @@ function edit_doc(id){
 	});
 	
 }
-function go_update_doc(id, driverid) {
-	description = $('#edit_description').val();
-	type = $('#edit_type').val();
-	docs = $('#edit_document_holder').val();
-	$.ajax({
-     type: "POST",
-     url: "/api/driver/updatedocument.php",
-     data:JSON.stringify({
-        id: id,
-        driverid: driverid,
-        document: docs,
-        description: description,
-        type: type
-    }),
-    success: function (response) {
-    	get_driver(driverid);
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-}
-function go_upload(id) {
-	description = $('#description').val();
-	type = $('#type').val();
-	docs = $('#doc_holder').val();
-	$.ajax({
-     type: "POST",
-     url: "/api/driver/adddocument.php",
-     data:JSON.stringify({
-        driverid: id,
-        document: docs,
-        description: description,
-        type: type
-    }),
-    success: function (response) {
-    	get_driver(id);
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-}
-function go_update(id) {
-	var firstname = $('#firstname').val();
-     var lastname = $('#lastname').val();
-     var email = $('#email').val();
-     var address = $('#address').val();
-     var mobile = $('#mobile').val();
-     var photo = document.getElementById("driver_img").src;
-	$.ajax({
-     type: "POST",
-     url: "/api/driver/update.php",
-     data:JSON.stringify({
-        id: id,
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        address: address,
-        mobile : mobile,
-        photo: photo
-    }),
-    success: function (response) {
-    	location.reload();
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-}
-function go_update_stats(id){
-	var active = $('#active').val();
-    var verified = $('#verified').val();
-    var blocked = $('#blocked').val();
-	$.ajax({
-     type: "POST",
-     url: "/api/driver/updatestatus.php",
-     data:JSON.stringify({
-        id: id,
-        active: active,
-		verified: verified,
-		blocked: blocked
-    }),
-    success: function (response) {
-        location.reload();
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-}
+
+
+
 function godelete(id) {
 	$.ajax({
      type: "POST",
