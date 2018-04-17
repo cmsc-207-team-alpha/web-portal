@@ -32,16 +32,6 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
 							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Drivers</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-								  <!-- <div class="btn-group mr-2" role="group" aria-label="First group">
-								    <button type="button" class="btn btn-success"><span class="fas fa-user-plus"></span></button>
-								    <button type="button" class="btn btn-danger"><span class="fas fa-user-times"></span></button>
-								  </div> -->
-									<!-- <div class="input-group">
-									  <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-									  <div class="input-group-append">
-											<div class="input-group-text btn-success"><i class="fa fa-lg fa-search"></i></div>
-										</div> 
-									</div> -->
 								</div>
 						</div>
 						<div class="table-responsive" id="driver_preview">
@@ -64,20 +54,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 								<tbody id="drivers_tbl">
 								</tbody>
 							</table>
-						</div><!-- 
-						<nav aria-label="Page navigation example">
-						  <ul class="pagination justify-content-end">
-						    <li class="page-item disabled">
-						      <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-						    </li>
-						    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item"><a class="page-link" href="#">2</a></li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">&raquo;</a>
-						    </li>
-						  </ul>
-						</nav> -->
+						</div>
 	        </main>
 	      </div>
 	    </div>
