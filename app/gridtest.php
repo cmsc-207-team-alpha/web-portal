@@ -106,74 +106,7 @@ function load_drivers() {
     dataType: "json"
   });
 };
-function edit_driver(id) {
-  $.ajax({
-    url: "/api/driver/get.php?id=" + id,
-    success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
-            '<div class="page-header">'+
-                '<h4 style="text-align:center">Edit Driver Details</h4>'+
-                '<hr>'+
-            '</div>'+
-            '<div class="row">'+
-            	'<div class="col-md-3">'+
-	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
-	            		'<input type="file" id="edit_photo">'+
-	            	'</div>'+
-	            '</div>'+
-	            '<div class="col-md-9">'+
-	            	'<div class="row">'+
-		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<input type="text" class="form-control" name="firstname" id="firstname" value="'+response.firstname+'">'+ 
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Last Name</label><br>'+
-			                '<input type="text" class="form-control" name="lastname" id="lastname" value="'+response.lastname+'">'+ 
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="11">'+
-		                '</div>'+
-		                
-		            '</div><br>'+
-		            '<div class="row">'+
-		                '<div class="col-md-8">'+
-			                '<label>Address</label><br>'+
-			                '<input type="text" class="form-control" name="address" id="address" value="'+response.address +'">'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Email</label><br>'+
-			                '<input type="text" class="form-control" name="email" id="email" value="'+response.email +'">'+
-		                '</div>'+
-			            '<div class="col-md-12" style="margin-top:10px;">'+
-			            	'<div style="float:right">'+
-				            	'<button style="margin-right:10px;" onclick="go_update('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
-				                '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
-				            '</div>'+
-			            '</div>'+
-		            '</div>'+
-		            '<hr>'+
-	            '</div>'+
-            '</div>'+
-            '<br>'+
-        '</div>');
-        document.getElementById("edit_photo").onchange = function () {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	            document.getElementById("driver_img").src = e.target.result;
-	        };
-	        reader.readAsDataURL(this.files[0]);
-    	};
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-};
+
 
 function add_document(id) {
   $.ajax({
