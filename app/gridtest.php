@@ -75,15 +75,7 @@ function load_drivers() {
 				'<td>'+stat+'</td>'+
 				'<td>3.5</td>'+
 				'<td>'+
-					'<button class="btn btn-sm btn-default" onclick="get_driver('+data.id+')" title="View Record" data-toggle="tooltip">'+
-						'<span class="fa fa-eye"></span> '+
-					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="edit_driver('+data.id+')"  title="Update Record" data-toggle="tooltip">'+
-						'<span class="fa fa-edit"></span>'+
-					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="delete_driver('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
-						'<span class="fa fa-trash"></span>'+
-					'</button>'+
+					
 				'</td>'+
 			'</tr>');
     		
