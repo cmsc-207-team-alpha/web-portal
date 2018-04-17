@@ -30,7 +30,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Earthlings</h1>
+							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Earthlings 123</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 								</div>
 						</div>
@@ -246,114 +246,15 @@ function update_stats(id) {
     dataType: "json"
   });
 };
-function add_document(id) {
+
+function get_admin(id) {  
   $.ajax({
-    url: "/api/driver/get.php?id=" + id,
-    success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
-            '<div class="page-header">'+
-                '<h4 style="text-align:center">Add Document</h4>'+
-                '<hr>'+
-            '</div>'+
-            '<div class="row">'+
-            	'<div class="col-md-3">'+
-	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
-	            	'</div>'+
-	            '</div>'+
-	            '<div class="col-md-9">'+
-	            	'<div class="row">'+
-		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<h6>'+response.firstname+' ' +response.lastname+'</h6>'+ 
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<h6>'+response.mobile +'</h6>'+
-		                '</div>'+
-		            '</div><br>'+
-		            '<div class="row">'+
-		            	 '<div class="col-md-4">'+
-			                '<label>Description</label><br>'+
-			                '<input type="text" class="form-control" id="description">'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-			                '<label>Type</label><br>'+
-			                '<input type="text" class="form-control" id="type">'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-		              	    '<label>Document</label><br>'+
-		              	    '<input type="hidden" id="doc_holder">'+
-		              	    '<input type="file" id="doc">'+
-		              	  '</div>'+
-		              	'</div>'+
-		              	'<div class="col-md-12" style="margin-top:10px;">'+
-			            	'<div style="float:right">'+
-				            '<button style="margin-right:10px;" onclick="go_upload('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
-				            '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
-				            '</div>'+
-			            '</div>'+
-	            '</div>'+       
-            '</div>'+
-            '<hr>'+
-            '<br>'+
-        '</div>');
-        $('#active').val(response.active);
-		$('#verified').val(response.verified);
-		$('#blocked').val(response.blocked);
-		document.getElementById("doc").onchange = function () {
-	        var reader = new FileReader();
-	        reader.onload = function (e) {
-	            document.getElementById("doc_holder").value = e.target.result;
-	        };
-	        reader.readAsDataURL(this.files[0]);
-    	};
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-};
-function get_doc(id) {
- 	$.ajax({
-	    url: "/api/driver/getdocument.php?id=" + id,
-	    async: false,
-	    success: function (response) {
-	    },
-	    error: function (response) {
-	     alert(response.responseJSON["message"]);
-	    },
-	    contentType: "application/json; charset=UTF-8",
-	    dataType: "json"
-	});
-};
-function dlt_doc(id, driver_id){
-	var r = confirm("Are you sure you want to delete this document?");
-    if (r == true) {
-       $.ajax({
-       		type: "POST",
-		    url: "/api/driver/deletedocument.php?id=" + id,
-		    async:false,		    
- 			data:JSON.stringify({
-        		id: id
-    		}),
-		    success: function (response) { get_driver(driver_id);},
-		    error: function (response) {
-		     alert(response.responseJSON["message"]);
-		    }
-		});
-    }
-}
-function get_driver(id) {  
-  $.ajax({
-    url: "/api/driver/get.php?id=" + id,
+    url: "/api/admin/get.php?id=" + id,
     async:false,
     success: function (response) {
     	tbody = '';
         $.ajax({
-		    url: "/api/driver/getdocument.php?driverid=" + id,
+		    url: "/api/admin/getdocument.php?driverid=" + id,
 		    async: false,
 		    success: function (response) {
 		    	if(response != '')
@@ -467,96 +368,20 @@ function get_driver(id) {
     dataType: "json"
   });
 };
-function edit_doc(id){
-	$.ajax({
-	    url: "/api/driver/getdocument.php?id=" +id,
-	    async: false,
-	    success: function (r) {
-			$('#edit_doc_row').html('<th><input type="text" class="form-control" id="edit_description" value="'+r.description+'"></th>'+
-			'<th><input type="text" class="form-control" id="edit_type" value="'+r.type+'"></th>'+
-			'<th colspan="2"><input type="hidden" class="form-control" id="edit_document_holder"><input type="file" class="form-control" id="edit_document"></th>'+
-			'<th>'+
-			'<button style="border-radius:0" onclick="go_update_doc('+r.id+', '+r.driverid+');" class="btn btn-sm btn-success">Save</button>'+
-			'<button style="border-radius:0" onclick="$(\'#edit_doc_row\').empty();" class="btn btn-sm btn-default">Cancel</button></th>'
-			);
-			document.getElementById("edit_document").onchange = function () {
-		        var reader = new FileReader();
-		        reader.onload = function (e) {
-		            document.getElementById("edit_document_holder").value = e.target.result;
-		        };
-		        reader.readAsDataURL(this.files[0]);
-	    	};
-	    },
-	    contentType: "application/json; charset=UTF-8",
-	    dataType: "json"
-	});
-	
-}
-function go_update_doc(id, driverid) {
-	description = $('#edit_description').val();
-	type = $('#edit_type').val();
-	docs = $('#edit_document_holder').val();
-	$.ajax({
-     type: "POST",
-     url: "/api/driver/updatedocument.php",
-     data:JSON.stringify({
-        id: id,
-        driverid: driverid,
-        document: docs,
-        description: description,
-        type: type
-    }),
-    success: function (response) {
-    	get_driver(driverid);
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-}
-function go_upload(id) {
-	description = $('#description').val();
-	type = $('#type').val();
-	docs = $('#doc_holder').val();
-	$.ajax({
-     type: "POST",
-     url: "/api/driver/adddocument.php",
-     data:JSON.stringify({
-        driverid: id,
-        document: docs,
-        description: description,
-        type: type
-    }),
-    success: function (response) {
-    	get_driver(id);
-    },
-    error: function (response) {
-     alert(response.responseJSON["message"]);
-    },
-    contentType: "application/json; charset=UTF-8",
-    dataType: "json"
-  });
-}
 function go_update(id) {
 	var firstname = $('#firstname').val();
      var lastname = $('#lastname').val();
      var email = $('#email').val();
-     var address = $('#address').val();
      var mobile = $('#mobile').val();
-     var photo = document.getElementById("driver_img").src;
 	$.ajax({
      type: "POST",
-     url: "/api/driver/update.php",
+     url: "/api/admin/update.php",
      data:JSON.stringify({
         id: id,
         firstname: firstname,
         lastname: lastname,
         email: email,
-        address: address,
-        mobile : mobile,
-        photo: photo
+        mobile : mobile
     }),
     success: function (response) {
     	location.reload();
@@ -570,16 +395,12 @@ function go_update(id) {
 }
 function go_update_stats(id){
 	var active = $('#active').val();
-    var verified = $('#verified').val();
-    var blocked = $('#blocked').val();
 	$.ajax({
      type: "POST",
-     url: "/api/driver/updatestatus.php",
+     url: "/api/admin/updatestatus.php",
      data:JSON.stringify({
         id: id,
-        active: active,
-		verified: verified,
-		blocked: blocked
+        active: active
     }),
     success: function (response) {
         location.reload();
@@ -594,9 +415,9 @@ function go_update_stats(id){
 function godelete(id) {
 	$.ajax({
      type: "POST",
-     url: "/api/driver/delete.php",
+     url: "/api/admin/delete.php",
      data:JSON.stringify({
-        id: id,
+        id: id
     }),
     success: function (response) {
         location.reload();
@@ -608,13 +429,13 @@ function godelete(id) {
     dataType: "json"
   });
 }
-function delete_driver(id) {
+function delete_admin(id) {
   $.ajax({
-    url: "/api/driver/get.php?id=" + id,
+    url: "/api/admin/get.php?id=" + id,
     success: function (response) {
         $('#driver_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h4 style="text-align:center">Delete Driver</h4>'+
+                '<h4 style="text-align:center">Delete Administrator</h4>'+
                 '<hr>'+
             '</div>'+
             '<div class="row">'+
@@ -631,7 +452,7 @@ function delete_driver(id) {
 		                '<div class="col-md-4">'+
 		                	'<div style="float:right">'+
 			                	'<button onclick="godelete('+response.id+');" style="margin-right:10px" class="btn btn-md btn-danger">Yes</button>'+
-			                	'<button onclick="$(\'#driver_preview\').empty();" class="btn btn-md btn-default">No</button>'+
+			                	'<button onclick="$(\'#admin_preview\').empty();" class="btn btn-md btn-default">No</button>'+
 			                '</div>'+
 			            '</div>'+
 		            '</div>'+
