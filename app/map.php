@@ -106,17 +106,20 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             title: 'Vehicle ID: ' + vehicle.id
             });
             var info = 
-                '<strong>Driver ID:</strong> ' + vehicle.driverid + '<br>' +
-                '<strong>Driver:</strong> ' + vehicle.driverfirstname + ' ' + vehicle.driverlastname + '<br>' +
-                '<strong>Vehicle ID:</strong> ' + vehicle.id + '<br>' +
-                '<strong>Plate No.:</strong> ' + vehicle.plateno + '<br>' +
-                '<strong>Type:</strong> ' + vehicle.type + '<br>' +
-                '<strong>Make:</strong> ' + vehicle.make + '<br>' +
-                '<strong>Model:</strong> ' + vehicle.model + '<br>' +
-                '<strong>Color:</strong> ' + vehicle.color + '<br>' +
-                '<strong>On Duty:</strong> ' + (vehicle.active === 1 ? 'Yes' : 'No') + '<br>' +
-                '<strong>Available:</strong> ' + (vehicle.available === 1 ? 'Yes' : 'No') + '<br>' +
-                '<strong>Location:</strong> ' + vehicle.locationlat + ', ' + vehicle.locationlong
+                '<table>' +
+                    '<tr><td colspan="2"><h5><span class="fa fa-fw fa-car"></span> Vehicle</h5></td></tr>' +
+                    '<tr><td><strong>Driver ID:</strong></td><td>' + vehicle.driverid + '</td></tr>' +
+                    '<tr><td><strong>Driver:</strong></td><td>' + vehicle.driverfirstname + ' ' + vehicle.driverlastname + '</td></tr>' +
+                    '<tr><td><strong>Vehicle ID:</strong></td><td>' + vehicle.id + '</td></tr>' +
+                    '<tr><td><strong>Plate No.:</strong></td><td>' + vehicle.plateno + '</td></tr>' +
+                    '<tr><td><strong>Type:</strong></td><td>' + vehicle.type + '</td></tr>' +
+                    '<tr><td><strong>Make:</strong></td><td>' + vehicle.make + '</td></tr>' +
+                    '<tr><td><strong>Model:</strong></td><td>' + vehicle.model + '</td></tr>' +
+                    '<tr><td><strong>Color:</strong></td><td>' + vehicle.color + '</td></tr>' +
+                    '<tr><td><strong>On Duty:</strong></td><td>' + (vehicle.active === 1 ? 'Yes' : 'No') + '</td></tr>' +
+                    '<tr><td><strong>Available:</strong></td><td>' + (vehicle.available === 1 ? 'Yes' : 'No') + '</td></tr>' +
+                    '<tr><td><strong>Location:</strong></td><td>' + vehicle.locationlat + ', ' + vehicle.locationlong + '</td></tr>' +
+                 '</table>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
 
@@ -137,13 +140,16 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             title: 'Trip ID: ' + trip.id
             });
             var info = 
-                '<strong>Trip ID:</strong> ' + trip.id + '<br>' +
-                '<strong>Stage:</strong> ' + (requested ? 'Requested (No driver automatically assigned)' : 'Rejected (Driver refused)') + '<br>' +
-                '<strong>From:</strong> ' + trip.source + '<br>' +
-                '<strong>To:</strong> ' + trip.destination + '<br>' +
-                '<strong>Passenger ID:</strong> ' + trip.passengerid + '<br>' +
-                '<strong>Passenger:</strong> ' + trip.passengerfirstname + ' ' + trip.passengerlastname + '<br>' +                
-                '<strong>Location:</strong> ' + trip.sourcelat + ', ' + trip.sourcelong + '<br>'
+                '<table>' +
+                    '<tr><td colspan="2"><h5><span class="fa fa-fw fa-male"></span> Passenger Trip Request</h5></td></tr>' +
+                    '<tr><td><strong>Trip ID:</strong></td><td>' + trip.id + '</td></tr>' +
+                    '<tr><td><strong>Stage:</strong></td><td>' + (requested ? 'Requested (No driver automatically assigned)' : 'Rejected (Driver refused)') + '</td></tr>' +
+                    '<tr><td><strong>From:</strong></td><td>' + trip.source + '</td></tr>' +
+                    '<tr><td><strong>To:</strong></td><td>' + trip.destination + '</td></tr>' +
+                    '<tr><td><strong>Passenger ID:</strong></td><td>' + trip.passengerid + '</td></tr>' +
+                    '<tr><td><strong>Passenger:</strong></td><td>' + trip.passengerfirstname + ' ' + trip.passengerlastname + '</td></tr>' +                
+                    '<tr><td><strong>Location:</strong></td><td>' + trip.sourcelat + ', ' + trip.sourcelong + '</td></tr>'
+                '</table>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
       }
