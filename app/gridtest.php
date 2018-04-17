@@ -8,12 +8,11 @@
 		<link rel="stylesheet" href="../app/assets/stylesheets/datatables.min.css">
 	</head>
 	<body class="login-page">
-		<?php include_once("layouts/dashboard.navigation.php") ?>
 
 		<script src="../app/assets/js/datatables.min.js"></script>
 	    <div class="container-fluid">
 	      <div class="row">
-
+		<?php include_once("layouts/dashboard.sidebar.php") ?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
 							<h1 class="h2"><span class="fa fa-fw fa-chart-line"></span> Reports</h1>
