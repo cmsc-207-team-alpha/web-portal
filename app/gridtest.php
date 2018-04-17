@@ -15,7 +15,6 @@
  
  	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
  						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
- 							<h1 class="h2"><span class="fa fa-fw fa-users"></span> earthlings</h1>
  								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
  
  								</div>
@@ -67,13 +66,13 @@
     		if(data.verified == 0) verified = '<span class="btn-danger btn-sm" href="#" role="button">Not Verified</span>';
      		$('#drivers_tbl').append('<tr>'+
  				'<td>'+ct+'</td>'+
- 				'<td>'+data.firstname+' ' +data.lastname+'</td>'+
+ 				'<td>'+data.mobile+'</td>'+
  				'<td>'+data.email+'</td>'+
  				'<td>'+data.mobile+'</td>'+
-				'<td>'+verified+'</td>'+
-				'<td>'+blocked+'</td>'+
-				'<td>'+stat+'</td>'+
-				'<td>3.5</td>'+
+				'<td>'+data.mobile+'</td>'+
+				'<td>'+data.mobile+'</td>'+
+				'<td>'+data.mobile+'</td>'+
+				'<td>'+data.mobile+'</td>'+
 				'<td></td>'+
  			'</tr>');
      		
