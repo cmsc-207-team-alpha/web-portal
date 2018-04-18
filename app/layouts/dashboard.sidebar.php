@@ -43,9 +43,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.php">
+                <a class="nav-link" href="Administrators.php">
                   <span class="fa fa-fw fa-user"></span>
-                  Add New Administrator
+                  Administrators
                 </a>
               </li>
             </ul>
