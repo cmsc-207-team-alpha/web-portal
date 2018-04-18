@@ -27,7 +27,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
           </div>
           <div class="card fat">
             <div class="card-body">
-              <h4 class="card-title">New Administrator Registration</h4>
+                            <h4 class="card-title">Administrator Registration</h4>
 			  
 				<div class="form-group col-md-8">
 					<div id="result">			
@@ -50,10 +50,6 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                       <label for="email">Email</label>
                       <input class="form-control" name="email" id="email" type="text"  placeholder="Email Address">
                     </div>
-			<div class="col-md-6 form-group">
-                      <label for="email">Email</label>
-                      <input class="form-control" name="mobile" id="mobile" type="text"  placeholder="Mobile Number">
-                    </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -70,8 +66,16 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                   </div>
                 </div>
 				
+                <div class="form-group">
+                  <div class="form-row">
+                  <label for="mobile">Mobile</label>
+                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter your mobile number">
+                  </div>
+                </div>
+
+
                 <div class="form-group no-margin">
-                  <button type="submit" class="btn btn-success btn-block" onclick="register()">Submit</button>
+                  <button type="submit" class="btn btn-success btn-block" onclick="register()">Register</button>
                 </div>				
             </div>
           </div>
@@ -90,6 +94,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
       var email = $('#email').val();
       var password = $('#password').val();
       var conpassword = $('#conpassword').val();
+      var mobile = $('#mobile').val();
       
       if(password != conpassword){
         $("#result").removeClass();
@@ -98,7 +103,6 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
           }
       else{
         
-
         $.ajax({
           type: "POST",
           url: "/api/admin/register.php",
@@ -106,7 +110,8 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             firstname: firstname,
             lastname: lastname,
             email: email,
-            password: password
+            password: password,
+        mobile: mobile
           }),
           success: function (response) {
           $("#result").removeClass();
