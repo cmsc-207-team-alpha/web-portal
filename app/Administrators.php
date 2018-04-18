@@ -52,6 +52,9 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 								</tbody>
 							</table>
 						</div>
+			<a href="register.php" class="float-left">
+                      Add New Administrator
+                    </a>
 	        </main>
 	      </div>
 	    </div>
