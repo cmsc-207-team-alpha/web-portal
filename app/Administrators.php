@@ -150,7 +150,9 @@ function edit_admin(id) {
 		            '</div>'+
 		            '<hr>'+
 	            '</div>'+
-            '</div>'+);
+		'</div>'+
+            '<br>'+
+        '</div>');
     },
     error: function (response) {
      alert(response.responseJSON["message"]);
@@ -197,7 +199,10 @@ function update_stats(id) {
 		            '</div>'+
 		            '<hr>'+
 	            '</div>'+
-            '</div>';
+		'</div>'+
+            '<br>'+
+        '</div>');
+
         $('#active').val(response.active);
     },
     error: function (response) {
