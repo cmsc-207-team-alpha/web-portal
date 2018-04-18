@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -30,11 +28,11 @@ session_start();
 				<th>Id</th>
 				<th>Vehicle Type</th>
 				<th>Base Fare</th>
-				<th>Fare Per KM</th>
+				<th>Fare Per Km</th>
 				<th>Fare Per Minute</th>
-				<th>Rush Hour Surge Threshold</th>
-				<th>Rush Hour Surge Multiplier</th>
-				<th>Time of Day Surge Multiplier</th>
+				<th>Rush Surge Threshold</th>
+				<th>Rush Surge Multiplier</th>
+				<th>Time Surge Multiplier</th>
 				<th>Actions</th>
 				</tr>
 				</thead>
