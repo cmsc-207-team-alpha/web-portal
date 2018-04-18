@@ -64,7 +64,19 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 <script>
 $(document).ready(function(){
 	load_drivers();
+	id = getQueryParam('id');
+	if (id !== '') {
+		get_driver(id);
+	}
 });
+
+var getQueryParam = function (param) {
+    var result = window.location.search.match(
+        new RegExp("(\\?|&)" + param + "(\\[\\])?=([^&]*)")
+    );
+    return result ? result[3] : '';
+}
+
 function load_drivers() {
 	$('#drivers_tbl').empty();
   $.ajax({

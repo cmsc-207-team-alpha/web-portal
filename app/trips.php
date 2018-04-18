@@ -62,7 +62,6 @@ $(document).ready(function(){
 	keyword = getQueryParam('keyword');
 	load_trips(keyword);
 	id = getQueryParam('id');
-	console.log(id);
 	if (id !== '') {
 		get_trip(id);
 	}
