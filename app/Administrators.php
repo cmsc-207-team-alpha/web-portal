@@ -150,9 +150,7 @@ function edit_admin(id) {
 		            '</div>'+
 		            '<hr>'+
 	            '</div>'+
-            '</div>'+
-            '<br>'+
-        '</div>');
+            '</div>'+);
     },
     error: function (response) {
      alert(response.responseJSON["message"]);
@@ -165,7 +163,7 @@ function update_stats(id) {
   $.ajax({
     url: "/api/admin/get.php?id=" + id,
     success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
+        $('#admin_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
                 '<h4 style="text-align:center">Update Administrator Status</h4>'+
                 '<hr>'+
@@ -199,9 +197,7 @@ function update_stats(id) {
 		            '</div>'+
 		            '<hr>'+
 	            '</div>'+
-            '</div>'+
-            '<br>'+
-        '</div>');
+            '</div>';
         $('#active').val(response.active);
     },
     error: function (response) {
