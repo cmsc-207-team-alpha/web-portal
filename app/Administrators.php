@@ -85,9 +85,6 @@ function load_admin() {
 					'<button class="btn btn-sm btn-default" onclick="get_admin('+data.id+')" title="View Record" data-toggle="tooltip">'+
 						'<span class="fa fa-eye"></span> '+
 					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="edit_admin('+data.id+')"  title="Update Record" data-toggle="tooltip">'+
-						'<span class="fa fa-edit"></span>'+
-					'</button>'+
 					'<button class="btn btn-sm btn-default" onclick="update_stats('+data.id+')" title="Update Status" data-toggle="tooltip">'+
 						'<span class="fa fa-user"></span> '+
 					'</button>'+
