@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
-{
-   header("location: logout.php");
+if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"])) {
+    header("location: logout.php");
 }
 ?>
 
@@ -18,16 +17,16 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 <html lang="en">
 	<head>
 
-		<?php include_once("layouts/dashboard.header.php") ?>
+		<?php include_once "layouts/dashboard.header.php"?>
 
 		<link rel="stylesheet" href="../app/assets/stylesheets/datatables.min.css">
 	</head>
 	<body class="login-page">
-		<?php include_once("layouts/dashboard.navigation.php") ?>
+		<?php include_once "layouts/dashboard.navigation.php"?>
 		<script src="../app/assets/js/datatables.min.js"></script>
 	    <div class="container-fluid">
 	      <div class="row">
-	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
+	      	<?php include_once "layouts/dashboard.sidebar.php"?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
 							<h1 class="h2"><span class="fa fa-fw fa-car"></span> Trips</h1>
@@ -61,7 +60,20 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 <script>
 $(document).ready(function(){
 	load_trips();
+	id = getQueryParam('id');
+	console.log(id);
+	if (id !== '') {
+		get_trip(id);
+	}
 });
+
+var getQueryParam = function (param) {
+    var result = window.location.search.match(
+        new RegExp("(\\?|&)" + param + "(\\[\\])?=([^&]*)")
+    );
+    return result ? result[3] : '';
+}
+
 function load_trips() {
 	$('#trips_tbl').empty();
   $.ajax({
@@ -97,7 +109,7 @@ function load_trips() {
 					'</button>'+ assignButton +
 				'</td>'+
 			'</tr>');
-    		
+
 		});
 
 		$('#trips_table').DataTable({
@@ -173,30 +185,11 @@ function get_passenger_details(id) {
         return response;}
 	}).responseText);
 };
-function set_available_vehicles_dropdown() {
-	$.ajax({
-		type: 'GET',
-        url: "/api/vehicle/get.php",
-        data: JSON.stringify({
-        }),
-        contentType: "application/json; charset=UTF-8",
-        dataType: 'html',
-        global: false,
-        async:false,
-        success: function(response) {
-			$.each(response, function(k, data) {
-				if (data.active > 1 && data.available > 1) {
-					$('#vehicles_dd').append('<option value="' + data.id + '">' + data.plateno + ' - ' + data.type + ' -' + data.make + ' ' + data.model + '(' + data.color + ')' +'</option>');
-				}
-			});
-			$('#vehicles_dd').append($('<option value="test">Test</option>'));
-		}
-	});
-};
+
 function get_vehicles() {
                 return JSON.parse($.ajax({
                         type: 'GET',
-                        url: "/api/vehicle/get.php",
+                        url: "/api/vehicle/getwithdriver.php",
                         data: JSON.stringify({
                             }),
                         contentType: "application/json; charset=UTF-8",
@@ -210,20 +203,20 @@ function get_vehicles() {
                     }).responseText);
             };
 
-function get_trip(id) {  
+function get_trip(id) {
 	trip = get_trip_details(id);
 	vehicle = get_vehicle_details(trip.vehicleid);
 	passenger = get_passenger_details(trip.passengerid)[0];
 	driver = get_driver_details(vehicle.driverid);
 	assignsegment = '';
 
-	if (trip.stage == 'Requested' || trip.stage == 'Rejected') {	
+	if (trip.stage == 'Requested' || trip.stage == 'Rejected') {
 		vehicles = get_vehicles();
 		vehicles_dd = '<select id="vehicles_dd">';
 		for(var i = 0; i < vehicles.length; i++) {
 			var obj = vehicles[i];
 			if (obj.active > 0 && obj.available > 0) {
-				vehicles_dd = vehicles_dd +'<option value="' + obj.id + '">' + obj.plateno + ' - ' + obj.type + ' -' + obj.make + ' ' + obj.model + '(' + obj.color + ')' +'</option>';
+				vehicles_dd = vehicles_dd +'<option value="' + obj.id + '">' + obj.type + ' | ' + obj.make + ' ' + obj.model + ' - ' + obj.color + ' (' + obj.plateno + ') | Driver: ' + obj.driverfirstname + ' ' + obj.driverlastname +'</option>';
 						}
 		}
 		vehicles_dd = vehicles_dd + '</select>';
@@ -231,7 +224,7 @@ function get_trip(id) {
 					'<div class="col-md-12">'+
 						'<div class="row">'+
 							'<div class="col-md-4">'+
-								'<h6>Assign Trip To: </h6>' + 
+								'<h6>Assign Trip To Available Vehicle / Driver: </h6>' +
 								vehicles_dd + '<br><br>' +
 								'<button class="btn btn-sm btn-success" onclick="assign_trip('+trip.id+')" title="Assign Trip" data-toggle="tooltip">Assign Trip</button>'
 							'</div>'+
@@ -300,14 +293,11 @@ function get_trip(id) {
 		                '</div>'+
 		            '</div><br>'+
 				'</div>'+
-			'</div>'+			
+			'</div>'+
 			assignsegment +
 			'<hr>'+
 		'</div>';
         $('#trip_preview').html(view);
-
-		
-		set_available_vehicles_dropdown();
 };
 
 
