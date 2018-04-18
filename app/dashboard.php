@@ -33,7 +33,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="total"></h2>
+                    <a href="trips.php" class="text-secondary"><h2 id="total"></h2></a>
                     <p class="m-b-0">TOTAL</p>
                     <p></p>
                     <div class="progress ">
@@ -48,7 +48,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="totalrequested"></h2>
+                    <a href="trips.php?keyword=Requested" class="text-secondary"><h2 id="totalrequested"></h2></a>
                     <p class="m-b-0">Requested</p>
                     <p></p>
                     <div class="progress ">
@@ -62,7 +62,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="totalassigned"></h2>
+                    <a href="trips.php?keyword=Assigned" class="text-secondary"><h2 id="totalassigned"></h2></a>
                     <p class="m-b-0">Assigned</p>
                     <p></p>
                     <div class="progress ">
@@ -76,7 +76,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="totalrejected"></h2>
+                    <a href="trips.php?keyword=Rejected" class="text-secondary"><h2 id="totalrejected"></h2></a>
                     <p class="m-b-0">Rejected</p>
                     <p></p>
                     <div class="progress ">
@@ -90,7 +90,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="totalongoing"></h2>
+                    <a href="trips.php?keyword=Ongoing" class="text-secondary"><h2 id="totalongoing"></h2></a>
                     <p class="m-b-0">Ongoing</p>
                     <p></p>
                     <div class="progress ">
@@ -104,7 +104,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="totalcompleted"></h2>
+                    <a href="trips.php?keyword=Completed" class="text-secondary"><h2 id="totalcompleted"></h2></a>
                     <p class="m-b-0">Completed</p>
                     <p></p>
                     <div class="progress ">
@@ -118,7 +118,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
         <div class="card p-60">
             <div class="media">
                 <div class="media-body media-text-right" style="padding: 10px;">
-                    <h2 id="totalcancelled"></h2>
+                    <a href="trips.php?keyword=Cancelled" class="text-secondary"><h2 id="totalcancelled"></h2></a>
                     <p class="m-b-0">Cancelled</p>
                     <p></p>
                     <div class="progress ">

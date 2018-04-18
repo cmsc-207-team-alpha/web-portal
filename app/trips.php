@@ -59,7 +59,8 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"])) {
 
 <script>
 $(document).ready(function(){
-	load_trips();
+	keyword = getQueryParam('keyword');
+	load_trips(keyword);
 	id = getQueryParam('id');
 	console.log(id);
 	if (id !== '') {
@@ -74,7 +75,7 @@ var getQueryParam = function (param) {
     return result ? result[3] : '';
 }
 
-function load_trips() {
+function load_trips(keyword) {
 	$('#trips_tbl').empty();
   $.ajax({
     url: "/api/trip/gethistory.php",
@@ -115,7 +116,8 @@ function load_trips() {
 		$('#trips_table').DataTable({
           "paging": true,
           "bFilter": true,
-		  "aaSorting": [[ 0, "desc" ]]
+		  "aaSorting": [[ 0, "desc" ]],
+		  "oSearch": {"sSearch": keyword}
         });
     },
     error: function (response) {
