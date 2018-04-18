@@ -50,6 +50,10 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                       <label for="email">Email</label>
                       <input class="form-control" name="email" id="email" type="text"  placeholder="Email Address">
                     </div>
+			<div class="col-md-6 form-group">
+                      <label for="email">Email</label>
+                      <input class="form-control" name="mobile" id="mobile" type="text"  placeholder="Mobile Number">
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
