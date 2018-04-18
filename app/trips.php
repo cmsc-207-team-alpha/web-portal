@@ -40,7 +40,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 							<table class="table table-striped table-sm" id="trips_table">
 								<thead>
 									<tr>
-										<th>ID</th>
+										<th>Trip ID</th>
 										<th>Source</th>
 										<th>Destination</th>
 										<th>Date</th>
@@ -102,7 +102,8 @@ function load_trips() {
 
 		$('#trips_table').DataTable({
           "paging": true,
-          "bFilter": true
+          "bFilter": true,
+		  "aaSorting": [[ 0, "desc" ]]
         });
     },
     error: function (response) {
