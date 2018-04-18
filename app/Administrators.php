@@ -30,7 +30,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Earthlings</h1>
+							<h1 class="h2"><span class="fa fa-fw fa-user"></span> Administrators</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 								</div>
 						</div>
