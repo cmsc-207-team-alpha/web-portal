@@ -13,19 +13,19 @@
             <a class="nav-link" href="map.php">Map</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="drivers.php">Drivers</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="trips.php">Trips</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="fare/index.php">Fare</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="report.php">Reports</a>
+            <a class="nav-link" href="drivers.php">Drivers</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Administrators.php">Administrators</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="report.php">Reports</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["admin_name"]; ?></a>
