@@ -44,7 +44,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="register.php">
-                  <span class="fa fa-fw fa-poo"></span>
+                  <span class="fa fa-fw fa-user"></span>
                   Add New Administrator
                 </a>
               </li>
