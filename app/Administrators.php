@@ -289,20 +289,6 @@ function get_admin(id) {
 		            '</div><br>'+
 		            '<div class="row" style="margin:0">'+
          				'<div class="col-md-12" style="padding:0">'+
-         				'<h6 style="text-align:center">Administrator Documents</h6>'+
-			            '<table border="1" cellpadding="5" style="width: 100%;">'+
-			            	'<thead>'+
-				            	'<th>Description</th>'+
-				                '<th>Type</th>'+
-				                '<th>Date Created</th>'+
-				                '<th>Last Modified</th>'+
-				                '<th>Action</th>'+
-				            '</thead>'+
-				            '<thead id="edit_doc_row">'+
-				            '</thead>'+
-				            '<body>'+ tbody+
-				            '</body>'+
-			            '</table></div>'+
 			            '<div class="col-md-12" style="margin-top:4px">'+
 					    	'<button style="float:right;" onclick="$(\'#admin_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
 						 '</div>'+
