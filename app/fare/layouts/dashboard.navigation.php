@@ -32,7 +32,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             <a class="nav-link" href="/app/report.php">Reports</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="Administrators.php">Administrators</a>
+            <a class="nav-link" href="/app/Administrators.php">Administrators</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["admin_name"]; ?></a>
