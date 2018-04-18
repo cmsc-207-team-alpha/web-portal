@@ -43,7 +43,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Administrators.php">
+                <a class="nav-link" href="../Administrators.php">
                   <span class="fa fa-fw fa-user"></span>
                   Administrators
                 </a>
