@@ -128,5 +128,5 @@ else{
     echo "<div class='alert alert-info'>No vehicles found.</div>";
 }
 // set page footer
-include_once "../layout_footer.php";
+include_once "layout_footer.php";
 ?>
