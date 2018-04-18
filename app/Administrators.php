@@ -386,7 +386,7 @@ function delete_admin(id) {
   $.ajax({
     url: "/api/admin/get.php?id=" + id,
     success: function (response) {
-        $('#driver_preview').html('<div class="col-md-12">'+
+        $('#admin_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
                 '<h4 style="text-align:center">Delete Administrator</h4>'+
                 '<hr>'+
