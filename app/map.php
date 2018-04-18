@@ -119,7 +119,8 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                     '<tr><td><strong>On Duty:</strong></td><td>' + (vehicle.active === 1 ? 'Yes' : 'No') + '</td></tr>' +
                     '<tr><td><strong>Available:</strong></td><td>' + (vehicle.available === 1 ? 'Yes' : 'No') + '</td></tr>' +
                     '<tr><td><strong>Location:</strong></td><td>' + vehicle.locationlat + ', ' + vehicle.locationlong + '</td></tr>' +
-                 '</table>'
+                 '</table><br/>' +
+                 '<center><button class="btn btn-sm btn-success" onclick="location.href=\'drivers.php?id=' + vehicle.driverid + '\';" title="View Driver Details" data-toggle="tooltip">View Driver Details</button></center>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
 
@@ -148,8 +149,9 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                     '<tr><td><strong>To:</strong></td><td>' + trip.destination + '</td></tr>' +
                     '<tr><td><strong>Passenger ID:</strong></td><td>' + trip.passengerid + '</td></tr>' +
                     '<tr><td><strong>Passenger:</strong></td><td>' + trip.passengerfirstname + ' ' + trip.passengerlastname + '</td></tr>' +                
-                    '<tr><td><strong>Location:</strong></td><td>' + trip.sourcelat + ', ' + trip.sourcelong + '</td></tr>'
-                '</table>'
+                    '<tr><td><strong>Location:</strong></td><td>' + trip.sourcelat + ', ' + trip.sourcelong + '</td></tr>' +
+                '</table><br/>' +
+                '<center><button class="btn btn-sm btn-success" onclick="location.href=\'trips.php?id=' + trip.id + '\';" title="View Trip Details / Assign Driver" data-toggle="tooltip">View Driver Details / Manually Assign Driver</button></center>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
       }
