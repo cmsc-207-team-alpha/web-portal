@@ -117,6 +117,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
           $("#result").removeClass();
             $('#result').addClass('alert alert-success');
             $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+	    header("location: Administrator.php");
           },
           error: function (response) {
           $("#result").removeClass();
