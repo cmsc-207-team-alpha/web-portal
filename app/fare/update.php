@@ -22,7 +22,7 @@ session_start();
 		              <div class="col-md font-weight-bold">
 		              <input class="form-control" id="id" type="hidden" value="<?php echo htmlspecialchars($_GET["id"]); ?>">
 		                <label for="vehicle_type">Vehicle Type</label>
-		                <input class="form-control" id="vehicle_type" name id="vehicle_type" type="text" placeholder="Vehicle Type">
+		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text" placeholder="Vehicle Type">
 		              </div>
 		              <div class="col-md-9">
 		              </div>
@@ -36,7 +36,7 @@ session_start();
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="per_km">Per Kilometer</label>
-		                <input class="form-control" id="per_km" name id="per_km" type="text" placeholder="Per Km">
+		                <input class="form-control" id="per_km" name="per_km" type="text" placeholder="Per Km" >
 		              </div>
 		              <div class="col-md">
 		                <label for="per_minute">Minute(s) Consumed</label>
@@ -89,5 +89,5 @@ session_start();
 	      </div>
 	    </div>
 	</body>
-		<script src=/app/assets/js/fare/update.js"></script>
+		<script src="/app/assets/js/fare/update.js"></script>
 </html>

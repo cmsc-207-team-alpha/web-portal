@@ -33,3 +33,15 @@ var surge_time_multiplier = document.getElementById('surge_time_multiplier').val
 	  dataType: "json"
 	});
 });
+var id = document.getElementById('id').value;
+
+
+$.getJSON( "/api/fare/get.php?id=" + id, function( data ) {
+ document.getElementById("vehicle_type").value = data['vehicle_type'];
+ document.getElementById("per_km").value = data['per_km'];
+ document.getElementById("per_minute").value = data['per_minute'];
+ document.getElementById("base_fare").value = data['base_fare'];
+ document.getElementById("surge_rush_threshold").value = data['surge_rush_threshold'];
+ document.getElementById("surge_rush_multiplier").value = data['surge_rush_multiplier'];
+ document.getElementById("surge_time_multiplier").value = data['surge_time_multiplier'];
+  });
