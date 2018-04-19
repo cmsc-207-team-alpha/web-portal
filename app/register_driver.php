@@ -27,21 +27,21 @@
                         <br>
                         <input type="hidden" id="current" value="1">
                         <fieldset id="fieldset1">
-                            <h6> Driver Information</h6>
+                            <h6> Driver's Information</h6>
                             <div class="row">
                               <div class="col-md-6">
-                                  <label class="form-control-label">Firstname <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">First Name <span class="text-danger">*</span></label>
                                   <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Juan">
                                </div>
                              <div class="col-md-6">
-                                  <label class="form-control-label">Lastname <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">Last Name <span class="text-danger">*</span></label>
                                   <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Cruz">
                               </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-6">
-                                  <label class="form-control-label">Email <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">Email Address<span class="text-danger">*</span></label>
                                   <input type="email" class="form-control" id="email" placeholder="juancruz@gmail.com">
                                 </div>
 
@@ -58,7 +58,7 @@
                                   <input type="text" class="form-control" name="address" id="address" placeholder="Quezon City">
                                 </div>
                                  <div class="col-md-6">
-                                  <label class="form-control-label">Mobile <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">Mobile No. <span class="text-danger">*</span></label>
                                   <input type="text" class="form-control" name="mobile" id="mobile" placeholder="09123456789" maxlength="11">
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                             <br>
                             <div class="row">
                               <div class="col-md-12">
-                                <label>Driver Photo <span class="text-danger">*</span></label><br>
+                                <label>Driver's Photo <span class="text-danger">*</span></label><br>
                                  <img src="#" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;"><br>
                                 <input type="file" id="photo">
                               </div>
@@ -77,18 +77,18 @@
                             <h6> Vehicle Information</h6>
                             <div class="row">
                               <div class="col-md-6">
-                                  <label class="form-control-label">plate no <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="plateno" placeholder="ABC123">
+                                  <label class="form-control-label">Plate No. <span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="plateno" placeholder="ABC1234">
                                </div>
                              <div class="col-md-6">
-                                  <label class="form-control-label">type <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">Type <span class="text-danger">*</span></label>
                                   <input type="text" class="form-control" id="vtype" placeholder="Sedan">
                               </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-12">
-                                  <label class="form-control-label">make <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">Manufacturer <span class="text-danger">*</span></label>
                                   <input type="text" class="form-control" id="make" placeholder="Toyota">
                                 </div>
                             </div>
@@ -101,13 +101,13 @@
 
                                 <div class="col-md-6">
                                   <label class="form-control-label">Color <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="color" placeholder="Space Grey">
+                                  <input type="text" class="form-control" id="color" placeholder="Black">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                               <div class="col-md-12">
-                                <label>Vehicle Picture</label><br>
+                                <label>Vehicle Photo</label><br>
                                  <img src="#" id="vehicle_img" alt="" style="width: 200px; height: 200px; border:1px solid;"><br>
                                 <input type="file" id="vphoto">
                               </div>
@@ -115,15 +115,15 @@
                           </fieldset>
 
                           <fieldset id="fieldset3" style="display: none;">
-                          <h6> Driver Documents</h6>
+                          <h6>Driver's Documents</h6>
                             <div class="row">
                                 <div class="col-md-6">
-                                  <label>Description</label><br>
-                                  <input type="text" class="form-control" id="description">
+                                  <label>Document Description</label><br>
+                                  <input type="text" class="form-control" id="description" placeholder="description">
                                 </div>
                                 <div class="col-md-6">
-                                  <label>Type</label><br>
-                                  <input type="text" class="form-control" id="type">
+                                  <label>Type of Document</label><br>
+                                  <input type="text" class="form-control" id="type" placeholder="type">
                                 </div>
                                 <div class="col-md-12">
                                     <label>File</label><br>
