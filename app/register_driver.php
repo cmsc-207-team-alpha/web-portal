@@ -230,12 +230,12 @@
                wizard(3);
              }
             else 
-            $('#rwarning').text('Please fill up required fields and check your input if correct');
+            $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct');
           
            $('#sbtn').text('Submit');
            break;
         case '3':
-            alert('wal');
+            alert('Do you want to submit the form?');
             description = $('#description').val();
             type = $('#type').val();
             docs = $('#doc').val();
@@ -244,7 +244,7 @@
             else err =0;
             if(err == 0)
               registerdriver();
-            else $('#rwarning').text('Please fill up required fields and check your input if correct');
+            else $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct');
            break;
       }
     }
