@@ -59,7 +59,7 @@
                                 </div>
                                  <div class="col-md-6">
                                   <label class="form-control-label">Mobile No. <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="09123456789" maxlength="11">
+                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="+639169264312" maxlength="13">
                                 </div>
                             </div>
                             <br>
