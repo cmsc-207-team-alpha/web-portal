@@ -27,7 +27,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
           </div>
           <div class="card fat">
             <div class="card-body">
-                            <h4 class="card-title">Administrator Registration</h4>
+                            <h4 class="card-title">New Administrator Registration</h4>
 			  
 				<div class="form-group col-md-8">
 					<div id="result">			
