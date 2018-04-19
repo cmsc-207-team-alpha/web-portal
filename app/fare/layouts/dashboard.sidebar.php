@@ -33,6 +33,12 @@
               </li>
               <hr style="width: 100%; color: black; height: .25px; background-color:#b1b9c6; margin: 1px;" />
               <li class="nav-item">
+                <a class="nav-link" href="../passengers.php">
+                  <span class="fa fa-fw fa-users"></span>
+                  Pssengers
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="../drivers.php">
                   <span class="fa fa-fw fa-users"></span>
                   Drivers
