@@ -199,7 +199,7 @@
           password = $('#password').val();
           mobile = $('#mobile').val();
           photo = $('#photo').val();
-          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' || !(mailvalidate(email)) || !(mobilevalidate(mobile))){
+          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' || !(mailvalidate(email))) {
             err = 1;
           }
           else {
@@ -324,15 +324,7 @@
         return false;
     }
   }
-  function mobilevalidate(mobile) {
-    var filter = /^[+][0-9]$/;
-    if (filter.test(mobile)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-  }
+ 
   function go_upload(id){
     description = $('#description').val();
     type = $('#type').val();
