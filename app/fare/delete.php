@@ -4,10 +4,15 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<?php include_once("layouts/dashboard.header.php"); ?>
+		<?php include_once("../layouts/dashboard.header.php"); ?>
+		<script>
+			function myFunction(){
+			window.location="index.php";
+			}
+		</script>
 	</head>
 	<body class="login-page">
-		<?php include_once("layouts/dashboard.navigation.php"); ?>
+		<?php include_once("../layouts/dashboard.navigation.php"); ?>
 	    <div class="container-fluid">
 	      <div class="row">
 	      	<?php include_once("../layouts/dashboard.sidebar.php"); ?>
@@ -23,7 +28,7 @@ session_start();
 		              <input class="form-control" id="id" type="hidden" value="<?php echo htmlspecialchars($_GET["id"]); ?>">
 		            </div>
 		            <div class="form-row">
-		                <button id="fare_update" name="fare_delete" class="btn btn-lg btn-danger mt-2"><span class="fas fa-plus"></span> Delete Fare</button>
+		                <button id="fare_update" name="fare_delete" class="btn btn-lg btn-danger mt-2" onclick="myFunction()"><span class="fas fa-plus"></span> Delete Fare</button>
 		            </div>
 		          </div>
 	          </div>
