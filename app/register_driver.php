@@ -301,7 +301,7 @@
 
       $.ajax({
        type: "POST",
-       url: "/api/driver/adddocument.php",
+       url: "/api/vehicle/add.php",
        data:JSON.stringify({
           driverid: id,
           plateno: plateno,
