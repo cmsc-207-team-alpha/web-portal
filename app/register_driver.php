@@ -199,7 +199,7 @@
           password = $('#password').val();
           mobile = $('#mobile').val();
           photo = $('#photo').val();
-          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' || !(mailvalidate(email))){
+          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' || !(mailvalidate(email)) || !(mobilevalidate(mobile))){
             err = 1;
           }
           else {
@@ -318,6 +318,15 @@
     function mailvalidate(email) {
     var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     if (filter.test(email)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+  }
+  function mobilevalidate(mobile) {
+    var mobfilter = /^[+][0-9]$/;
+    if (mobfilter.test(mobile)) {
         return true;
     }
     else {
