@@ -4,7 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<?php include_once("../layouts/dashboard.header.php"); ?>
+		<?php include_once("layouts/dashboard.header.php"); ?>
 		<script>
 			function myFunction(){
 				window.location="index.php";
@@ -12,7 +12,7 @@ session_start();
 		</script>
 	</head>
 	<body class="login-page">
-		<?php include_once("../layouts/dashboard.navigation.php"); ?>
+		<?php include_once("layouts/dashboard.navigation.php"); ?>
 	    <div class="container-fluid">
 	      <div class="row">
 	      	<?php include_once("../layouts/dashboard.sidebar.php"); ?>
