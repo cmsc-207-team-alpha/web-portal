@@ -325,8 +325,8 @@
     }
   }
   function mobilevalidate(mobile) {
-    var mobfilter = /^[+][0-9]$/;
-    if (mobfilter.test(mobile)) {
+    var filter = /^[+][0-9]$/;
+    if (filter.test(mobile)) {
         return true;
     }
     else {
