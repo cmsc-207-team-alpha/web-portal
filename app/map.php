@@ -120,7 +120,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                     '<tr><td><strong>Available:</strong></td><td>' + (vehicle.available === 1 ? 'Yes' : 'No') + '</td></tr>' +
                     '<tr><td><strong>Location:</strong></td><td>' + vehicle.locationlat + ', ' + vehicle.locationlong + '</td></tr>' +
                  '</table><br/>' +
-                 '<center><button class="btn btn-sm btn-success" onclick="location.href=\'drivers.php?id=' + vehicle.driverid + '\';" title="View Driver Details" data-toggle="tooltip">View Driver Details</button></center>'
+                 '<center><button class="btn btn-sm btn-success" onclick="location.href=\'drivers.php?id=' + vehicle.driverid + '\';" title="View Driver" data-toggle="tooltip">View Driver</button></center>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
 
@@ -151,7 +151,10 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                     '<tr><td><strong>Passenger:</strong></td><td>' + trip.passengerfirstname + ' ' + trip.passengerlastname + '</td></tr>' +                
                     '<tr><td><strong>Location:</strong></td><td>' + trip.sourcelat + ', ' + trip.sourcelong + '</td></tr>' +
                 '</table><br/>' +
-                '<center><button class="btn btn-sm btn-success" onclick="location.href=\'trips.php?id=' + trip.id + '\';" title="View Trip Details / Assign Driver" data-toggle="tooltip">View Trip Details / Manually Assign Driver</button></center>'
+                '<center>' +
+                    '<button class="btn btn-sm btn-success" onclick="location.href=\'trips.php?id=' + trip.id + '\';" title="View Trip Details / Assign Driver" data-toggle="tooltip">View Trip</button>&nbsp;&nbsp;&nbsp;' +
+                    '<button class="btn btn-sm btn-success" onclick="location.href=\'passengers.php?id=' + trip.passengerid + '\';" title="View Passenger" data-toggle="tooltip">View Passenger</button>' +
+                '</center>'
             makeInfoWindowEvent(map, infowindow, info, marker);
         });
       }

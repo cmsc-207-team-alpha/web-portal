@@ -72,6 +72,12 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             </div>
         </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="col-md-3" >
         <div class="card p-60">
             <div class="media">
