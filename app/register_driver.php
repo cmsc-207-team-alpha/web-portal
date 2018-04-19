@@ -211,7 +211,7 @@
             $('#sbtn').text('Next');
            }
           else 
-          $('#rwarning').text('Please fill up required fields and check your input if correct');
+          $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
           break;
         case '2':
             plateno = $('#plateno').val();
@@ -230,7 +230,7 @@
                wizard(3);
              }
             else 
-            $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct');
+            $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
           
            $('#sbtn').text('Submit');
            break;
@@ -244,7 +244,7 @@
             else err =0;
             if(err == 0)
               registerdriver();
-            else $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct');
+            else $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
            break;
       }
     }
