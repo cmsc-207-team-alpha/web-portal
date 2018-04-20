@@ -59,7 +59,7 @@
                                 </div>
                                  <div class="col-md-6">
                                   <label class="form-control-label">Mobile No. <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="+639169264312" maxlength="13">
+                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="+639169264312">
                                 </div>
                             </div>
                             <br>
@@ -157,7 +157,6 @@
         };
         reader.readAsDataURL(this.files[0]);
     };
-
     document.getElementById("doc").onchange = function () {
           var reader = new FileReader();
           reader.onload = function (e) {
@@ -187,7 +186,6 @@
            break;
       }
     }
-
     function next(){
       current = $('#current').val();
       err =0;
@@ -199,7 +197,7 @@
           password = $('#password').val();
           mobile = $('#mobile').val();
           photo = $('#photo').val();
-          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' ||| !(mailvalidate(email))) {
+          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' || !(mailvalidate(email))) {
             err = 1;
           }
           else {
@@ -220,7 +218,6 @@
             model = $('#model').val();
             color = $('#color').val();
             vehicle_img = $('#vphoto').val();
-
             if(plateno =='' || type == '' ||  make == '' || model == '' || color == '' || vehicle_img == ''){
                err = 1;
               }
@@ -290,7 +287,6 @@
           dataType: "json"
         });
     };
-
     function add_vehicle(id){
       plateno = $('#plateno').val();
       type = $('#type').val();
@@ -298,7 +294,6 @@
       model = $('#model').val();
       color = $('#color').val();
       vehicle_img = $('#vehicle_img').val();
-
       $.ajax({
        type: "POST",
        url: "/api/vehicle/add.php",
@@ -342,7 +337,6 @@
       dataType: "json"
     });
   }
-
   
   </script>
 </body>
