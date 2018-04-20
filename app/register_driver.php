@@ -199,7 +199,7 @@
           password = $('#password').val();
           mobile = $('#mobile').val();
           photo = $('#photo').val();
-          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' ||| !(mailvalidate(email)) || !(validate_mobile(mobile))){
+          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' ||| !(mailvalidate(email))) {
             err = 1;
           }
           else {
@@ -324,10 +324,6 @@
         return false;
     }
   }
-   function validate_mobile($mobile)
-{
-    return preg_match('/^[+][0-9]$/', $mobile);
-}
  
   function go_upload(id){
     description = $('#description').val();
