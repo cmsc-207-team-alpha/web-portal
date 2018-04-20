@@ -81,14 +81,8 @@
                                   <input type="text" class="form-control" id="plateno" placeholder="ABC1234">
                                </div>
                              <div class="col-md-6">
-                                  <label>Vehicle Type</label>
-							                    <select id="vtype">
-								                    <option value="Sedan">Sedan</option> 
-								                    <option value="Compact">Compact</option> 
-								                    <option value="Van">Van</option>
-								                    <option value="SUV">SUV</option>
-								                    <option value="Limousine">Limousine</option>
-							                    </select>
+                                 <label class="form-control-label">Type <span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="vtype" placeholder="Sedan">
                               </div>
                             </div>
                             <br>
