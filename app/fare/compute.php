@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html>	
 <html lang="en">
 	<head>
 		<?php include_once("layouts/dashboard.header.php"); ?>
@@ -27,27 +27,27 @@ session_start();
 		              </div>
 		              <div class="col-md">
 		                <label for="per_minute">Distance Km</label>
-		                <input class="form-control" id="distance_km" name="distance_km" type="text" placeholder="Distance per Km">
+		                <input class="form-control" id="distance_km" name="distance_km" type="number" placeholder="Distance per Km">
 		              </div>
 		              <div class="col-md">
 		                <label for="base_fare">Distance Minutes</label>
-		                <input class="form-control" id="distance_minute" name="distance_minute" type="text" placeholder="Distance per Minutes">
+		                <input class="form-control" id="distance_minute" name="distance_minute" type="number" placeholder="Distance per Minutes">
 		              </div>
 		            </div>
 		            <hr>
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="surge_rush_threshold">Source Lat</label>
-		                 <input class="form-control" id="source_lat" name="source_lat" type="text" placeholder="Source Lat">
+		                 <input class="form-control" id="source_lat" name="source_lat" type="number" placeholder="Source Lat">
 											
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_rush_multiplier">Source Long</label>
-		                <input class="form-control" id="source_long" name="source_long" type="text" placeholder="Source Long">
+		                <input class="form-control" id="source_long" name="source_long" type="number" placeholder="Source Long">
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_time_multiplier">Radius</label>
-		                <input class="form-control" name="radius" id="radius" type="text" placeholder="Radius">
+		                <input class="form-control" name="radius" id="radius" type="number" placeholder="Radius">
 		              </div>
 		            </div>
 		            <hr>
@@ -62,7 +62,7 @@ session_start();
 		              <div class="col-md">
 		              </div>
 		              <div class="col-md">
-		                <button id="fare_compute" name="fare_compute" class="btn btn-lg btn-success mt-2"><span class="fas fa-calculator"></span> Compute Fare</button>
+		                <button id="fare_compute" type="submit" name="fare_compute" class="btn btn-lg btn-success mt-2"><span class="fas fa-calculator"></span> Compute Fare</button>
 		              </div>
 		            </div>
 		          </div>

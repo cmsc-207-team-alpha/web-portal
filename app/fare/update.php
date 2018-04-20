@@ -5,11 +5,6 @@ session_start();
 <html lang="en">
 	<head>
 		<?php include_once("layouts/dashboard.header.php"); ?>
-		<script>
-			function myFunction(){
-				window.location="index.php";
-			}
-		</script>
 	</head>
 	<body class="login-page">
 		<?php include_once("layouts/dashboard.navigation.php"); ?>
@@ -21,13 +16,15 @@ session_start();
 	            <h1 class="h2"><span class="fa fa-fw fa-money-bill-alt"></span> Update Fare</h1>
 	            <a href="index.php" type="button" class="btn btn-info"><span class="fas fa-arrow-left"></span> Go Back to Fare List </a>
 	          </div>
+	          <form method="POST" action="index.php" onsubmit="return checkforblank()" class="needs-validation" novalidate>
 	          <div class="container-fluid">
 		          <div class="form-group mx-auto">
 		            <div class="form-row">
 		              <div class="col-md font-weight-bold">
 		              <input class="form-control" id="id" type="hidden" value="<?php echo htmlspecialchars($_GET["id"]); ?>">
 		                <label for="vehicle_type">Vehicle Type</label>
-		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text" placeholder="Vehicle Type">
+		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text" placeholder="Vehicle Type" required>
+		                <div id="vehicleError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md-9">
 		              </div>
@@ -41,15 +38,18 @@ session_start();
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="per_km">Per Kilometer</label>
-		                <input class="form-control" id="per_km" name="per_km" type="text" placeholder="Per Km" >
+		                <input class="form-control" id="per_km" name="per_km" type="number" placeholder="Per Km" >
+		                <div id="perkmError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md">
 		                <label for="per_minute">Minute(s) Consumed</label>
-		                <input class="form-control" id="per_minute" name="per_minute" type="text" placeholder="Per Minute">
+		                <input class="form-control" id="per_minute" name="per_minute" type="number" placeholder="Per Minute">
+		                <div id="perkminuteError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md">
 		                <label for="base_fare">Base Fare</label>
-		                <input class="form-control" id="base_fare" name="base_fare" type="text" placeholder="Base Fare">
+		                <input class="form-control" id="base_fare" name="base_fare" type="number" placeholder="Base Fare">
+		                <div id="basefareError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		            </div>
 		            <hr>
@@ -61,16 +61,18 @@ session_start();
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="surge_rush_threshold">Surge Rush Threshold</label>
-		                 <input class="form-control" id="surge_rush_threshold" name="surge_rush_threshold" type="text" placeholder="Surge Rush Threshold">
-											
+		                 <input class="form-control" id="surge_rush_threshold" name="surge_rush_threshold" type="number" placeholder="Surge Rush Threshold">
+		                 <div id="thresholdError" class="invalid-feedback">Please fill out this field</div>						
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_rush_multiplier">Surge Rush Multiplier</label>
-		                <input class="form-control" id="surge_rush_multiplier" name="surge_rush_multiplier" type="text" placeholder="Surge Rush Multiplier">
+		                <input class="form-control" id="surge_rush_multiplier" name="surge_rush_multiplier" type="number" placeholder="Surge Rush Multiplier">
+		                <div id="rushError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_time_multiplier">Surge Time Multiplier</label>
-		                <input class="form-control" name="surge_time_multiplier" id="surge_time_multiplier" type="text" placeholder="Surge Time Multiplier">
+		                <input class="form-control" name="surge_time_multiplier" id="surge_time_multiplier" type="number" placeholder="Surge Time Multiplier">
+		                <div id="timeError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		            </div>
 		            <hr>
@@ -85,7 +87,8 @@ session_start();
 		              <div class="col-md">
 		              </div>
 		              <div class="col-md">
-		                <button id="fare_update" name="fare_update" class="btn btn-lg btn-success mt-2" onclick="myFunction()"><span class="fas fa-plus"></span> Update Fare</button>
+		                <button id="fare_update" type="submit" name="fare_update" class="btn btn-lg btn-success mt-2"><span class="fas fa-plus"></span> Update Fare</button>
+		            	</form>
 		              </div>
 		            </div>
 		          </div>
@@ -96,3 +99,55 @@ session_start();
 	</body>
 		<script src="/app/assets/js/fare/update.js"></script>
 </html>
+<script>
+		function checkforblank() {
+
+			var errormessage = "";
+
+			if (document.getElementById('vehicle_type').value == "") {
+				errormesssage += "Fill up vehicle field";				
+			}
+			if (document.getElementById('per_km').value == "") {
+				errormesssage += "Fill up per km field";				
+			}
+			if (document.getElementById('per_minute').value == "") {
+				errormesssage += "Fill up per minute field";				
+			}
+			if (document.getElementById('base_fare').value == "") {
+				errormesssage += "Fill up base fare field";				
+			}
+			if (document.getElementById('surge_time_multiplier').value == "") {
+				errormesssage += "Fill up surge time multiplier";				
+			}
+			if (document.getElementById('surge_rush_threshold').value == "") {
+				errormesssage += "Fill up surge rush threshold";				
+			}
+			if (document.getElementById('surge_rush_multiplier').value == "") {
+				errormesssage += "Fill up surge rush multiplier";				
+			}
+			if (errormessage != "") {
+				alert(errormessage);
+				return false;			
+			}
+			}
+			
+</script>
+<script>
+	(function (){
+		'use strict';
+		window.addEventListener('load', function() {
+			//Fetch all the forms we want to apply validation
+			var forms = document.getElementsByClassName('needs-validation');
+			//Loop oever them and prevent submission
+			var validation = Array.prototype.filter.call(forms, function(form) {
+				form.addEventListener('submit', function(event) {
+					if(form.checkValidity () === false) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		}, false);
+	})();
+</script>
