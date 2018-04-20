@@ -308,29 +308,19 @@ function delete_passenger(id) {
   $.ajax({
     url: "/api/passenger/get.php?id=" + id,
     success: function (response) {
+		response = response[0];
         $('#passenger_preview').html('<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h4 style="text-align:center">Delete passenger</h4>'+
+                '<h4 style="text-align:center">Delete Passenger</h4>'+
                 '<hr>'+
             '</div>'+
             '<div class="row">'+
-            	'<div class="col-md-3">'+
-	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="passenger_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
-	            	'</div>'+
-	            '</div>'+
-	            '<div class="col-md-9">'+
-		            '<div class="row">'+
-		                '<div class="col-md-12">'+
+	            '<div class="col-md-12">'+
+		                '<center>'+
 			                '<h4>Are you sure you want do delete '+response.firstname+' '+ response.lastname +' ?</h4><br>'+
-		                '</div>'+
-		                '<div class="col-md-4">'+
-		                	'<div style="float:right">'+
 			                	'<button onclick="godelete('+response.id+');" style="margin-right:10px" class="btn btn-md btn-danger">Yes</button>'+
 			                	'<button onclick="$(\'#passenger_preview\').empty();" class="btn btn-md btn-default">No</button>'+
-			                '</div>'+
-			            '</div>'+
-		            '</div>'+
+			            '</center>'+
 	            '</div>'+
             '</div>'+
             '<br>'+
