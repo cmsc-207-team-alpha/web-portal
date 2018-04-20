@@ -27,27 +27,27 @@ session_start();
 		              </div>
 		              <div class="col-md">
 		                <label for="per_minute">Distance Km</label>
-		                <input class="form-control" id="distance_km" name="distance_km" type="number" placeholder="Distance per Km">
+		                <input class="form-control" id="distance_km" name="distance_km" type="number" step="0.01" placeholder="Distance per Km">
 		              </div>
 		              <div class="col-md">
 		                <label for="base_fare">Distance Minutes</label>
-		                <input class="form-control" id="distance_minute" name="distance_minute" type="number" placeholder="Distance per Minutes">
+		                <input class="form-control" id="distance_minute" name="distance_minute" type="number" step="0.01" placeholder="Distance per Minutes">
 		              </div>
 		            </div>
 		            <hr>
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="surge_rush_threshold">Source Lat</label>
-		                 <input class="form-control" id="source_lat" name="source_lat" type="number" placeholder="Source Lat">
+		                 <input class="form-control" id="source_lat" name="source_lat" type="number" step="0.01" placeholder="Source Lat">
 											
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_rush_multiplier">Source Long</label>
-		                <input class="form-control" id="source_long" name="source_long" type="number" placeholder="Source Long">
+		                <input class="form-control" id="source_long" name="source_long" type="number" step="0.01" placeholder="Source Long">
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_time_multiplier">Radius</label>
-		                <input class="form-control" name="radius" id="radius" type="number" placeholder="Radius">
+		                <input class="form-control" name="radius" id="radius" type="number" step="0.01" placeholder="Radius">
 		              </div>
 		            </div>
 		            <hr>

@@ -23,7 +23,7 @@ session_start();
 		              <div class="col-md font-weight-bold">
 
 		                <label for="vehicle_type">Vehicle Type</label>
-		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text" placeholder="Vehicle Type" required>
+		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text"  placeholder="Vehicle Type" required>
 		                <div id="vehicleError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md-9">
@@ -38,17 +38,17 @@ session_start();
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="per_km">Per Kilometer</label>
-		                <input class="form-control" id="per_km" name id="per_km" type="number" placeholder="Per Km" required>
+		                <input class="form-control" id="per_km" name id="per_km" type="number" step="0.01" placeholder="Per Km" required>
 		                <div id="perkmError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md">
 		                <label for="per_minute">Minute(s) Consumed</label>
-		                <input class="form-control" id="per_minute" name="per_minute" type="number" placeholder="Per Minute" required>
+		                <input class="form-control" id="per_minute" name="per_minute" type="number" step="0.01" placeholder="Per Minute" required>
 		              	<div id="perkminuteError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md">
 		                <label for="base_fare">Base Fare</label>
-		                <input class="form-control" id="base_fare" name="base_fare" type="number" placeholder="Base Fare" required>
+		                <input class="form-control" id="base_fare" name="base_fare" type="number" step="0.01" placeholder="Base Fare" required>
 		              	<div id="basefareError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		            </div>
@@ -61,16 +61,16 @@ session_start();
 		            <div class="form-row">
 		              <div class="col-md">
 		                <label for="surge_rush_threshold">Surge Rush Threshold</label>
-		                 <input class="form-control" id="surge_rush_threshold" name="surge_rush_threshold" type="number" placeholder="Surge Rush Threshold" required>
+		                 <input class="form-control" id="surge_rush_threshold" name="surge_rush_threshold" type="number" step="0.01" placeholder="Surge Rush Threshold" required>
 						 <div id="thresholdError" class="invalid-feedback">Please fill out this field</div>					
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_rush_multiplier">Surge Rush Multiplier</label>
-		                <input class="form-control" id="surge_rush_multiplier" name="surge_rush_multiplier" type="number" placeholder="Surge Rush Multiplier" required><div id="rushError" class="invalid-feedback">Please fill out this field</div>
+		                <input class="form-control" id="surge_rush_multiplier" name="surge_rush_multiplier" type="number" step="0.01" placeholder="Surge Rush Multiplier" required><div id="rushError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md">
 		                <label for="surge_time_multiplier">Surge Time Multiplier</label>
-		                <input class="form-control" name="surge_time_multiplier" id="surge_time_multiplier" type="number" placeholder="Surge Time Multiplier" required><div id="timeError" class="invalid-feedback">Please fill out this field</div>
+		                <input class="form-control" name="surge_time_multiplier" id="surge_time_multiplier" type="number" step="0.01" placeholder="Surge Time Multiplier" required><div id="timeError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		            </div>
 		            <hr>
