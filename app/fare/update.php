@@ -23,7 +23,7 @@ session_start();
 		              <div class="col-md font-weight-bold">
 		              <input class="form-control" id="id" type="hidden" value="<?php echo htmlspecialchars($_GET["id"]); ?>">
 		                <label for="vehicle_type">Vehicle Type</label>
-		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text" placeholder="Vehicle Type" required>
+		                <input class="form-control" id="vehicle_type" name="vehicle_type" type="text" placeholder="Vehicle Type" required readonly>
 		                <div id="vehicleError" class="invalid-feedback">Please fill out this field</div>
 		              </div>
 		              <div class="col-md-9">

@@ -17,7 +17,7 @@ session_start();
 	            <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 								  <div class="btn-group mr-2" role="group" aria-label="First group">
 								    <a href="compute.php" type="button" class="btn btn-info"><span class="fas fa-calculator"></span> Compute </a>
-								    <a href="add.php" type="button" class="btn btn-success"><span class="fas fa-plus-circle"></span> Add Fare </a>
+								    <!--<a href="add.php" type="button" class="btn btn-success"><span class="fas fa-plus-circle"></span> Add Fare </a>-->
 								  </div>
 									
 								</div>
@@ -26,8 +26,8 @@ session_start();
 				<table class="table table-striped">
 				<thead>
 				<tr>
-				<th><input class="form-control" type="checkbox" name=""></th>
-				<th>Id</th>
+				<!--<th><input class="form-control" type="checkbox" name=""></th>
+				<th>Id</th>-->
 				<th>Vehicle Type</th>
 				<th>Base Fare</th>
 				<th>Fare Per Km</th>
