@@ -97,14 +97,14 @@ function load_vehicles() {
 				'<td>'+stat+'</td>'+
 				'<td>'+available+'</td>'+
 				'<td>'+
-					'<button class="btn btn-sm btn-default" onclick="get_driver('+data.id+')" title="View" data-toggle="tooltip">'+
+					'<button class="btn btn-sm btn-default" onclick="get_vehicle('+data.id+')" title="View" data-toggle="tooltip">'+
 						'<span class="fa fa-eye"></span> '+
 					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="edit_driver('+data.id+')"  title="Update" data-toggle="tooltip">'+
+					'<button class="btn btn-sm btn-default" onclick="edit_vehicle('+data.id+')"  title="Update" data-toggle="tooltip">'+
 						'<span class="fa fa-edit"></span>'+
 					'</button>'+
 								
-					'<button class="btn btn-sm btn-default" onclick="delete_driver('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
+					'<button class="btn btn-sm btn-default" onclick="delete_vehicle('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
 						'<span class="fa fa-trash"></span>'+
 					'</button>'+
 
@@ -127,5 +127,313 @@ function load_vehicles() {
   });
 };
 
+function edit_vehicle(id) {
+  $.ajax({
+    url: "/api/vehicle/get.php?id=" + id,
+    success: function (response) {
+        $('#vehicle_preview').html('<div class="col-md-12">'+
+            '<div class="page-header">'+
+                '<h4 style="text-align:center">Edit vehicle Details</h4>'+
+                '<hr>'+
+            '</div>'+
+            '<div class="row">'+
+            	'<div class="col-md-3">'+
+	            	'<div class="col-md-12">'+
+	            		'<img src="'+response.photo+'" id="vehicle_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
+	            		'<input type="file" id="edit_photo">'+
+	            	'</div>'+
+	            '</div>'+
+	            '<div class="col-md-9">'+
+	            	'<div class="row">'+
+		            	'<div class="col-md-4">'+
+			                '<label>Name</label><br>'+
+			                '<input type="text" class="form-control" name="firstname" id="firstname" value="'+response.firstname+'">'+ 
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Last Name</label><br>'+
+			                '<input type="text" class="form-control" name="lastname" id="lastname" value="'+response.lastname+'">'+ 
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Mobile</label><br>'+
+			                '<input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="11">'+
+		                '</div>'+
+		                
+		            '</div><br>'+
+		            '<div class="row">'+
+		                '<div class="col-md-8">'+
+			                '<label>Address</label><br>'+
+			                '<input type="text" class="form-control" name="address" id="address" value="'+response.address +'">'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Email</label><br>'+
+			                '<input type="text" class="form-control" name="email" id="email" value="'+response.email +'">'+
+		                '</div>'+
+			            '<div class="col-md-12" style="margin-top:10px;">'+
+			            	'<div style="float:right">'+
+				            	'<button style="margin-right:10px;" onclick="go_update('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
+				                '<button onclick="$(\'#vehicle_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+				            '</div>'+
+			            '</div>'+
+		            '</div>'+
+		            '<hr>'+
+	            '</div>'+
+            '</div>'+
+            '<br>'+
+        '</div>');
+
+        document.getElementById("edit_photo").onchange = function () {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	            document.getElementById("vehicle_img").src = e.target.result;
+	        };
+	        reader.readAsDataURL(this.files[0]);
+    	};
+    },
+    error: function (response) {
+     alert(response.responseJSON["message"]);
+    },
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json"
+  });
+};
+
+function update_vehicle(id) {
+  $.ajax({
+    url: "/api/vehicle/get.php?id=" + id,
+    success: function (response) {
+        $('#vehicle_preview').html('<div class="col-md-12">'+
+            '<div class="page-header">'+
+                '<h4 style="text-align:center">Update vehicle Status</h4>'+
+                '<hr>'+
+            '</div>'+
+            '<div class="row">'+
+            	'<div class="col-md-3">'+
+	            	'<div class="col-md-12">'+
+	            		'<img src="'+response.photo+'" id="vehicle_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
+	            	'</div>'+
+	            '</div>'+
+	            '<div class="col-md-9">'+
+	            	'<div class="row">'+
+		            	'<div class="col-md-4">'+
+			                '<label>Name</label><br>'+
+			                '<h6>'+response.firstname+' ' +response.lastname+'</h6>'+ 
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Mobile</label><br>'+
+			                '<h6>'+response.mobile +'</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+		            '<div class="row">'+
+		                '<div class="col-md-4">'+
+			                '<label>Verified</label><br>'+
+			                '<select class="form-control" id="verified">'+
+			                 	'<option value="0">Not Verified</option>'+
+			                 	'<option value="1">Verified</option>'+
+			                '</select>'+
+		                '</div>'+
+		                 '<div class="col-md-4">'+
+			                '<label>Is Blocked</label><br>'+
+			                '<select class="form-control" id="blocked">'+
+			                 	'<option value="0">Not Blocked</option>'+
+			                 	'<option value="1">Blocked</option>'+
+			                '</select>'+
+		                '</div>'+
+
+		                '<div class="col-md-4">'+
+			                '<label>Active</label><br>'+
+			                '<select class="form-control" id="active">'+
+			                 	'<option value="0">Inactive</option>'+
+			                 	'<option value="1">Active</option>'+
+			                '</select>'+
+		                '</div>'+
+			            '<div class="col-md-12" style="margin-top:10px;">'+
+			            	'<div style="float:right">'+
+				            '<button style="margin-right:10px;" onclick="go_update_stats('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
+				            '<button onclick="$(\'#vehicle_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+				            '</div>'+
+			            '</div>'+
+		            '</div>'+
+		            '<hr>'+
+	            '</div>'+
+            '</div>'+
+            '<br>'+
+        '</div>');
+        $('#active').val(response.active);
+		$('#verified').val(response.verified);
+		$('#blocked').val(response.blocked);
+    },
+    error: function (response) {
+     alert(response.responseJSON["message"]);
+    },
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json"
+  });
+};
+
+
+function get_vehicle(id) {  
+  $.ajax({
+    url: "/api/vehicle/get.php?id=" + id,
+    async:false,
+    success: function (response) {
+    	tbody = '';
+        $.ajax({
+		    url: "/api/vehicle/getdocument.php?vehicleid=" + id,
+		    async: false,
+		    success: function (response) {
+		    	if(response != '')
+		    	$.each(response, function(k, data) {
+		    		detailed = '';
+		    		a = '';
+				 	$.ajax({
+					    url: "/api/vehicle/getdocument.php?id=" + data.id,
+					    async: false,
+					    success: function (r) {
+					    	detailed = '<td>'+r.datecreated +'</td>' +'<td>'+r.datemodified +'</td>';
+					    	a = /*'<a class="btn btn-sm btn-default" title="Download Document" data-toggle="tooltip">'+
+									'<i class="fa fa-download"></i>'+
+								'</a>' +*/
+								'<button class="btn btn-sm btn-default" onclick="edit_doc('+r.id+');" title="Edit Document" data-toggle="tooltip">'+
+									'<i class="fa fa-edit"></i>'+
+								'</button>';
+					    },
+					    contentType: "application/json; charset=UTF-8",
+					    dataType: "json"
+					});
+
+		        tbody += '<tr>'+
+			            	'<td>'+data.description +'</td>'+
+			            	'<td>'+data.type +'</td>'+ detailed +
+			            	'<td>'+ a +
+								'<button class="btn btn-sm btn-default" onclick="dlt_doc('+data.id+', '+data.vehicleid+');" title="Delete Document" data-toggle="tooltip">'+
+									'<i class="fa fa-trash"></i>'+
+								'</button>'+
+							'</td>'+
+			            '</tr>';
+			     });
+		    	else tbody='<tr><td colspan="5" style="text-align:center"> Nothing to see. </td></tr>';
+		    },
+		    error: function (response) {
+		     alert(response.responseJSON["message"]);
+		    },
+		    contentType: "application/json; charset=UTF-8",
+		    dataType: "json"
+		  });
+        view = '<div class="col-md-12">'+
+            '<div class="page-header">'+
+                '<h4 style="text-align:center">View vehicle</h4>'+
+                '<hr>'+
+            '</div>'+
+            '<div class="row">'+
+            	'<div class="col-md-3">'+
+	            	'<div class="col-md-12">'+
+	            		'<img src="'+response.photo+'" id="vehicle_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
+	            	'</div>'+
+	            '</div>'+
+	            '<div class="col-md-9">'+
+	            	'<div class="row">'+
+		            	'<div class="col-md-4">'+
+			                '<label>Name</label><br>'+
+			                '<h6>'+response.firstname+' '+ response.lastname +'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Mobile</label><br>'+
+			                '<h6>'+response.mobile +'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Email</label><br>'+
+			                '<h6>'+response.email +'</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+		            '<div class="row">'+
+		                '<div class="col-md-4">'+
+			                '<label>Address</label><br>'+
+			                '<h6>'+response.address +'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Date Created</label><br>'+
+			                '<h6>'+response.datecreated +'</h6>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+			                '<label>Last Modified</label><br>'+
+			                '<h6>'+response.datemodified +'</h6>'+
+		                '</div>'+
+		            '</div><br>'+
+		            '<div class="row" style="margin:0">'+
+
+         				'<div class="col-md-12" style="padding:0">'+
+         				'<h6 style="text-align:center">vehicle Documents</h6>'+
+			            '<table border="1" cellpadding="5" style="width: 100%;">'+
+			            	'<thead>'+
+				            	'<th>Description</th>'+
+				                '<th>Type</th>'+
+				                '<th>Date Created</th>'+
+				                '<th>Last Modified</th>'+
+				                '<th>Action</th>'+
+				            '</thead>'+
+				            '<thead id="edit_doc_row">'+
+				            '</thead>'+
+				            '<body>'+ tbody+
+				            '</body>'+
+			            '</table></div>'+
+			            '<div class="col-md-12" style="margin-top:4px">'+
+					    	'<button style="float:right;" onclick="$(\'#vehicle_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+						 '</div>'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
+			'<hr>'+
+		'</div>';
+        $('#vehicle_preview').html(view);
+         
+    },
+    error: function (response) {
+     alert(response.responseJSON["message"]);
+    },
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json"
+  });
+};
+
+
+function delete_vehicle(id) {
+  $.ajax({
+    url: "/api/vehicle/get.php?id=" + id,
+    success: function (response) {
+        $('#vehicle_preview').html('<div class="col-md-12">'+
+            '<div class="page-header">'+
+                '<h4 style="text-align:center">Delete vehicle</h4>'+
+                '<hr>'+
+            '</div>'+
+            '<div class="row">'+
+            	'<div class="col-md-3">'+
+	            	'<div class="col-md-12">'+
+	            		'<img src="'+response.photo+'" id="vehicle_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
+	            	'</div>'+
+	            '</div>'+
+	            '<div class="col-md-9">'+
+		            '<div class="row">'+
+		                '<div class="col-md-12">'+
+			                '<h4>Are you sure you want do delete '+response.firstname+' '+ response.lastname +' ?</h4><br>'+
+		                '</div>'+
+		                '<div class="col-md-4">'+
+		                	'<div style="float:right">'+
+			                	'<button onclick="godelete('+response.id+');" style="margin-right:10px" class="btn btn-md btn-danger">Yes</button>'+
+			                	'<button onclick="$(\'#vehicle_preview\').empty();" class="btn btn-md btn-default">No</button>'+
+			                '</div>'+
+			            '</div>'+
+		            '</div>'+
+	            '</div>'+
+            '</div>'+
+            '<br>'+
+        '</div>');
+    },
+    error: function (response) {
+     alert(response.responseJSON["message"]);
+    },
+    contentType: "application/json; charset=UTF-8",
+    dataType: "json"
+  });
+};	
 
 </script>
