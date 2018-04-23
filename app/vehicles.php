@@ -146,27 +146,27 @@ function edit_vehicle(id) {
 	            '<div class="col-md-9">'+
 	            	'<div class="row">'+
 		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<input type="text" class="form-control" name="firstname" id="firstname" value="'+response.firstname+'">'+ 
+			                '<label>Plate No</label><br>'+
+			                '<input type="text" class="form-control" name="plateno" id="plateno" value="'+response.plateno+'">'+ 
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Last Name</label><br>'+
-			                '<input type="text" class="form-control" name="lastname" id="lastname" value="'+response.lastname+'">'+ 
+			                '<label>Type</label><br>'+
+			                '<input type="text" class="form-control" name="vtype" id="vtype" value="'+response.vtype+'">'+ 
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="11">'+
+			                '<label>Make</label><br>'+
+			                '<input type="text" class="form-control" name="make" id="make" value="'+response.make +'" maxlength="11">'+
 		                '</div>'+
 		                
 		            '</div><br>'+
 		            '<div class="row">'+
 		                '<div class="col-md-8">'+
-			                '<label>Address</label><br>'+
-			                '<input type="text" class="form-control" name="address" id="address" value="'+response.address +'">'+
+			                '<label>Model</label><br>'+
+			                '<input type="text" class="form-control" name="model" id="model" value="'+response.model +'">'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Email</label><br>'+
-			                '<input type="text" class="form-control" name="email" id="email" value="'+response.email +'">'+
+			                '<label>Color</label><br>'+
+			                '<input type="text" class="form-control" name="color" id="color" value="'+response.color +'">'+
 		                '</div>'+
 			            '<div class="col-md-12" style="margin-top:10px;">'+
 			            	'<div style="float:right">'+
