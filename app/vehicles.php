@@ -50,6 +50,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 										<th>Model</th>
 										<th>Color</th>
 										<th>Active</th>
+										<th>Available</th>
 									</tr>
 								</thead>
 								<tbody id="vehicles_tbl">
@@ -91,7 +92,7 @@ function load_vehicles() {
 				'<td>'+data.vcolor+'</td>'+
 				'<td>'+stat+'</td>'+
 				'<td>'+available+'</td>'+
-				'<td>3.5</td>'+
+				
 				
 			'</tr>');
     		
