@@ -215,42 +215,35 @@ function update_vehicle(id) {
 	            '<div class="col-md-9">'+
 	            	'<div class="row">'+
 		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<h6>'+response.firstname+' ' +response.lastname+'</h6>'+ 
+			                '<label>Plate No</label><br>'+
+			                '<h6>'+response.plateno'</h6>'+ 
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<h6>'+response.mobile +'</h6>'+
+			                '<label>Type</label><br>'+
+			                '<h6>'+response.vtype +'</h6>'+
 		                '</div>'+
 		            '</div><br>'+
 		            '<div class="row">'+
 		                '<div class="col-md-4">'+
-			                '<label>Verified</label><br>'+
-			                '<select class="form-control" id="verified">'+
-			                 	'<option value="0">Not Verified</option>'+
-			                 	'<option value="1">Verified</option>'+
-			                '</select>'+
-		                '</div>'+
-		                 '<div class="col-md-4">'+
-			                '<label>Is Blocked</label><br>'+
-			                '<select class="form-control" id="blocked">'+
-			                 	'<option value="0">Not Blocked</option>'+
-			                 	'<option value="1">Blocked</option>'+
-			                '</select>'+
-		                '</div>'+
-
-		                '<div class="col-md-4">'+
 			                '<label>Active</label><br>'+
-			                '<select class="form-control" id="active">'+
-			                 	'<option value="0">Inactive</option>'+
+			                '<select class="form-control" id="verified">'+
+			                 	'<option value="0">Not Active</option>'+
 			                 	'<option value="1">Active</option>'+
 			                '</select>'+
 		                '</div>'+
-			            '<div class="col-md-12" style="margin-top:10px;">'+
+		                 '<div class="col-md-4">'+
+			                '<label>Available</label><br>'+
+			                '<select class="form-control" id="blocked">'+
+			                 	'<option value="0">Not Available</option>'+
+			                 	'<option value="1">Available</option>'+
+			                '</select>'+
+		                '</div>'+
+
+		                   '<div class="col-md-12" style="margin-top:10px;">'+
 			            	'<div style="float:right">'+
 				            '<button style="margin-right:10px;" onclick="go_update_stats('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
 				            '<button onclick="$(\'#vehicle_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
-				            '</div>'+
+				          '</div>'+
 			            '</div>'+
 		            '</div>'+
 		            '<hr>'+
