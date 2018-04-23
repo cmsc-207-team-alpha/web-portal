@@ -101,7 +101,7 @@ function load_vehicles() {
 						'<span class="fa fa-edit"></span>'+
 					'</button>'+
 					'<button class="btn btn-sm btn-default" onclick="add_vehicle('+data.id+')" title="Add Vehicle" data-toggle="tooltip">'+
-						'<span class="fa fa-upload"></span>'+
+						'<span class="fa fa-car"></span>'+
 					'</button>'+
 					
 					'<button class="btn btn-sm btn-default" onclick="delete_driver('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
