@@ -60,7 +60,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="vehicles.php">
                   <span class="fa fa-fw fa-car"></span>
-                  Reports
+                  Vehicles
                 </a>
               </li>
             </ul>
