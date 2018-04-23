@@ -94,16 +94,13 @@ function load_vehicles() {
 				'<td>'+stat+'</td>'+
 				'<td>'+available+'</td>'+
 				'<td>'+
-					'<button class="btn btn-sm btn-default" onclick="get_driver('+data.id+')" title="View Record" data-toggle="tooltip">'+
+					'<button class="btn btn-sm btn-default" onclick="get_driver('+data.id+')" title="View" data-toggle="tooltip">'+
 						'<span class="fa fa-eye"></span> '+
 					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="edit_driver('+data.id+')"  title="Update Record" data-toggle="tooltip">'+
+					'<button class="btn btn-sm btn-default" onclick="edit_driver('+data.id+')"  title="Update" data-toggle="tooltip">'+
 						'<span class="fa fa-edit"></span>'+
 					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="add_vehicle('+data.id+')" title="Add Vehicle" data-toggle="tooltip">'+
-						'<span class="fa fa-car"></span>'+
-					'</button>'+
-					
+								
 					'<button class="btn btn-sm btn-default" onclick="delete_driver('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
 						'<span class="fa fa-trash"></span>'+
 					'</button>'+
