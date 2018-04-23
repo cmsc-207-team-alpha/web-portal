@@ -321,7 +321,7 @@ function get_vehicle(id) {
 		  });
         view = '<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h4 style="text-align:center">View vehicle</h4>'+
+                '<h4 style="text-align:center">View Vehicle</h4>'+
                 '<hr>'+
             '</div>'+
             '<div class="row">'+
@@ -333,22 +333,22 @@ function get_vehicle(id) {
 	            '<div class="col-md-9">'+
 	            	'<div class="row">'+
 		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<h6>'+response.firstname+' '+ response.lastname +'</h6>'+
+			                '<label>Plate No</label><br>'+
+			                '<h6>'+response.plateno+'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<h6>'+response.mobile +'</h6>'+
+			                '<label>Vehivle Type</label><br>'+
+			                '<h6>'+response.vtype +'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Email</label><br>'+
-			                '<h6>'+response.email +'</h6>'+
+			                '<label>Make</label><br>'+
+			                '<h6>'+response.make +'</h6>'+
 		                '</div>'+
 		            '</div><br>'+
 		            '<div class="row">'+
 		                '<div class="col-md-4">'+
-			                '<label>Address</label><br>'+
-			                '<h6>'+response.address +'</h6>'+
+			                '<label>Model</label><br>'+
+			                '<h6>'+response.model +'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
 			                '<label>Date Created</label><br>'+
@@ -359,24 +359,7 @@ function get_vehicle(id) {
 			                '<h6>'+response.datemodified +'</h6>'+
 		                '</div>'+
 		            '</div><br>'+
-		            '<div class="row" style="margin:0">'+
-
-         				'<div class="col-md-12" style="padding:0">'+
-         				'<h6 style="text-align:center">vehicle Documents</h6>'+
-			            '<table border="1" cellpadding="5" style="width: 100%;">'+
-			            	'<thead>'+
-				            	'<th>Description</th>'+
-				                '<th>Type</th>'+
-				                '<th>Date Created</th>'+
-				                '<th>Last Modified</th>'+
-				                '<th>Action</th>'+
-				            '</thead>'+
-				            '<thead id="edit_doc_row">'+
-				            '</thead>'+
-				            '<body>'+ tbody+
-				            '</body>'+
-			            '</table></div>'+
-			            '<div class="col-md-12" style="margin-top:4px">'+
+		                        '<div class="col-md-12" style="margin-top:4px">'+
 					    	'<button style="float:right;" onclick="$(\'#vehicle_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
 						 '</div>'+
 					'</div>'+
