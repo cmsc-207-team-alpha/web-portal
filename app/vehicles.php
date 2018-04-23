@@ -58,6 +58,9 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 								</tbody>
 							</table>
 						</div>
+			<a href="add_vehicle.php" class="float-left">
+                      Add Vehicle
+                    </a>
 	        </main>
 	      </div>
 	    </div>
