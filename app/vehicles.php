@@ -32,7 +32,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 	      	<?php include_once("layouts/dashboard.sidebar.php") ?>
 	        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2">
-							<h1 class="h2"><span class="fa fa-fw fa-users"></span> Vehicles</h1>
+							<h1 class="h2"><span class="fa fa-fw fa-car"></span> Vehicles</h1>
 								<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 								</div>
 						</div>
@@ -92,7 +92,22 @@ function load_vehicles() {
 				'<td>'+data.vcolor+'</td>'+
 				'<td>'+stat+'</td>'+
 				'<td>'+available+'</td>'+
-				
+				'<td>'+
+					'<button class="btn btn-sm btn-default" onclick="get_driver('+data.id+')" title="View Record" data-toggle="tooltip">'+
+						'<span class="fa fa-eye"></span> '+
+					'</button>'+
+					'<button class="btn btn-sm btn-default" onclick="edit_driver('+data.id+')"  title="Update Record" data-toggle="tooltip">'+
+						'<span class="fa fa-edit"></span>'+
+					'</button>'+
+					'<button class="btn btn-sm btn-default" onclick="update_stats('+data.id+')" title="Update Status" data-toggle="tooltip">'+
+						'<span class="fa fa-user"></span> '+
+					'</button>'+
+					
+					'<button class="btn btn-sm btn-default" onclick="delete_driver('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
+						'<span class="fa fa-trash"></span>'+
+					'</button>'+
+
+				'</td>'+
 				
 			'</tr>');
     		
