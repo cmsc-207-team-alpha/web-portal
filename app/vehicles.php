@@ -76,10 +76,10 @@ function load_vehicles() {
     	$.each(response, function(k, data) {
     		ct++;
     		stat = '<span class="btn-success btn-sm" href="#" role="button">Active</span>';
-    		available = '<span class="btn-danger btn-sm" href="#" role="button">Available</span>';
+    		available = '<span class="btn-success btn-sm" href="#" role="button">Available</span>';
     		
     		if(data.active == 0) stat = '<span class="btn-danger btn-sm" href="#" role="button">Inactive</span>';
-    		if(data.available == 0) available = '<span class="btn-success btn-sm" href="#" role="button">Not Available</span>';
+    		if(data.available == 0) available = '<span class="btn-danger btn-sm" href="#" role="button">Not Available</span>';
     		
     		$('#vehicles_tbl').append('<tr>'+
 				'<td>'+ct+'</td>'+
