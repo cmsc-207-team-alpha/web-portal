@@ -51,6 +51,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 										<th>Color</th>
 										<th>Active</th>
 										<th>Available</th>
+										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody id="vehicles_tbl">
@@ -99,8 +100,8 @@ function load_vehicles() {
 					'<button class="btn btn-sm btn-default" onclick="edit_driver('+data.id+')"  title="Update Record" data-toggle="tooltip">'+
 						'<span class="fa fa-edit"></span>'+
 					'</button>'+
-					'<button class="btn btn-sm btn-default" onclick="update_stats('+data.id+')" title="Update Status" data-toggle="tooltip">'+
-						'<span class="fa fa-user"></span> '+
+					'<button class="btn btn-sm btn-default" onclick="add_vehicle('+data.id+')" title="Add Vehicle" data-toggle="tooltip">'+
+						'<span class="fa fa-upload"></span>'+
 					'</button>'+
 					
 					'<button class="btn btn-sm btn-default" onclick="delete_driver('+data.id+')" title="Delete Record" data-toggle="tooltip">'+
