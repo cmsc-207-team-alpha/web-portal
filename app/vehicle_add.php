@@ -56,23 +56,25 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                     </div>
                  </div>
 		
-                <div class="form-group">
-                  <div class="form-row">
-                    <label for="model">Model</label>
+                
+                 <div class="form-row">
+		   <div class="col-md-6 form-group">  
+                    	<label for="model">Model</label>
                       <input type="text" class="form-control" name="model" id="model" placeholder="Model"> 
                   </div>
                 </div>
 				
-		<div class="form-group">
-                  <div class="form-row">
+		<div class="form-row">
+		   <div class="col-md-6 form-group"> 
                     <label for="vcolor">Color</label>
                       <input type="text" class="form-control" name="vcolor" id="vcolor" placeholder="Color"> 
                   </div>
                 </div>
 				
-                <div class="form-group no-margin">
-                  <button type="submit" class="btn btn-success btn-block" onclick="add()">Submit</button>
-                </div>				
+               <div class="form-row">
+		   <div class="col-md-6 form-group"> 
+                  	<button type="submit" class="btn btn-success btn-block" onclick="add()">Submit</button>
+                  </div>				
             </div>
           </div>
           
