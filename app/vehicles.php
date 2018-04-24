@@ -197,8 +197,8 @@ function get_vehicle(id) {
 			                '<h6>'+response.vtype +'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Model</label><br>'+
-			                '<h6>'+response.model +'</h6>'+
+			                '<label>Make</label><br>'+
+			                '<h6>'+response.make +'</h6>'+
 		                '</div>'+
 		            '</div><br>'+
 		            '<div class="row">'+
