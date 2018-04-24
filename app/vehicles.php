@@ -127,14 +127,14 @@ function load_vehicles() {
   });
 };
 
-function get_driver(id) {  
+function get_vehicle(id) {  
   $.ajax({
-    url: "/api/driver/get.php?id=" + id,
+    url: "/api/vehicle/get.php?id=" + id,
     async:false,
     success: function (response) {
     	tbody = '';
         $.ajax({
-		    url: "/api/driver/getdocument.php?driverid=" + id,
+		    url: "/api/vehicle/getdocument.php?vehicleid=" + id,
 		    async: false,
 		    success: function (response) {
 		    	if(response != '')
@@ -142,7 +142,7 @@ function get_driver(id) {
 		    		detailed = '';
 		    		a = '';
 				 	$.ajax({
-					    url: "/api/driver/getdocument.php?id=" + data.id,
+					    url: "/api/vehicle/getdocument.php?id=" + data.id,
 					    async: false,
 					    success: function (r) {
 					    	detailed = '<td>'+r.datecreated +'</td>' +'<td>'+r.datemodified +'</td>';
@@ -161,7 +161,7 @@ function get_driver(id) {
 			            	'<td>'+data.description +'</td>'+
 			            	'<td>'+data.type +'</td>'+ detailed +
 			            	'<td>'+ a +
-								'<button class="btn btn-sm btn-default" onclick="dlt_doc('+data.id+', '+data.driverid+');" title="Delete Document" data-toggle="tooltip">'+
+								'<button class="btn btn-sm btn-default" onclick="dlt_doc('+data.id+', '+data.vehicleid+');" title="Delete Document" data-toggle="tooltip">'+
 									'<i class="fa fa-trash"></i>'+
 								'</button>'+
 							'</td>'+
@@ -177,13 +177,13 @@ function get_driver(id) {
 		  });
         view = '<div class="col-md-12">'+
             '<div class="page-header">'+
-                '<h4 style="text-align:center">View Driver</h4>'+
+                '<h4 style="text-align:center">View vehicle</h4>'+
                 '<hr>'+
             '</div>'+
             '<div class="row">'+
             	'<div class="col-md-3">'+
 	            	'<div class="col-md-12">'+
-	            		'<img src="'+response.photo+'" id="driver_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
+	            		'<img src="'+response.photo+'" id="vehicle_img" alt="" style="width: 200px; height: 200px; border:1px solid;">'+
 	            	'</div>'+
 	            '</div>'+
 	            '<div class="col-md-9">'+
@@ -218,7 +218,7 @@ function get_driver(id) {
 		            '<div class="row" style="margin:0">'+
 
          				'<div class="col-md-12" style="padding:0">'+
-         				'<h6 style="text-align:center">Driver Documents</h6>'+
+         				'<h6 style="text-align:center">vehicle Documents</h6>'+
 			            '<table border="1" cellpadding="5" style="width: 100%;">'+
 			            	'<thead>'+
 				            	'<th>Description</th>'+
@@ -233,14 +233,14 @@ function get_driver(id) {
 				            '</body>'+
 			            '</table></div>'+
 			            '<div class="col-md-12" style="margin-top:4px">'+
-					    	'<button style="float:right;" onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
+					    	'<button style="float:right;" onclick="$(\'#vehicle_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
 						 '</div>'+
 					'</div>'+
 				'</div>'+
 			'</div>'+
 			'<hr>'+
 		'</div>';
-        $('#driver_preview').html(view);
+        $('#vehicle_preview').html(view);
          
     },
     error: function (response) {
@@ -250,7 +250,5 @@ function get_driver(id) {
     dataType: "json"
   });
 };
-
-	
 
 </script>
