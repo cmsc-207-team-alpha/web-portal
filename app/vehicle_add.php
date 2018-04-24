@@ -42,18 +42,20 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                       <label for="plateno">Plate No</label>
                       <input class="form-control" name="plateno" id="plateno" type="text"  placeholder="Plate No">
                     </div>
-
+		</div>
+		<div class="form-row">
                     <div class="col-md-6 form-group">
                       <label for="vtype">Type</label>
                       <input class="form-control" name="vtype" id="vtype" type="text"  placeholder="vtype">
                     </div>
-
+		</div>
+		<div class="form-row">
                     <div class="col-md-6 form-group">
                       <label for="make">Make</label>
                       <input class="form-control" name="make" id="make" type="text"  placeholder="Make">
                     </div>
-                  </div>
-                </div>
+                 </div>
+		
                 <div class="form-group">
                   <div class="form-row">
                     <label for="model">Model</label>
@@ -61,7 +63,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                   </div>
                 </div>
 				
-				<div class="form-group">
+		<div class="form-group">
                   <div class="form-row">
                     <label for="vcolor">Color</label>
                       <input type="text" class="form-control" name="vcolor" id="vcolor" placeholder="Color"> 
