@@ -74,11 +74,12 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             </div>
           </div>
           
+          </main>
         </div>
       </div>
-    </div>
-  </section>
-              <script src="vendor/components/jquery/jquery.min.js"></script>
+  </body>
+</html>
+<script src="vendor/components/jquery/jquery.min.js"></script>
       <script>
       var add = function () {
         var plateno = $('#plateno').val();
