@@ -1,11 +1,11 @@
 <?php
-/*
+
 session_start();
 if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 {
    header("location: logout.php");
 }
-*/
+
 ?>
 
 
@@ -61,8 +61,8 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
 				
 				<div class="form-group">
                   <div class="form-row">
-                    <label for="color">Color</label>
-                      <input type="text" class="form-control" name="color" id="color" placeholder="Color"> 
+                    <label for="vcolor">Color</label>
+                      <input type="text" class="form-control" name="vcolor" id="vcolor" placeholder="Color"> 
                   </div>
                 </div>
 				
@@ -80,29 +80,23 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
   </section>
               <script src="vendor/components/jquery/jquery.min.js"></script>
       <script>
-      var register = function () {
-        var firstname = $('#firstname').val();
-        var lastname = $('#lastname').val();
-      var email = $('#email').val();
-      var password = $('#password').val();
-      var conpassword = $('#conpassword').val();
+      var add = function () {
+        var plateno = $('#plateno').val();
+        var vtype = $('#vtype').val();
+      var make = $('#make').val();
+      var model = $('#model').val();
+      var vcolor = $('#vcolor').val();
       
-      if(password != conpassword){
-        $("#result").removeClass();
-            $('#result').addClass('alert alert-danger');
-            $('#result').html("Error Message: " + "Passwords do not match.");
-          }
-      else{
-        
-
+      
         $.ajax({
           type: "POST",
-          url: "/api/admin/register.php",
+          url: "/api/vehicle/add.php",
           data: JSON.stringify({
-            firstname: firstname,
-            lastname: lastname,
-            email: email,
-            password: password
+            plateno: plateno,
+            vtype: vtype,
+            make: make,
+            model: model,
+	    vcolor: vcolor,	  
           }),
           success: function (response) {
           $("#result").removeClass();
