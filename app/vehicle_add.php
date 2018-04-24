@@ -69,7 +69,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                 </div>
 				
                 <div class="form-group no-margin">
-                  <button type="submit" class="btn btn-success btn-block" onclick="register()">Submit</button>
+                  <button type="submit" class="btn btn-success btn-block" onclick="add()">Submit</button>
                 </div>				
             </div>
           </div>
