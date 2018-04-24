@@ -189,22 +189,22 @@ function get_vehicle(id) {
 	            '<div class="col-md-9">'+
 	            	'<div class="row">'+
 		            	'<div class="col-md-4">'+
-			                '<label>Name</label><br>'+
-			                '<h6>'+response.firstname+' '+ response.lastname +'</h6>'+
+			                '<label>Plate No</label><br>'+
+			                '<h6>'+response.plateno +'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Mobile</label><br>'+
-			                '<h6>'+response.mobile +'</h6>'+
+			                '<label>Type</label><br>'+
+			                '<h6>'+response.vtype +'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
-			                '<label>Email</label><br>'+
-			                '<h6>'+response.email +'</h6>'+
+			                '<label>Model</label><br>'+
+			                '<h6>'+response.model +'</h6>'+
 		                '</div>'+
 		            '</div><br>'+
 		            '<div class="row">'+
 		                '<div class="col-md-4">'+
-			                '<label>Address</label><br>'+
-			                '<h6>'+response.address +'</h6>'+
+			                '<label>Model</label><br>'+
+			                '<h6>'+response.model +'</h6>'+
 		                '</div>'+
 		                '<div class="col-md-4">'+
 			                '<label>Date Created</label><br>'+
