@@ -71,9 +71,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
                 </div>				
             </div>
           </div>
-          <div class="footer">
-            Copyright &copy; 2018 &mdash; UPOU-CMSC-207-Team-Alpha 
-          </div>
+          
         </div>
       </div>
     </div>
