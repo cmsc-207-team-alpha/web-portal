@@ -98,7 +98,7 @@ if (!isset($_SESSION["admin_id"]) || !isset($_SESSION["admin_name"]))
             vtype: vtype,
             make: make,
             model: model,
-	    vcolor: vcolor,	  
+	    vcolor: vcolor	  
           }),
           success: function (response) {
           $("#result").removeClass();
