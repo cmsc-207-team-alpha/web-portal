@@ -2,7 +2,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/app/index.php">
+                <a class="nav-link active" href="index.php">
                   <img class="brand" src="/app/assets/images/logoteam-alpha.png">
                 </a>
               </li>
