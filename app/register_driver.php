@@ -82,7 +82,13 @@
                                </div>
                              <div class="col-md-6">
                                  <label class="form-control-label">Type <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="vtype" placeholder="Sedan">
+                                  <select class="form-control" id="vtype">
+                                      <option value="Compact">Compact</option>
+                                      <option value="Limousine">Limousine</option>
+                                       <option value="Sedan">Sedan</option>
+                                      <option value="SUV">SUV</option>
+                                      <option value="Van">Van</option>
+                                  </select>
                               </div>
                             </div>
                             <br>
