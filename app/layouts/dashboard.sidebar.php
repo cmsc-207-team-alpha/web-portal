@@ -57,12 +57,7 @@
                   Reports
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="vehicles.php">
-                  <span class="fa fa-fw fa-car"></span>
-                  Vehicles
-                </a>
-              </li>
+              
             </ul>
           </div>
         </nav>
