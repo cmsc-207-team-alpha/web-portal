@@ -93,19 +93,51 @@
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-4">
                                   <label class="form-control-label">Manufacturer <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="make" placeholder="Toyota">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-6">
+                                  <input  type="text" class="form-control" list="scars"  id="make"/>
+                                    <datalist id="scars">
+                                    <option>Chevrolet</option>
+                                    <option>Ford</option>
+                                    <option>Honda</option>
+                                    <option>Hyundai</option>
+                                    <option>Isuzu</option>
+                                    <option>Mazda</option>
+                                    <option>Mitsubishi</option>
+                                    <option>Nissan</option>
+                                    <option>Suzuki</option>
+                                    <option>Toyota</option>
+                                     </datalist>
+                               </div>
+                           
+                                <div class="col-md-4">
                                   <label class="form-control-label">Model <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control"id="model" placeholder="Vios">
+                                  <input  type="text" class="form-control" list="mcars"  id="model"/>
+                                    <datalist id="mcars">
+                                    <option>Accent</option>
+                                    <option>Adventure</option>
+                                    <option>Almera</option>
+                                    <option>Avanza</option>
+                                    <option>Ciaz</option>
+                                    <option>Civic</option>
+                                    <option>City</option>
+                                    <option>Corolla Altis</option>
+                                    <option>Crosswind</option>
+                                    <option>EcoSport</option>
+                                    <option>Ertiga</option>
+                                    <option>Escape</option>
+                                    <option>Innova</option>
+                                    <option>Mazda 2</option>
+                                    <option>Mazda 3</option>
+                                    <option>Mirage G4</option>
+                                    <option>Mobilio</option>
+                                    <option>Sail</option>
+                                    <option>Vios</option>
+                                    <option>Yaris</option>
+                                    </datalist>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                   <label class="form-control-label">Color <span class="text-danger">*</span></label>
                                   <input type="text" class="form-control" id="color" placeholder="Black">
                                 </div>
@@ -347,3 +379,4 @@
   </script>
 </body>
 </html>
+
