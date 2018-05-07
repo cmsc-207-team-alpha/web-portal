@@ -31,11 +31,11 @@
                             <div class="row">
                               <div class="col-md-6">
                                   <label class="form-control-label">First Name <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Juan">
+                                  <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Juan" maxlength="25">
                                </div>
                              <div class="col-md-6">
                                   <label class="form-control-label">Last Name <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Cruz">
+                                  <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Cruz" maxlength="20">
                               </div>
                             </div>
                             <br>
@@ -59,7 +59,10 @@
                                 </div>
                                  <div class="col-md-6">
                                   <label class="form-control-label">Mobile No. <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="+639169264312">
+                                  <div style="display: flex">
+                                  <span style="padding: 9px;">+63 </span>
+                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="9876543210" maxlength="10">
+                                  </div>
                                 </div>
                             </div>
                             <br>
@@ -235,19 +238,37 @@
           password = $('#password').val();
           mobile = $('#mobile').val();
           photo = $('#photo').val();
-          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '' || !(mailvalidate(email))) {
+          
+          if(firstname == '' || lastname == '' || email == '' || password == '' || mobile == '' || photo == '') {
             err = 1;
           }
           else {
-            err = 0;
+              if(!(mailvalidate(email))) {
+                err = 2;
+              }
+              if(mobile.length != 10 || parseInt(mobile) < 9000000000) {
+                err = 3;
+              }
+              else
+                err = 0;
           }
-          if(err == 0){
-            $('#current').val(2);
-            wizard(2);
-            $('#sbtn').text('Next');
-           }
-          else 
-          $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
+          
+          switch(err){
+              case 0:
+                   $('#current').val(2);
+                    wizard(2);
+                    $('#sbtn').text('Next');
+                  break;
+              case 1:
+                  $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
+                  break;
+              case 2:
+                  $('#rwarning').text('Your entered email is invalid.');
+                  break;
+              case 3:
+                  $('#rwarning').text('Invalid Contact number.');
+                  break;
+          }
           break;
         case '2':
             plateno = $('#plateno').val();
@@ -294,7 +315,7 @@
        email = $('#email').val();
        password = $('#password').val();
        address = $('#address').val();
-       mobile = $('#mobile').val();
+       mobile = '+63' + $('#mobile').val();
        photo = document.getElementById("driver_img").src;
         $.ajax({
           type: "POST",
@@ -349,14 +370,14 @@
     });
     }
     function mailvalidate(email) {
-    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (filter.test(email)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-  }
+        var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (filter.test(email)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+      }
  
   function go_upload(id){
     description = $('#description').val();
@@ -375,8 +396,25 @@
       dataType: "json"
     });
   }
-  
+   $("#mobile").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl/cmd+A
+            (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: Ctrl/cmd+C
+            (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: Ctrl/cmd+X
+            (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
   </script>
 </body>
 </html>
-
