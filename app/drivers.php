@@ -164,7 +164,9 @@ function edit_driver(id) {
 		                '</div>'+
 		                '<div class="col-md-4">'+
 			                '<label>Mobile</label><br>'+
-			                '<input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="11">'+
+			                '<div style="display:flex">'+
+			                '<span style="padding:9px">+63</span><input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="10">'+
+			                '</div>'+
 		                '</div>'+
 		                
 		            '</div><br>'+
@@ -178,6 +180,7 @@ function edit_driver(id) {
 			                '<input type="text" class="form-control" name="email" id="email" value="'+response.email +'">'+
 		                '</div>'+
 			            '<div class="col-md-12" style="margin-top:10px;">'+
+			                '<span class="text-danger" id="ewarn"></span>'+
 			            	'<div style="float:right">'+
 				            	'<button style="margin-right:10px;" onclick="go_update('+response.id+');" class="btn btn-sm btn-primary">Submit</button>'+
 				                '<button onclick="$(\'#driver_preview\').empty();" class="btn btn-sm btn-default">Close</button>'+
@@ -592,6 +595,11 @@ function go_update(id) {
      var address = $('#address').val();
      var mobile = $('#mobile').val();
      var photo = document.getElementById("driver_img").src;
+     if(!(mailvalidate(email)))
+         $('#ewarn').text('Invalid email address.');
+     else if(mobile.length != 10 || parseInt(mobile) < 9000000000)
+        $('#ewarn').text('Invalid contact number');
+    else
 	$.ajax({
      type: "POST",
      url: "/api/driver/update.php",
@@ -694,4 +702,33 @@ function delete_driver(id) {
     dataType: "json"
   });
 };
+$('#driver_preview').on('keydown', '#mobile', function(e){
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl/cmd+A
+            (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: Ctrl/cmd+C
+            (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: Ctrl/cmd+X
+            (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+    
+function mailvalidate(email) {
+        var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (filter.test(email)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+      }
 </script>
