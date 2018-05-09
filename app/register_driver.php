@@ -16,7 +16,7 @@
                   <div class="card fat" id="register_form" style="margin-top:0px; border: 1px solid #cecbcb">
                       <div class="card-body">
                         <h4 class="card-title" style="text-align:center;">
-                          <a href="index.php">
+                          <a href="index.php" style="text-decoration:  none;">
                             <img src="assets/images/logoteam-alpha.png" style="width: 75px;">
                           </a>
                           Driver Registration</h4>
