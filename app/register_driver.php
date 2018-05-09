@@ -59,7 +59,7 @@
                                   <input type="text" class="form-control" name="address" id="address" placeholder="Quezon City">
                                 </div>
                                  <div class="col-md-6">
-                                  <label class="form-control-label">Mobile No. <span class="text-danger">*</span></label>
+                                  <label class="form-control-label">Mobile No. (including country code) <span class="text-danger">*</span></label>
                                   <div style="display: flex">
                                   <span style="padding: 9px;">+ </span>
                                   <input type="text" class="form-control" name="mobile" id="mobile" placeholder="639876543210" maxlength="19">
