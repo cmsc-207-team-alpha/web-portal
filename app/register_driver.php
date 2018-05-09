@@ -62,7 +62,7 @@
                                   <label class="form-control-label">Mobile No. <span class="text-danger">*</span></label>
                                   <div style="display: flex">
                                   <span style="padding: 9px;">+ </span>
-                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="9876543210" maxlength="19">
+                                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="639876543210" maxlength="19">
                                   </div>
                                 </div>
                             </div>
