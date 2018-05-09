@@ -246,7 +246,7 @@
               if(!(mailvalidate(email))) {
                 err = 2;
               }
-              if(mobile.length != 10 || parseInt(mobile) < 9000000000) {
+              else if(mobile.length != 10 || parseInt(mobile) < 9000000000) {
                 err = 3;
               }
               else
@@ -320,6 +320,7 @@
         $.ajax({
           type: "POST",
           url: "/api/driver/register.php",
+          async:false,
           data: JSON.stringify({
           firstname: firstname,
           lastname: lastname,
@@ -348,7 +349,7 @@
     };
     function add_vehicle(id){
       plateno = $('#plateno').val();
-      type = $('#type').val();
+      type = $('#vtype').val();
       make = $('#make').val();
       model = $('#model').val();
       color = $('#color').val();
@@ -356,6 +357,7 @@
       $.ajax({
        type: "POST",
        url: "/api/vehicle/add.php",
+       async:false,
        data:JSON.stringify({
           driverid: id,
           plateno: plateno,
@@ -386,6 +388,7 @@
     $.ajax({
        type: "POST",
        url: "/api/driver/adddocument.php",
+       async:false,
        data:JSON.stringify({
           driverid: id,
           document: docs,
