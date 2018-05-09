@@ -352,7 +352,7 @@
       make = $('#make').val();
       model = $('#model').val();
       color = $('#color').val();
-      vehicle_img = $('#vehicle_img').val();
+      vphoto = document.getElementById("vehicle_img").src;
       $.ajax({
        type: "POST",
        url: "/api/vehicle/add.php",
@@ -363,7 +363,7 @@
           make: make,
           model: model,
           color: color,
-          vehicle_img: vehicle_img
+          vphoto: vphoto
       }),
       contentType: "application/json; charset=UTF-8",
       dataType: "json"
