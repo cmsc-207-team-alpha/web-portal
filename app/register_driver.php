@@ -269,10 +269,10 @@
                   $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
                   break;
               case 2:
-                  $('#rwarning').text('Your entered email is invalid.');
+                  $('#rwarning').text('Invalid Email Address.');
                   break;
               case 3:
-                  $('#rwarning').text('Invalid Contact number.');
+                  $('#rwarning').text('Invalid Contact Number.');
                   break;
           }
           break;
