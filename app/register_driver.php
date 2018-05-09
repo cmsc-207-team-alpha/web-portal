@@ -321,7 +321,7 @@
        email = $('#email').val();
        password = $('#password').val();
        address = $('#address').val();
-       mobile = '+63' + $('#mobile').val();
+       mobile = '+' + $('#mobile').val();
        photo = document.getElementById("driver_img").src;
         $.ajax({
           type: "POST",
