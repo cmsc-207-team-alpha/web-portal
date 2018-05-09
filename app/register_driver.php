@@ -9,16 +9,17 @@
 <body class="login-page" style="height:auto">
           <div class="row" style="margin-top:50px">
               <div class="col-md-4">
-                <a href="index.php" style="float:right;">
-                  <img src="assets/images/logoteam-alpha.png">
-                </a>
               </div>
 
 
               <div class="col-md-6">
                   <div class="card fat" id="register_form" style="margin-top:0px; border: 1px solid #cecbcb">
                       <div class="card-body">
-                        <h4 class="card-title" style="text-align:center;">Driver Registration</h4>
+                        <h4 class="card-title" style="text-align:center;">
+                          <a href="index.php">
+                            <img src="assets/images/logoteam-alpha.png" style="width: 75px;">
+                          </a>
+                          Driver Registration</h4>
                         <div class="row">
                           <div class="col-md-12">
                               <span id="result" style="font-size: 11px"></span>
