@@ -82,7 +82,7 @@
                             <div class="row">
                               <div class="col-md-6">
                                   <label class="form-control-label">Plate No. <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="plateno" placeholder="ABC1234" maxlength="6">
+                                  <input type="text" class="form-control" id="plateno" placeholder="ABC123" maxlength="6">
                                </div>
                              <div class="col-md-6">
                                  <label class="form-control-label">Type <span class="text-danger">*</span></label>
@@ -269,10 +269,10 @@
                   $('#rwarning').text('Please fill out all required fields and check if the data you provided are correct.');
                   break;
               case 2:
-                  $('#rwarning').text('Your entered email is invalid.');
+                  $('#rwarning').text('Invalid Email Address.');
                   break;
               case 3:
-                  $('#rwarning').text('Invalid Contact number.');
+                  $('#rwarning').text('Invalid Contact Number.');
                   break;
           }
           break;
