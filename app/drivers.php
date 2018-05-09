@@ -165,7 +165,7 @@ function edit_driver(id) {
 		                '<div class="col-md-4">'+
 			                '<label>Mobile</label><br>'+
 			                '<div style="display:flex">'+
-			                '<span style="padding:9px">+63</span><input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="10">'+
+			                '<span style="padding:9px">+</span><input type="text" class="form-control" name="mobile" id="mobile" value="'+response.mobile +'" maxlength="19">'+
 			                '</div>'+
 		                '</div>'+
 		                
@@ -593,13 +593,11 @@ function go_update(id) {
      var lastname = $('#lastname').val();
      var email = $('#email').val();
      var address = $('#address').val();
-     var mobile = $('#mobile').val();
+     var mobile = '+' + $('#mobile').val();
      var photo = document.getElementById("driver_img").src;
      if(!(mailvalidate(email)))
          $('#ewarn').text('Invalid email address.');
-     else if(mobile.length != 10 || parseInt(mobile) < 9000000000)
-        $('#ewarn').text('Invalid contact number');
-    else
+     else
 	$.ajax({
      type: "POST",
      url: "/api/driver/update.php",
