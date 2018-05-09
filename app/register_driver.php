@@ -405,7 +405,7 @@
       success: function (response) {
           $("#result").removeClass();
           $('#result').addClass('alert alert-success');
-          $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+          $('#result').html("Successful Message: Driver addded. ID: " + id);
           $('#register_form input').val('');
       },
       error: function (response) {
