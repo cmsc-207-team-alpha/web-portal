@@ -165,7 +165,12 @@
                                 </div>
                                 <div class="col-md-6">
                                   <label>Type of Document</label><br>
-                                  <input type="text" class="form-control" id="type" placeholder="type">
+                                  <select class="form-control" id="type">
+                                      <option value="License">License</option>
+                                      <option value="OR/CR">OR/CR</option>
+                                      <option value="Police Clearance">Police Clearance</option>
+                                      <option value="Others">Others</option>
+                                  </select>
                                 </div>
                                 <div class="col-md-12">
                                     <label>File</label><br>
@@ -332,12 +337,7 @@
           photo: photo
           }),
           success: function (response) {
-            $("#result").removeClass();
-            $('#result').addClass('alert alert-success');
-            $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
-            $('#register_form input').val('');
             add_vehicle(response["id"]);
-            go_upload(response["id"]);
           },
           error: function (response) {
             $("#result").removeClass();
@@ -368,6 +368,12 @@
           color: color,
           vphoto: vphoto
       }),
+       success: function (response) {
+            go_upload(id);
+          },
+        error: function (response) {
+          $('#result').html("Error Message: " + response.responseJSON["message"]);
+        },
       contentType: "application/json; charset=UTF-8",
       dataType: "json"
     });
@@ -396,6 +402,15 @@
           description: description,
           type: type
       }),
+      success: function (response) {
+          $("#result").removeClass();
+          $('#result').addClass('alert alert-success');
+          $('#result').html("Successful Message:" + response["message"] + ". ID: " + response["id"]);
+          $('#register_form input').val('');
+      },
+      error: function (response) {
+        $('#result').html("Error Message: " + response.responseJSON["message"]);
+      },
       contentType: "application/json; charset=UTF-8",
       dataType: "json"
     });
