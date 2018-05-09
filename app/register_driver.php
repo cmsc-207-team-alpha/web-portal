@@ -252,9 +252,6 @@
               if(!(mailvalidate(email))) {
                 err = 2;
               }
-              else if(mobile.length != 10 || parseInt(mobile) < 9000000000) {
-                err = 3;
-              }
               else
                 err = 0;
           }
